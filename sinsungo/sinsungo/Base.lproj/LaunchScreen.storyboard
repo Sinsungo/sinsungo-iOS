@@ -15,55 +15,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fIw-Dm-3Qb">
-                                <rect key="frame" x="80" y="248" width="230" height="348"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FreshSTLogoWhite.svg 23-51-52-433" translatesAutoresizingMaskIntoConstraints="NO" id="RXn-5i-Vuq">
-                                        <rect key="frame" x="0.0" y="0.0" width="230" height="300"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="230" id="F92-da-Saf"/>
-                                            <constraint firstAttribute="height" constant="300" id="oAy-OV-7Zl"/>
-                                        </constraints>
-                                    </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="tER-4S-Chm">
-                                        <rect key="frame" x="0.0" y="300" width="230" height="48"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHY-n5-6l8">
-                                                <rect key="frame" x="0.0" y="0.0" width="230" height="18"/>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="건강한 식생활을 위한">
-                                                        <attributes>
-                                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <font key="NSFont" size="16" name="NanumSquareOTF_acB"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hw-Ch-ntb">
-                                                <rect key="frame" x="0.0" y="27" width="230" height="21"/>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="냉장고 관리 어플 신선고">
-                                                        <attributes>
-                                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <font key="NSFont" size="18" name="S-CoreDream-7ExtraBold"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FreshSTLogoWhite.svg 23-51-52-433" translatesAutoresizingMaskIntoConstraints="NO" id="RXn-5i-Vuq">
+                                <rect key="frame" x="80" y="272" width="230" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="230" id="F92-da-Saf"/>
+                                    <constraint firstAttribute="height" constant="300" id="oAy-OV-7Zl"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.34509803921568627" green="0.52941176470588236" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="fIw-Dm-3Qb" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="FKO-4C-Anq"/>
-                            <constraint firstItem="fIw-Dm-3Qb" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="lHu-Fz-ask"/>
+                            <constraint firstItem="RXn-5i-Vuq" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="bzr-yy-8bc"/>
+                            <constraint firstItem="RXn-5i-Vuq" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="pWv-8E-3VK"/>
                         </constraints>
                     </view>
                 </viewController>

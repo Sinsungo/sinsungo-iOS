@@ -8,28 +8,29 @@
 import UIKit
 import SnapKit
 class ViewController: UIViewController {
-    let testLabel : UILabel = {
-        let testLabel = UILabel()
-        testLabel.font = UIFont(name: "NanumSquareOTF_acB", size: 20)
-        testLabel.text = "test"
-        return testLabel
+    let sinsungoLogo : UIImageView = {
+        let sinUIImage = UIImageView()
+        sinUIImage.image = UIImage(named: "SinsungoLogo")
+        sinUIImage.contentMode = .scaleAspectFill
+        return sinUIImage
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         self.view.backgroundColor = .white
         setView()
         setAutoLayout()
 
     }
     func setView(){
-        self.view.addSubview(testLabel)
+        self.view.addSubview(sinsungoLogo)
     }
     func setAutoLayout(){
-        testLabel.snp.makeConstraints { make in
-            make.top.leading.equalToSuperview().offset(20)
-            make.bottom.right.equalToSuperview().offset(-20)
+        sinsungoLogo.snp.makeConstraints { make in
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(50)
+            make.size.equalTo(CGSize(width: 230, height: 300))
+            make.centerX.equalToSuperview()
+            
         }
    
     }
@@ -51,7 +52,7 @@ struct ViewControllerRepresentable: UIViewControllerRepresentable {
 struct ViewPreview: PreviewProvider {
     static var previews: some View {
         ViewControllerRepresentable()
-            .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
-            .previewDisplayName("iPhone 11 Pro")
+            .previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro"))
+            .previewDisplayName("iPhone 14 Pro")
     }
 }

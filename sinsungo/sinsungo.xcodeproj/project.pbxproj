@@ -16,8 +16,6 @@
 		F8BFBE82293B84A8007173BA /* sinsungoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFBE81293B84A8007173BA /* sinsungoUITests.swift */; };
 		F8BFBE84293B84A8007173BA /* sinsungoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFBE83293B84A8007173BA /* sinsungoUITestsLaunchTests.swift */; };
 		F8F7AA8A2949E4BA00AF8D7D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F8F7AA892949E4BA00AF8D7D /* SnapKit */; };
-		F8F7AA8D2949E8F500AF8D7D /* NanumSquareOTF_acB.otf in Resources */ = {isa = PBXBuildFile; fileRef = F8F7AA8C2949E8F500AF8D7D /* NanumSquareOTF_acB.otf */; };
-		F8F7AA8F2949E90000AF8D7D /* SCDream7.otf in Resources */ = {isa = PBXBuildFile; fileRef = F8F7AA8E2949E90000AF8D7D /* SCDream7.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,8 +48,6 @@
 		F8BFBE7D293B84A8007173BA /* sinsungoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sinsungoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8BFBE81293B84A8007173BA /* sinsungoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sinsungoUITests.swift; sourceTree = "<group>"; };
 		F8BFBE83293B84A8007173BA /* sinsungoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sinsungoUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		F8F7AA8C2949E8F500AF8D7D /* NanumSquareOTF_acB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTF_acB.otf; sourceTree = "<group>"; };
-		F8F7AA8E2949E90000AF8D7D /* SCDream7.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream7.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +99,6 @@
 		F8BFBE5F293B84A7007173BA /* sinsungo */ = {
 			isa = PBXGroup;
 			children = (
-				F8F7AA832949DD2300AF8D7D /* Fonts */,
 				F8BFBE60293B84A7007173BA /* AppDelegate.swift */,
 				F8BFBE62293B84A7007173BA /* SceneDelegate.swift */,
 				F8BFBE64293B84A7007173BA /* ViewController.swift */,
@@ -129,15 +124,6 @@
 				F8BFBE83293B84A8007173BA /* sinsungoUITestsLaunchTests.swift */,
 			);
 			path = sinsungoUITests;
-			sourceTree = "<group>";
-		};
-		F8F7AA832949DD2300AF8D7D /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				F8F7AA8C2949E8F500AF8D7D /* NanumSquareOTF_acB.otf */,
-				F8F7AA8E2949E90000AF8D7D /* SCDream7.otf */,
-			);
-			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,8 +237,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8BFBE6D293B84A8007173BA /* LaunchScreen.storyboard in Resources */,
-				F8F7AA8F2949E90000AF8D7D /* SCDream7.otf in Resources */,
-				F8F7AA8D2949E8F500AF8D7D /* NanumSquareOTF_acB.otf in Resources */,
 				F8BFBE6A293B84A8007173BA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,6 +436,7 @@
 				DEVELOPMENT_TEAM = 4G47XHXXQX;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = sinsungo/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Sinsungo;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -479,6 +464,7 @@
 				DEVELOPMENT_TEAM = 4G47XHXXQX;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = sinsungo/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Sinsungo;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
