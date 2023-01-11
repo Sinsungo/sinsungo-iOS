@@ -9,12 +9,17 @@
 /* Begin PBXBuildFile section */
 		F8BFBE61293B84A7007173BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFBE60293B84A7007173BA /* AppDelegate.swift */; };
 		F8BFBE63293B84A7007173BA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFBE62293B84A7007173BA /* SceneDelegate.swift */; };
-		F8BFBE65293B84A7007173BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFBE64293B84A7007173BA /* ViewController.swift */; };
+		F8BFBE65293B84A7007173BA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFBE64293B84A7007173BA /* LoginViewController.swift */; };
 		F8BFBE6A293B84A8007173BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8BFBE69293B84A8007173BA /* Assets.xcassets */; };
 		F8BFBE6D293B84A8007173BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8BFBE6B293B84A8007173BA /* LaunchScreen.storyboard */; };
 		F8BFBE78293B84A8007173BA /* sinsungoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFBE77293B84A8007173BA /* sinsungoTests.swift */; };
 		F8BFBE82293B84A8007173BA /* sinsungoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFBE81293B84A8007173BA /* sinsungoUITests.swift */; };
 		F8BFBE84293B84A8007173BA /* sinsungoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFBE83293B84A8007173BA /* sinsungoUITestsLaunchTests.swift */; };
+		F8C2A79A296EEA0D00B8C4A3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8C2A799296EEA0D00B8C4A3 /* GoogleService-Info.plist */; };
+		F8C2A79D296EEA6000B8C4A3 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F8C2A79C296EEA6000B8C4A3 /* FirebaseAuth */; };
+		F8C2A7A0296EEC3400B8C4A3 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = F8C2A79F296EEC3400B8C4A3 /* GoogleSignIn */; };
+		F8D0029E296EF39D00820C6C /* ExtensionUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D0029D296EF39D00820C6C /* ExtensionUIColor.swift */; };
+		F8D002A2296EFFE000820C6C /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8D002A1296EFFE000820C6C /* Roboto-Medium.ttf */; };
 		F8F7AA8A2949E4BA00AF8D7D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F8F7AA892949E4BA00AF8D7D /* SnapKit */; };
 /* End PBXBuildFile section */
 
@@ -39,7 +44,7 @@
 		F8BFBE5D293B84A7007173BA /* sinsungo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sinsungo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8BFBE60293B84A7007173BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8BFBE62293B84A7007173BA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F8BFBE64293B84A7007173BA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F8BFBE64293B84A7007173BA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F8BFBE69293B84A8007173BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8BFBE6C293B84A8007173BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8BFBE6E293B84A8007173BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -48,6 +53,9 @@
 		F8BFBE7D293B84A8007173BA /* sinsungoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sinsungoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8BFBE81293B84A8007173BA /* sinsungoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sinsungoUITests.swift; sourceTree = "<group>"; };
 		F8BFBE83293B84A8007173BA /* sinsungoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sinsungoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F8C2A799296EEA0D00B8C4A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F8D0029D296EF39D00820C6C /* ExtensionUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIColor.swift; sourceTree = "<group>"; };
+		F8D002A1296EFFE000820C6C /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8F7AA8A2949E4BA00AF8D7D /* SnapKit in Frameworks */,
+				F8C2A79D296EEA6000B8C4A3 /* FirebaseAuth in Frameworks */,
+				F8C2A7A0296EEC3400B8C4A3 /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,12 +109,15 @@
 		F8BFBE5F293B84A7007173BA /* sinsungo */ = {
 			isa = PBXGroup;
 			children = (
+				F8D0029F296EFEC200820C6C /* Font */,
+				F8D0029C296EF38400820C6C /* Extension */,
 				F8BFBE60293B84A7007173BA /* AppDelegate.swift */,
 				F8BFBE62293B84A7007173BA /* SceneDelegate.swift */,
-				F8BFBE64293B84A7007173BA /* ViewController.swift */,
+				F8BFBE64293B84A7007173BA /* LoginViewController.swift */,
 				F8BFBE69293B84A8007173BA /* Assets.xcassets */,
 				F8BFBE6B293B84A8007173BA /* LaunchScreen.storyboard */,
 				F8BFBE6E293B84A8007173BA /* Info.plist */,
+				F8C2A799296EEA0D00B8C4A3 /* GoogleService-Info.plist */,
 			);
 			path = sinsungo;
 			sourceTree = "<group>";
@@ -126,6 +139,22 @@
 			path = sinsungoUITests;
 			sourceTree = "<group>";
 		};
+		F8D0029C296EF38400820C6C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F8D0029D296EF39D00820C6C /* ExtensionUIColor.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		F8D0029F296EFEC200820C6C /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				F8D002A1296EFFE000820C6C /* Roboto-Medium.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,6 +173,8 @@
 			name = sinsungo;
 			packageProductDependencies = (
 				F8F7AA892949E4BA00AF8D7D /* SnapKit */,
+				F8C2A79C296EEA6000B8C4A3 /* FirebaseAuth */,
+				F8C2A79F296EEC3400B8C4A3 /* GoogleSignIn */,
 			);
 			productName = sinsungo;
 			productReference = F8BFBE5D293B84A7007173BA /* sinsungo.app */;
@@ -219,6 +250,8 @@
 			mainGroup = F8BFBE54293B84A7007173BA;
 			packageReferences = (
 				F8F7AA882949E4BA00AF8D7D /* XCRemoteSwiftPackageReference "SnapKit" */,
+				F8C2A79B296EEA6000B8C4A3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				F8C2A79E296EEC3400B8C4A3 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = F8BFBE5E293B84A7007173BA /* Products */;
 			projectDirPath = "";
@@ -236,8 +269,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8D002A2296EFFE000820C6C /* Roboto-Medium.ttf in Resources */,
 				F8BFBE6D293B84A8007173BA /* LaunchScreen.storyboard in Resources */,
 				F8BFBE6A293B84A8007173BA /* Assets.xcassets in Resources */,
+				F8C2A79A296EEA0D00B8C4A3 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,9 +297,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8BFBE65293B84A7007173BA /* ViewController.swift in Sources */,
+				F8BFBE65293B84A7007173BA /* LoginViewController.swift in Sources */,
 				F8BFBE61293B84A7007173BA /* AppDelegate.swift in Sources */,
 				F8BFBE63293B84A7007173BA /* SceneDelegate.swift in Sources */,
+				F8D0029E296EF39D00820C6C /* ExtensionUIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -600,6 +636,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F8C2A79B296EEA6000B8C4A3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		F8C2A79E296EEC3400B8C4A3 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		F8F7AA882949E4BA00AF8D7D /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -611,6 +663,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F8C2A79C296EEA6000B8C4A3 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F8C2A79B296EEA6000B8C4A3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		F8C2A79F296EEC3400B8C4A3 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F8C2A79E296EEC3400B8C4A3 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
 		F8F7AA892949E4BA00AF8D7D /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F8F7AA882949E4BA00AF8D7D /* XCRemoteSwiftPackageReference "SnapKit" */;
