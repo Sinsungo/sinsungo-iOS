@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FreshSTLogoWhite.svg 23-51-52-433" translatesAutoresizingMaskIntoConstraints="NO" id="RXn-5i-Vuq">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SinsungoLogo" translatesAutoresizingMaskIntoConstraints="NO" id="RXn-5i-Vuq">
                                 <rect key="frame" x="80" y="272" width="230" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="230" id="F92-da-Saf"/>
@@ -37,6 +37,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="FreshSTLogoWhite.svg 23-51-52-433" width="128" height="128"/>
+        <image name="SinsungoLogo" width="128" height="128"/>
     </resources>
 </document>
