@@ -35,8 +35,8 @@ class LoginViewController: UIViewController {
     private lazy var googleLoginButton : UIButton = {
         var config = UIButton.Configuration.plain()
         config.imagePadding = 24
-        var title = AttributedString.init("Google 계정으로 로그인")
-        title.font = UIFont(name: "Roboto-Medium", size: 14)
+        var title = AttributedString.init("Sign in with Google")
+        title.font = UIFont(name: "Roboto-Medium", size: 18)
         config.attributedTitle = title
         config.baseForegroundColor = UIColor(named: "GoogleColor")
         config.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
@@ -62,8 +62,29 @@ class LoginViewController: UIViewController {
     
     //MARK: - apple
     let appleLoginButton : UIButton = {
-        var appleLoginButton = UIButton()
-        appleLoginButton.backgroundColor = .gray
+        var config = UIButton.Configuration.plain()
+        config.imagePadding = 24
+        var title = AttributedString.init("Sign in with Apple")
+        title.font = UIFont(name: "Roboto-Medium", size: 18)
+        config.attributedTitle = title
+        config.baseForegroundColor = UIColor(named: "GoogleColor")
+        config.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
+        let appleLoginButton = UIButton(configuration: config)
+        
+        appleLoginButton.setImage(UIImage(named: "AppleLogo"), for: .normal)
+        //MARK: -  config 사용시 위에 코드 실행안됨
+        // 우선순위 setTitle이 높음
+        //        googleLoginButton.setTitle("Google 계정으로 로그인", for: .normal)
+        //        googleLoginButton.setTitleColor(UIColor(named: "GoogleColor"), for: .normal)
+        //        googleLoginButton.titleLabel?.font = UIFont(name: "Roboto-Medium", size: 14)
+        
+        appleLoginButton.backgroundColor = .black
+        appleLoginButton.layer.cornerRadius = 7
+        appleLoginButton.layer.shadowColor = UIColor.lightGray.cgColor
+        appleLoginButton.layer.shadowOpacity = 1.0
+        appleLoginButton.layer.shadowRadius = 8
+        //MARK: - action
+//        appleLoginButton.addTarget(self, action: #selector(tapGoogle), for: .touchUpInside)
         return appleLoginButton
     }()
     override func viewDidLoad() {
@@ -93,14 +114,12 @@ class LoginViewController: UIViewController {
         }
         [KakaoLoginButton,googleLoginButton,appleLoginButton].forEach { UIButton in
             UIButton.snp.makeConstraints { make in
-                make.height.equalTo(54)
+                make.height.equalTo(56)
             }
         }
         firstStackView.snp.makeConstraints { make in
-            //            make.centerX.equalToSuperview()
-            make.leading.equalTo(self.view.safeAreaLayoutGuide).offset(25)
-            make.trailing.equalTo(self.view.safeAreaLayoutGuide).offset(-25)
-            
+            make.centerX.equalToSuperview()
+
         }
     }
     //MARK: - UI action
