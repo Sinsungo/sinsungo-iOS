@@ -26,9 +26,10 @@ class LoginViewController: UIViewController {
         return stackView
     }()
     //MARK: - Kakao
-    let KakaoLoginButton : UIButton = {
+    private lazy var KakaoLoginButton : UIButton = {
         let kakaoLoginButton = UIButton()
-        kakaoLoginButton.backgroundColor = .yellow
+        kakaoLoginButton.setImage(UIImage(named: "KakaoButton"), for: .normal)
+        kakaoLoginButton.addTarget(self, action: #selector(tapKakao), for: .touchUpInside)
         return kakaoLoginButton
     }()
     //MARK: - Google
@@ -84,7 +85,7 @@ class LoginViewController: UIViewController {
         appleLoginButton.layer.shadowOpacity = 1.0
         appleLoginButton.layer.shadowRadius = 8
         //MARK: - action
-//        appleLoginButton.addTarget(self, action: #selector(tapGoogle), for: .touchUpInside)
+//        appleLoginButton.addTarget(self, action: #selector(tapApple), for: .touchUpInside)
         return appleLoginButton
     }()
     override func viewDidLoad() {
@@ -96,12 +97,13 @@ class LoginViewController: UIViewController {
         
     }
     func setStackView(){
-        firstStackView.addArrangedSubview(KakaoLoginButton)
+//        firstStackView.addArrangedSubview(KakaoLoginButton)
         firstStackView.addArrangedSubview(googleLoginButton)
         firstStackView.addArrangedSubview(appleLoginButton)
     }
     func setView(){
         self.view.addSubview(sinsungoLogo)
+        self.view.addSubview(KakaoLoginButton)
         self.view.addSubview(firstStackView)
         //        self.view.addSubview(googleLoginButton)
     }
@@ -109,12 +111,15 @@ class LoginViewController: UIViewController {
         sinsungoLogo.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(80)
             make.size.equalTo(CGSize(width: 230, height: 300))
-            make.bottom.equalTo(firstStackView.snp.top)
+            make.bottom.equalTo(KakaoLoginButton.snp.top)
             make.centerX.equalToSuperview()
         }
-        [KakaoLoginButton,googleLoginButton,appleLoginButton].forEach { UIButton in
+        KakaoLoginButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(firstStackView.snp.top)
+        }
+        [googleLoginButton,appleLoginButton].forEach { UIButton in
             UIButton.snp.makeConstraints { make in
-                make.height.equalTo(56)
             }
         }
         firstStackView.snp.makeConstraints { make in
@@ -123,6 +128,9 @@ class LoginViewController: UIViewController {
         }
     }
     //MARK: - UI action
+    @objc func tapKakao(){
+        
+    }
     @objc func tapGoogle(){
         let vc = TestViewController()
         self.navigationController?.pushViewController(vc, animated: true)
@@ -143,6 +151,9 @@ class LoginViewController: UIViewController {
         //                self.present(TestViewController(), animated: true)
         //            }
         //        }
+        
+    }
+    @objc func tapApple(){
         
     }
     
