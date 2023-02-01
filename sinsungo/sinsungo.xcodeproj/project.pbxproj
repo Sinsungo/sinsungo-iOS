@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F80B235A2987E6C2009451A4 /* RefirgeratorTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80B23592987E6C2009451A4 /* RefirgeratorTVCell.swift */; };
+		F80B235C29882BEB009451A4 /* RefrigeratorTVH.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80B235B29882BEB009451A4 /* RefrigeratorTVH.swift */; };
+		F80B23602988378B009451A4 /* RefirgeratorTVF.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80B235F2988378B009451A4 /* RefirgeratorTVF.swift */; };
+		F81E57B0298AA3750055EF84 /* ExtensionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81E57AF298AA3750055EF84 /* ExtensionUIView.swift */; };
+		F887E74F297A867E003A75C3 /* RefrigeratorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F887E74E297A867E003A75C3 /* RefrigeratorVC.swift */; };
 		F8BFBE61293B84A7007173BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFBE60293B84A7007173BA /* AppDelegate.swift */; };
 		F8BFBE63293B84A7007173BA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFBE62293B84A7007173BA /* SceneDelegate.swift */; };
-		F8BFBE65293B84A7007173BA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFBE64293B84A7007173BA /* LoginViewController.swift */; };
+		F8BFBE65293B84A7007173BA /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFBE64293B84A7007173BA /* LoginVC.swift */; };
 		F8BFBE6A293B84A8007173BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8BFBE69293B84A8007173BA /* Assets.xcassets */; };
 		F8BFBE6D293B84A8007173BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8BFBE6B293B84A8007173BA /* LaunchScreen.storyboard */; };
 		F8BFBE78293B84A8007173BA /* sinsungoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFBE77293B84A8007173BA /* sinsungoTests.swift */; };
@@ -20,7 +25,6 @@
 		F8D0029E296EF39D00820C6C /* ExtensionUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D0029D296EF39D00820C6C /* ExtensionUIColor.swift */; };
 		F8D002A2296EFFE000820C6C /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8D002A1296EFFE000820C6C /* Roboto-Medium.ttf */; };
 		F8EC1573296FF33C00F71B90 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = F8EC1572296FF33C00F71B90 /* GoogleSignIn */; };
-		F8EC1575296FF4D800F71B90 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC1574296FF4D800F71B90 /* TestViewController.swift */; };
 		F8F7AA8A2949E4BA00AF8D7D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F8F7AA892949E4BA00AF8D7D /* SnapKit */; };
 /* End PBXBuildFile section */
 
@@ -42,10 +46,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F80B23592987E6C2009451A4 /* RefirgeratorTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefirgeratorTVCell.swift; sourceTree = "<group>"; };
+		F80B235B29882BEB009451A4 /* RefrigeratorTVH.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefrigeratorTVH.swift; sourceTree = "<group>"; };
+		F80B235F2988378B009451A4 /* RefirgeratorTVF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefirgeratorTVF.swift; sourceTree = "<group>"; };
+		F81E57AF298AA3750055EF84 /* ExtensionUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIView.swift; sourceTree = "<group>"; };
+		F887E74E297A867E003A75C3 /* RefrigeratorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefrigeratorVC.swift; sourceTree = "<group>"; };
 		F8BFBE5D293B84A7007173BA /* sinsungo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sinsungo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8BFBE60293B84A7007173BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8BFBE62293B84A7007173BA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F8BFBE64293B84A7007173BA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F8BFBE64293B84A7007173BA /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		F8BFBE69293B84A8007173BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8BFBE6C293B84A8007173BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8BFBE6E293B84A8007173BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,7 +66,6 @@
 		F8C2A799296EEA0D00B8C4A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F8D0029D296EF39D00820C6C /* ExtensionUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIColor.swift; sourceTree = "<group>"; };
 		F8D002A1296EFFE000820C6C /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
-		F8EC1574296FF4D800F71B90 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +96,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F80B23582987E55B009451A4 /* RefrigeratorMain */ = {
+			isa = PBXGroup;
+			children = (
+				F887E74E297A867E003A75C3 /* RefrigeratorVC.swift */,
+				F80B235B29882BEB009451A4 /* RefrigeratorTVH.swift */,
+				F80B23592987E6C2009451A4 /* RefirgeratorTVCell.swift */,
+				F80B235F2988378B009451A4 /* RefirgeratorTVF.swift */,
+			);
+			path = RefrigeratorMain;
+			sourceTree = "<group>";
+		};
+		F80B236129884798009451A4 /* AutoLayoutDefault */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AutoLayoutDefault;
+			sourceTree = "<group>";
+		};
+		F887E74B297A8571003A75C3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F887E74C297A857B003A75C3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F887E74D297A8585003A75C3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F80B23582987E55B009451A4 /* RefrigeratorMain */,
+				F8BFBE64293B84A7007173BA /* LoginVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		F8BFBE54293B84A7007173BA = {
 			isa = PBXGroup;
 			children = (
@@ -111,16 +160,18 @@
 		F8BFBE5F293B84A7007173BA /* sinsungo */ = {
 			isa = PBXGroup;
 			children = (
+				F80B236129884798009451A4 /* AutoLayoutDefault */,
+				F887E74D297A8585003A75C3 /* Controller */,
+				F887E74C297A857B003A75C3 /* View */,
+				F887E74B297A8571003A75C3 /* Model */,
 				F8D0029F296EFEC200820C6C /* Font */,
 				F8D0029C296EF38400820C6C /* Extension */,
 				F8BFBE60293B84A7007173BA /* AppDelegate.swift */,
 				F8BFBE62293B84A7007173BA /* SceneDelegate.swift */,
-				F8BFBE64293B84A7007173BA /* LoginViewController.swift */,
 				F8BFBE69293B84A8007173BA /* Assets.xcassets */,
 				F8BFBE6B293B84A8007173BA /* LaunchScreen.storyboard */,
 				F8BFBE6E293B84A8007173BA /* Info.plist */,
 				F8C2A799296EEA0D00B8C4A3 /* GoogleService-Info.plist */,
-				F8EC1574296FF4D800F71B90 /* TestViewController.swift */,
 			);
 			path = sinsungo;
 			sourceTree = "<group>";
@@ -146,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				F8D0029D296EF39D00820C6C /* ExtensionUIColor.swift */,
+				F81E57AF298AA3750055EF84 /* ExtensionUIView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -300,11 +352,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8EC1575296FF4D800F71B90 /* TestViewController.swift in Sources */,
-				F8BFBE65293B84A7007173BA /* LoginViewController.swift in Sources */,
+				F81E57B0298AA3750055EF84 /* ExtensionUIView.swift in Sources */,
+				F8BFBE65293B84A7007173BA /* LoginVC.swift in Sources */,
 				F8BFBE61293B84A7007173BA /* AppDelegate.swift in Sources */,
 				F8BFBE63293B84A7007173BA /* SceneDelegate.swift in Sources */,
 				F8D0029E296EF39D00820C6C /* ExtensionUIColor.swift in Sources */,
+				F80B23602988378B009451A4 /* RefirgeratorTVF.swift in Sources */,
+				F887E74F297A867E003A75C3 /* RefrigeratorVC.swift in Sources */,
+				F80B235C29882BEB009451A4 /* RefrigeratorTVH.swift in Sources */,
+				F80B235A2987E6C2009451A4 /* RefirgeratorTVCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

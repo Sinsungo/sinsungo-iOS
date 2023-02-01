@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Firebase
 import GoogleSignIn
-class LoginViewController: UIViewController {
+class LoginVC: UIViewController {
     
     let sinsungoLogo : UIImageView = {
         let sinUIImage = UIImageView()
@@ -26,9 +26,12 @@ class LoginViewController: UIViewController {
         return stackView
     }()
     //MARK: - Kakao
+
     private lazy var KakaoLoginButton : UIButton = {
-        let kakaoLoginButton = UIButton()
-        kakaoLoginButton.setImage(UIImage(named: "KakaoButton"), for: .normal)
+        var config = UIButton.Configuration.plain()
+        config.image = UIImage(named: "KakaoButton")
+        var title = AttributedString.init("")
+        let kakaoLoginButton = UIButton(configuration: config)
         kakaoLoginButton.addTarget(self, action: #selector(tapKakao), for: .touchUpInside)
         return kakaoLoginButton
     }()
@@ -42,10 +45,8 @@ class LoginViewController: UIViewController {
         config.baseForegroundColor = UIColor(named: "GoogleColor")
         config.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
         let googleLoginButton = UIButton(configuration: config)
-        
         googleLoginButton.setImage(UIImage(named: "GoogleLogo"), for: .normal)
-        //MARK: -  config 사용시 위에 코드 실행안됨
-        // 우선순위 setTitle이 높음
+        //MARK: - 우선순위 setTitle이 높음으로 config 사용시 위에 위에 해당하는 config관련 코드 실행불가
         //        googleLoginButton.setTitle("Google 계정으로 로그인", for: .normal)
         //        googleLoginButton.setTitleColor(UIColor(named: "GoogleColor"), for: .normal)
         //        googleLoginButton.titleLabel?.font = UIFont(name: "Roboto-Medium", size: 14)
@@ -73,11 +74,7 @@ class LoginViewController: UIViewController {
         let appleLoginButton = UIButton(configuration: config)
         
         appleLoginButton.setImage(UIImage(named: "AppleLogo"), for: .normal)
-        //MARK: -  config 사용시 위에 코드 실행안됨
-        // 우선순위 setTitle이 높음
-        //        googleLoginButton.setTitle("Google 계정으로 로그인", for: .normal)
-        //        googleLoginButton.setTitleColor(UIColor(named: "GoogleColor"), for: .normal)
-        //        googleLoginButton.titleLabel?.font = UIFont(name: "Roboto-Medium", size: 14)
+
         
         appleLoginButton.backgroundColor = .black
         appleLoginButton.layer.cornerRadius = 7
@@ -97,7 +94,7 @@ class LoginViewController: UIViewController {
         
     }
     func setStackView(){
-//        firstStackView.addArrangedSubview(KakaoLoginButton)
+        firstStackView.addArrangedSubview(KakaoLoginButton)
         firstStackView.addArrangedSubview(googleLoginButton)
         firstStackView.addArrangedSubview(appleLoginButton)
     }
@@ -111,20 +108,13 @@ class LoginViewController: UIViewController {
         sinsungoLogo.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(80)
             make.size.equalTo(CGSize(width: 230, height: 300))
-            make.bottom.equalTo(KakaoLoginButton.snp.top)
             make.centerX.equalToSuperview()
+        
         }
-        KakaoLoginButton.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.bottom.equalTo(firstStackView.snp.top)
-        }
-        [googleLoginButton,appleLoginButton].forEach { UIButton in
-            UIButton.snp.makeConstraints { make in
-            }
-        }
+       
         firstStackView.snp.makeConstraints { make in
+            make.top.equalTo(sinsungoLogo.snp.bottom).offset(50)
             make.centerX.equalToSuperview()
-
         }
     }
     //MARK: - UI action
@@ -132,8 +122,6 @@ class LoginViewController: UIViewController {
         
     }
     @objc func tapGoogle(){
-        let vc = TestViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
         //        guard let clientID = FirebaseApp.app()?.options.clientID else {return}
         //        let config = GIDConfiguration(clientID: clientID)
         //        GIDSignIn.sharedInstance.signIn(with: config, presenting: self){ [unowned self] user, error in
@@ -161,19 +149,19 @@ class LoginViewController: UIViewController {
 
 import SwiftUI
 @available(iOS 13.0.0, *)
-struct LoginViewControllerRepresentable: UIViewControllerRepresentable {
-    typealias UIViewControllerType = LoginViewController
+struct LoginVCRepresentable: UIViewControllerRepresentable {
+    typealias UIViewControllerType = LoginVC
     
-    func makeUIViewController(context: Context) -> LoginViewController {
-        return LoginViewController()
+    func makeUIViewController(context: Context) -> LoginVC {
+        return LoginVC()
     }
     
-    func updateUIViewController(_ uiViewController: LoginViewController, context: Context) {
+    func updateUIViewController(_ uiViewController: LoginVC, context: Context) {
     }
 }
 struct ViewPreview: PreviewProvider {
     static var previews: some View {
-        LoginViewControllerRepresentable()
+        LoginVCRepresentable()
             .previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro"))
             .previewDisplayName("iPhone 14 Pro")
     }
