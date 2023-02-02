@@ -16,7 +16,7 @@ class RefrigeratorVC: UIViewController {
         let refrigeratorTableView = UITableView(frame: .zero, style: .grouped)
         refrigeratorTableView.bounces = false
         refrigeratorTableView.separatorColor = .white
-        refrigeratorTableView.backgroundColor = .clear
+        refrigeratorTableView.backgroundColor = UIColor(named: "palegrey")
 //        refrigeratorTableView.subviews.forEach {view in
 //            refrigeratorTableView.subviews.forEach { view in
 //                view.layer.shadowColor = UIColor.darkGray.cgColor
@@ -33,15 +33,9 @@ class RefrigeratorVC: UIViewController {
         
         return refrigeratorTableView
     }()
-    var groupNameLabel : UILabel = {
-        let nameLabel = UILabel()
-        nameLabel.textColor = .black
-        nameLabel.font = UIFont.systemFont(ofSize: 20)
-        return nameLabel
-    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        groupNameLabel.text = "{\(groupName)}의 냉장고"
         addSubView()
         autoLayout()
         configure()
@@ -60,24 +54,15 @@ extension RefrigeratorVC {
         
     }
     private func addSubView(){
-        
-        self.view.addSubview(groupNameLabel)
         self.view.addSubview(refrigeratorTableView)
         
     }
     private func autoLayout(){
-        groupNameLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(40)
-            //컴펌 필요
-            make.left.equalTo(view.snp.left).offset(16)
-            make.right.equalTo(view.snp.right).offset(-16)
-            
-        }
         refrigeratorTableView.snp.makeConstraints { make in
-            make.top.equalTo(groupNameLabel.snp.bottom).offset(23)
-            make.left.equalTo(view.snp.left).offset(16)
-            make.right.equalTo(view.snp.right).offset(-16)
-            make.bottom.equalTo(view.snp.bottom).offset(0)
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.left.equalTo(view.snp.left).offset(11) //그림자 효과를 위해
+            make.right.equalTo(view.snp.right).offset(-11) // 5씩 줄이고 -> TableView cell inset +5
+            make.bottom.equalTo(view.snp.bottom).offset(0) // 5씩 줄였기 때문에 상단 UILabel +5 오른쪽으로밀어야함
         }
     }
 }
@@ -85,31 +70,42 @@ extension RefrigeratorVC {
 extension RefrigeratorVC : UITableViewDataSource,UITableViewDelegate {
     //MARK: - Cell
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return sectionTitleTest.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let refirgeratorTVC = tableView.dequeueReusableCell(withIdentifier: RefirgeratorTVCell.identi, for: indexPath) as! RefirgeratorTVCell
+        
+        refirgeratorTVC.setRefName(model: sectionTitleTest[indexPath.row])
+        refirgeratorTVC.setigdCnt(model: cnt[indexPath.row])
+        refirgeratorTVC.contentView.layer.masksToBounds = true
+//        let radius = refirgeratorTVC.contentView.layer.cornerRadius
+//        refirgeratorTVC.layer.shadowPath = UIBezierPath(roundedRect: refirgeratorTVC.bounds, cornerRadius: radius).cgPath
         return refirgeratorTVC
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 46
+        return 210
     }
     //MARK: - Header
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-   
-        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: RefrigeratorTVH.identi) as? RefrigeratorTVH else { return nil}
-        headerView.setRefrigeratorname(model :sectionTitleTest[section] )
-        headerView.setIngredientCnt(model: cnt[section])
-//        headerView.roundCorners(cornerRadius: 4 , maskedCorners: [.layerMinXMinYCorner,.layerMaxXMinYCorner])
-        return headerView
+        if section == 0{
+            guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: RefrigeratorTVH.identi) as? RefrigeratorTVH else { return nil}
+            
+            headerView.setGroupNameLabel(model: groupName)
+            return headerView
+        }
+        return UIView()
+        
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sectionTitleTest.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 24
+        if section == 0 {
+            return 45
+        }
+        return 1
     }
     //MARK: - footer
     //    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

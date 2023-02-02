@@ -11,35 +11,13 @@ class RefrigeratorTVH: UITableViewHeaderFooterView{
     static let identi = "RefirgeratorTVHid"
     private lazy var containerView : UIView = {
         let containerView = UIView()
-        containerView.backgroundColor = .white
         return containerView
     }()
-    private lazy var UIlabelStackView : UIStackView = {
-        let UIlabelStackView = UIStackView()
-        UIlabelStackView.axis = .horizontal
-        UIlabelStackView.alignment = .fill
-        UIlabelStackView.distribution = .fillEqually
-        UIlabelStackView.spacing = 12
-        return UIlabelStackView
-    }()
-    private lazy var refrigeratorNameLabel : UILabel = {
-       let nameLabel = UILabel()
-        nameLabel.font = UIFont.systemFont(ofSize: 16)
-        nameLabel.textColor = .black
+    private lazy var groupNameLabel : UILabel = {
+        let nameLabel = UILabel()
+        nameLabel.textColor = UIColor.black
+        nameLabel.font = UIFont.systemFont(ofSize: 20)
         return nameLabel
-    }()
-    private lazy var ingredientCntLabel : UILabel = {
-       let ingredientCntLabel = UILabel()
-        ingredientCntLabel.font = UIFont.systemFont(ofSize: 10)
-        ingredientCntLabel.textColor = .black
-        return ingredientCntLabel
-    }()
-    private lazy var pushButton : UIButton = {
-        
-        let pushButton = UIButton()
-        pushButton.setImage(UIImage(named: "pushImg"), for: .normal)
-        
-        return pushButton
     }()
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
@@ -54,30 +32,24 @@ class RefrigeratorTVH: UITableViewHeaderFooterView{
 extension RefrigeratorTVH {
     private func addSubView(){
         addSubview(containerView)
-        UIlabelStackView.addArrangedSubview(refrigeratorNameLabel)
-        UIlabelStackView.addArrangedSubview(ingredientCntLabel)
-        containerView.addSubview(UIlabelStackView)
-        containerView.addSubview(pushButton)
+        containerView.addSubview(groupNameLabel)
    
     }
     private func autoLayout(){
         containerView.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+            make.left.equalToSuperview().offset(5)
+            make.right.equalToSuperview().offset(-5)
+         
+            
+        }
+        groupNameLabel.snp.makeConstraints { make in
             make.edges.equalToSuperview()
-            make.size.height.width.equalTo(24)
         }
-        UIlabelStackView.snp.makeConstraints { make in
-            make.left.equalTo(containerView.snp.left).offset(8)
-            make.top.equalTo(containerView.snp.top).offset(8)
-        }
-        pushButton.snp.makeConstraints { make in
-            make.right.equalTo(containerView.snp.right).offset(-8)
-            make.size.height.width.equalTo(24)
-        }
+        
     }
-    func setRefrigeratorname(model : String){
-        refrigeratorNameLabel.text = "\(model)"
+    func setGroupNameLabel(model : String){
+        groupNameLabel.text = "\(model)의 냉장고"
     }
-    func setIngredientCnt(model : String){
-        ingredientCntLabel.text = "\(model)개"
-    }
+    
 }
