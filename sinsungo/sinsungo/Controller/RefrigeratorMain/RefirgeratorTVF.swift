@@ -9,17 +9,36 @@ import UIKit
 
 class RefirgeratorTVF: UITableViewHeaderFooterView {
 
-    var refrigeratorName = "냉장고이름"
     static let identi = "RefirgeratorTVFid"
-    private lazy var containerView : UIView = {
-        let containerView = UIView()
-        containerView.backgroundColor = .green
+    private lazy var containerView : UIStackView = {
+        let containerView = UIStackView()
+        containerView.backgroundColor = .clear
+        containerView.axis = .vertical
+        containerView.alignment = .fill
+        containerView.distribution = .fillProportionally
+        containerView.spacing = 12
         return containerView
     }()
-    private lazy var refrigeratorNameLabel : UILabel = {
-       let nameLabel = UILabel()
-        nameLabel.text = "\(refrigeratorName)"
-        return nameLabel
+
+    private lazy var addComentLabel : UILabel = {
+        let contentLabel = UILabel()
+        contentLabel.text = "새로운 냉장고를 만들어볼까요 ?"
+        contentLabel.font = UIFont.systemFont(ofSize: 16)
+        contentLabel.textColor = UIColor.black
+       return contentLabel
+    }()
+    private lazy var addRefiregeratorButton : UIButton = {
+        var config = UIButton.Configuration.plain()
+        let title = AttributedString.init("새로운 냉장고 만들기")
+        
+        config.attributedTitle = title
+        config.image = UIImage(systemName: "plus")
+        config.imagePlacement = .top
+        config.imagePadding = 4
+        let addRefButotn = UIButton(configuration: config)
+        addRefButotn.backgroundColor = UIColor(red: 240, green: 240, blue: 240)
+        addRefButotn.tintColor = UIColor(named: "brownishgrey")
+        return addRefButotn
     }()
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
@@ -34,14 +53,17 @@ class RefirgeratorTVF: UITableViewHeaderFooterView {
 extension RefirgeratorTVF {
     private func addSubView(){
         addSubview(containerView)
-        containerView.addSubview(refrigeratorNameLabel)
+        containerView.addArrangedSubview(addComentLabel)
+        containerView.addArrangedSubview(addRefiregeratorButton)
+        
     }
     private func autoLayout(){
         containerView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+
+            make.top.bottom.equalToSuperview()
+            make.left.equalToSuperview().offset(5)
+            make.right.equalToSuperview().offset(-5)
         }
-        refrigeratorNameLabel.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
+        
     }
 }
