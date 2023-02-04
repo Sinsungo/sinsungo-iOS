@@ -9,9 +9,11 @@ import UIKit
 import SnapKit
 class RefrigeratorVC: UIViewController {
     var groupName = "동진"
-    private let sectionTitleTest : [String] = ["1번냉장고","2번냉장고","3번냉장고","4번냉장고","5번냉장고","6번냉장고"]
-    private let cnt : [String] =
-    ["\(1)","\(2)","\(3)","\(4)","\(5)","\(6)"]
+    private let sectionTitleTest : [String] = ["1번냉장고"]
+//,"2번냉장고","3번냉장고","4번냉장고","5번냉장고","6번냉장고"
+    private let cnt : [String] = ["\(1)"]
+//,"\(2)","\(3)","\(4)","\(5)","\(6)"
+    
     var refrigeratorTableView : UITableView = {
         let refrigeratorTableView = UITableView(frame: .zero, style: .grouped)
         refrigeratorTableView.bounces = false
@@ -40,6 +42,7 @@ class RefrigeratorVC: UIViewController {
         autoLayout()
         configure()
         view.backgroundColor = UIColor(named: "palegrey")
+        
     }
 
 
@@ -88,32 +91,28 @@ extension RefrigeratorVC : UITableViewDataSource,UITableViewDelegate {
     }
     //MARK: - Header
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section == 0{
-            guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: RefrigeratorTVH.identi) as? RefrigeratorTVH else { return nil}
-            
-            headerView.setGroupNameLabel(model: groupName)
-            return headerView
-        }
-        return UIView()
+        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: RefrigeratorTVH.identi) as? RefrigeratorTVH else { return nil}
+        
+        headerView.setGroupNameLabel(model: groupName)
+        return headerView
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 45
+    }
+//MARK: - footer
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        
+        guard let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: RefirgeratorTVF.identi) as? RefirgeratorTVF else { return nil}
+        return footerView
         
     }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 97
+    }
+//MARK: - section
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0 {
-            return 45
-        }
-        return 1
-    }
-    //MARK: - footer
-    //    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-    //        guard let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: RefirgeratorTVF.identi) as? RefirgeratorTVF else { return nil}
-    //        return footerView
-    //    }
-    
-    
 }
 
 
