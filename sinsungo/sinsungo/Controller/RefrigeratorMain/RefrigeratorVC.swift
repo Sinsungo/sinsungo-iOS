@@ -101,7 +101,6 @@ extension RefrigeratorVC : UITableViewDataSource,UITableViewDelegate {
     }
 //MARK: - footer
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        
         guard let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: RefirgeratorTVF.identi) as? RefirgeratorTVF else { return nil}
         return footerView
         

@@ -38,6 +38,7 @@ class RefirgeratorTVF: UITableViewHeaderFooterView {
         let addRefButotn = UIButton(configuration: config)
         addRefButotn.backgroundColor = UIColor(red: 240, green: 240, blue: 240)
         addRefButotn.tintColor = UIColor(named: "brownishgrey")
+        addRefButotn.layer.cornerRadius = 4
         return addRefButotn
     }()
     override init(reuseIdentifier: String?) {
