@@ -16,7 +16,7 @@ class RefrigeratorTVH: UITableViewHeaderFooterView{
     private lazy var groupNameLabel : UILabel = {
         let nameLabel = UILabel()
         nameLabel.textColor = UIColor.black
-        nameLabel.font = UIFont.systemFont(ofSize: 20)
+        nameLabel.font = UIFont(name: "NanumSquareOTF_acEB", size: 20)
         return nameLabel
     }()
     override init(reuseIdentifier: String?) {

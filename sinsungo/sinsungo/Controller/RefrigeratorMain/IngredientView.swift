@@ -34,7 +34,7 @@ func setIngredientView(ingredientName :String ,ingredientCnt : Int , remainPerio
     }()
     let ingredientLabel : UILabel = { // 재료명
         let ingredientNameLabel = UILabel()
-        ingredientNameLabel.font = UIFont.systemFont(ofSize: 12)
+        ingredientNameLabel.font = UIFont(name: "NanumSquareOTF_acB", size: 12)
         ingredientNameLabel.textColor = .black
         ingredientNameLabel.text = ingredientName + " | "
         return ingredientNameLabel
@@ -42,7 +42,7 @@ func setIngredientView(ingredientName :String ,ingredientCnt : Int , remainPerio
     let ingredientCntLabel : UILabel = { //재료 수
         let ingredientCntLabel = UILabel()
         ingredientCntLabel.text = "\(ingredientCnt)개"
-        ingredientCntLabel.font = UIFont.systemFont(ofSize: 10)
+        ingredientCntLabel.font = UIFont(name: "NanumSquareOTF_acB", size: 10)
         
         return ingredientCntLabel
     }()
@@ -59,7 +59,7 @@ func setIngredientView(ingredientName :String ,ingredientCnt : Int , remainPerio
     let remainPeriod : UILabel = { //보관기한
         let remainPeriodLabel = UILabel()
         remainPeriodLabel.text = "+ \(remainPeriod)일"
-        remainPeriodLabel.font = UIFont.systemFont(ofSize: 10)
+        remainPeriodLabel.font = UIFont(name: "NanumSquareOTF_acB", size: 10)
         return remainPeriodLabel
     }()
     containerView.addSubview(firstStackView)

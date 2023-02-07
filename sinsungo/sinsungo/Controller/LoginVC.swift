@@ -41,6 +41,7 @@ class LoginVC: UIViewController {
         config.imagePadding = 24
         var title = AttributedString.init("Sign in with Google")
         title.font = UIFont(name: "Roboto-Medium", size: 18)
+//        title.font = UIFont.boldSystemFont(ofSize: 18)
         config.attributedTitle = title
         config.baseForegroundColor = UIColor(named: "GoogleColor")
         config.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
