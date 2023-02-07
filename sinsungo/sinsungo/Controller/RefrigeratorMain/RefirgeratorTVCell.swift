@@ -20,14 +20,14 @@ class RefirgeratorTVCell: UITableViewCell {
     private lazy var refrigeratorNameLabel : UILabel = {
         let refNameLabel = UILabel()
         refNameLabel.textColor = UIColor.black
-        refNameLabel.font = UIFont.systemFont(ofSize: 16)
+        refNameLabel.font = UIFont(name: "NanumSquareOTF_acB", size: 16)
         return refNameLabel
     }()
     
     private lazy var ingredientCntLabel : UILabel = {
         let igCntLabel = UILabel()
         igCntLabel.textColor = UIColor(named: "brownishgrey")
-        igCntLabel.font = UIFont.systemFont(ofSize: 10)
+        igCntLabel.font = UIFont(name: "NanumSquareOTF_acB", size: 10)
         return igCntLabel
     }()
     private lazy var pushDetailButton : UIButton = {

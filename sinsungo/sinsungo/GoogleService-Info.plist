@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>369242943912-6c28sufhau6f7kg2mohi3fkp1dl9elnj.apps.googleusercontent.com</string>
+	<string>369242943912-nuc60g5f8k3i4gama9lll08c0u9ghqrr.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.369242943912-6c28sufhau6f7kg2mohi3fkp1dl9elnj</string>
+	<string>com.googleusercontent.apps.369242943912-nuc60g5f8k3i4gama9lll08c0u9ghqrr</string>
 	<key>API_KEY</key>
 	<string>AIzaSyC65Cy5neGwb0XJYxsGteeudVbrNmQJlss</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>fresh.sinsungo</string>
+	<string>com.sinsungo.ios</string>
 	<key>PROJECT_ID</key>
 	<string>sinsungo-c2621</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:369242943912:ios:fedc1684f8c2d1d9f52d9d</string>
+	<string>1:369242943912:ios:96a56b80bada93d9f52d9d</string>
 </dict>
 </plist>

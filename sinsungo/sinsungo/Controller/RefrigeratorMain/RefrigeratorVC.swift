@@ -19,15 +19,7 @@ class RefrigeratorVC: UIViewController {
         refrigeratorTableView.bounces = false
         refrigeratorTableView.separatorColor = .white
         refrigeratorTableView.backgroundColor = UIColor(named: "palegrey")
-//        refrigeratorTableView.subviews.forEach {view in
-//            refrigeratorTableView.subviews.forEach { view in
-//                view.layer.shadowColor = UIColor.darkGray.cgColor
-//                view.layer.shadowOpacity = 0.4
-//                view.layer.shadowOffset = .zero
-//                view.layer.shadowRadius = 3
-//            }
-//        }
-        //MARK: - Section Setting
+//MARK: - Section Setting
         refrigeratorTableView.register(RefirgeratorTVCell.self, forCellReuseIdentifier: RefirgeratorTVCell.identi)
         refrigeratorTableView.register(RefrigeratorTVH.self, forHeaderFooterViewReuseIdentifier: RefrigeratorTVH.identi)
         refrigeratorTableView.register(RefirgeratorTVF.self, forHeaderFooterViewReuseIdentifier: RefirgeratorTVF.identi)
@@ -42,7 +34,7 @@ class RefrigeratorVC: UIViewController {
         autoLayout()
         configure()
         view.backgroundColor = UIColor(named: "palegrey")
-        
+
     }
 
 
