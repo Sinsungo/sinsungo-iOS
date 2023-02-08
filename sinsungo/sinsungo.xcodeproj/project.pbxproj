@@ -16,6 +16,7 @@
 		F827C4FB2992D80700998BC8 /* NanumSquareOTF_acR.otf in Resources */ = {isa = PBXBuildFile; fileRef = F827C4FA2992D80700998BC8 /* NanumSquareOTF_acR.otf */; };
 		F827C4FD2992DB9F00998BC8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F827C4FC2992DB9F00998BC8 /* GoogleService-Info.plist */; };
 		F887E74F297A867E003A75C3 /* RefrigeratorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F887E74E297A867E003A75C3 /* RefrigeratorVC.swift */; };
+		F88838972993D2B000ED2C7A /* IngredientViewType2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88838962993D2B000ED2C7A /* IngredientViewType2.swift */; };
 		F8BFBE61293B84A7007173BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFBE60293B84A7007173BA /* AppDelegate.swift */; };
 		F8BFBE63293B84A7007173BA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFBE62293B84A7007173BA /* SceneDelegate.swift */; };
 		F8BFBE65293B84A7007173BA /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFBE64293B84A7007173BA /* LoginVC.swift */; };
@@ -59,6 +60,7 @@
 		F827C4FA2992D80700998BC8 /* NanumSquareOTF_acR.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTF_acR.otf; sourceTree = "<group>"; };
 		F827C4FC2992DB9F00998BC8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F887E74E297A867E003A75C3 /* RefrigeratorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefrigeratorVC.swift; sourceTree = "<group>"; };
+		F88838962993D2B000ED2C7A /* IngredientViewType2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientViewType2.swift; sourceTree = "<group>"; };
 		F8BFBE5D293B84A7007173BA /* sinsungo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sinsungo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8BFBE60293B84A7007173BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8BFBE62293B84A7007173BA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				F80B23592987E6C2009451A4 /* RefirgeratorTVCell.swift */,
 				F80B235F2988378B009451A4 /* RefirgeratorTVF.swift */,
 				F8E4833E299152B6001849D4 /* IngredientView.swift */,
+				F88838962993D2B000ED2C7A /* IngredientViewType2.swift */,
 			);
 			path = RefrigeratorMain;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				F8D0029E296EF39D00820C6C /* ExtensionUIColor.swift in Sources */,
 				F80B23602988378B009451A4 /* RefirgeratorTVF.swift in Sources */,
 				F887E74F297A867E003A75C3 /* RefrigeratorVC.swift in Sources */,
+				F88838972993D2B000ED2C7A /* IngredientViewType2.swift in Sources */,
 				F80B235C29882BEB009451A4 /* RefrigeratorTVH.swift in Sources */,
 				F80B235A2987E6C2009451A4 /* RefirgeratorTVCell.swift in Sources */,
 			);
