@@ -16,6 +16,9 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Roboto-Medium.ttf</string>
+		<string>NanumSquareOTF_acEB.otf</string>
+		<string>NanumSquareOTF_acB.otf</string>
+		<string>NanumSquareOTF_acR.otf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
