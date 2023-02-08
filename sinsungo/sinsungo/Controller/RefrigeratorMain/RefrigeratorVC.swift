@@ -79,7 +79,7 @@ extension RefrigeratorVC : UITableViewDataSource,UITableViewDelegate {
         return refirgeratorTVC
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 230
+        return 210
     }
     //MARK: - Header
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

@@ -13,7 +13,7 @@ class RefirgeratorTVCell: UITableViewCell {
         let fStackView = UIStackView()
         fStackView.axis = .horizontal
         fStackView.alignment = .fill
-        fStackView.distribution = .fill
+        fStackView.distribution = .fillProportionally
         fStackView.spacing = 12
         return fStackView
     }()
