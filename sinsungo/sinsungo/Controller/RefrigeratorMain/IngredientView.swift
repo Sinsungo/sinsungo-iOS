@@ -20,7 +20,7 @@ func setIngredientView(ingredientName :String ,ingredientCnt : Int , remainPerio
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.alignment = .fill
-        stackView.distribution = .fillProportionally
+        stackView.distribution = .fill
         stackView.spacing = 2
         return stackView
     }()
@@ -72,7 +72,7 @@ func setIngredientView(ingredientName :String ,ingredientCnt : Int , remainPerio
         make.top.equalTo(firstStackView.snp.bottom).offset(6)
         make.left.equalTo(containerView.snp.left).offset(8)
         make.right.equalTo(containerView.snp.right).offset(-8)
-        make.bottom.equalTo(containerView.snp.bottom).offset(-8)
+        make.bottom.equalTo(containerView.snp.bottom).offset(-6)
     }
     firstStackView.addArrangedSubview(ingredientLabel)
     firstStackView.addArrangedSubview(ingredientCntLabel)

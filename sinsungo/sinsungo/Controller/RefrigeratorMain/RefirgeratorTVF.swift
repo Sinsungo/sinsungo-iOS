@@ -23,7 +23,7 @@ class RefirgeratorTVF: UITableViewHeaderFooterView {
     private lazy var addComentLabel : UILabel = {
         let contentLabel = UILabel()
         contentLabel.text = "새로운 냉장고를 만들어볼까요 ?"
-        contentLabel.font = UIFont.systemFont(ofSize: 16)
+        contentLabel.font = UIFont(name: "NanumSquareOTF_acB", size: 16)
         contentLabel.textColor = UIColor.black
        return contentLabel
     }()
