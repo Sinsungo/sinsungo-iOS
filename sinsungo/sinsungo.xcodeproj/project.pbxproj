@@ -16,6 +16,7 @@
 		F827C4FB2992D80700998BC8 /* NanumSquareOTF_acR.otf in Resources */ = {isa = PBXBuildFile; fileRef = F827C4FA2992D80700998BC8 /* NanumSquareOTF_acR.otf */; };
 		F827C4FD2992DB9F00998BC8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F827C4FC2992DB9F00998BC8 /* GoogleService-Info.plist */; };
 		F887E74F297A867E003A75C3 /* RefrigeratorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F887E74E297A867E003A75C3 /* RefrigeratorVC.swift */; };
+		F88838972993D2B000ED2C7A /* AddIngredientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88838962993D2B000ED2C7A /* AddIngredientButton.swift */; };
 		F8BFBE61293B84A7007173BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFBE60293B84A7007173BA /* AppDelegate.swift */; };
 		F8BFBE63293B84A7007173BA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFBE62293B84A7007173BA /* SceneDelegate.swift */; };
 		F8BFBE65293B84A7007173BA /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFBE64293B84A7007173BA /* LoginVC.swift */; };
@@ -24,6 +25,7 @@
 		F8BFBE78293B84A8007173BA /* sinsungoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFBE77293B84A8007173BA /* sinsungoTests.swift */; };
 		F8BFBE82293B84A8007173BA /* sinsungoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFBE81293B84A8007173BA /* sinsungoUITests.swift */; };
 		F8BFBE84293B84A8007173BA /* sinsungoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFBE83293B84A8007173BA /* sinsungoUITestsLaunchTests.swift */; };
+		F8C059EC29950A7D001719A9 /* ExtensionUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C059EB29950A7D001719A9 /* ExtensionUIButton.swift */; };
 		F8C2A79D296EEA6000B8C4A3 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F8C2A79C296EEA6000B8C4A3 /* FirebaseAuth */; };
 		F8D0029E296EF39D00820C6C /* ExtensionUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D0029D296EF39D00820C6C /* ExtensionUIColor.swift */; };
 		F8D002A2296EFFE000820C6C /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8D002A1296EFFE000820C6C /* Roboto-Medium.ttf */; };
@@ -59,6 +61,7 @@
 		F827C4FA2992D80700998BC8 /* NanumSquareOTF_acR.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTF_acR.otf; sourceTree = "<group>"; };
 		F827C4FC2992DB9F00998BC8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F887E74E297A867E003A75C3 /* RefrigeratorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefrigeratorVC.swift; sourceTree = "<group>"; };
+		F88838962993D2B000ED2C7A /* AddIngredientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIngredientButton.swift; sourceTree = "<group>"; };
 		F8BFBE5D293B84A7007173BA /* sinsungo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sinsungo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8BFBE60293B84A7007173BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8BFBE62293B84A7007173BA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +74,7 @@
 		F8BFBE7D293B84A8007173BA /* sinsungoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sinsungoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8BFBE81293B84A8007173BA /* sinsungoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sinsungoUITests.swift; sourceTree = "<group>"; };
 		F8BFBE83293B84A8007173BA /* sinsungoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sinsungoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F8C059EB29950A7D001719A9 /* ExtensionUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIButton.swift; sourceTree = "<group>"; };
 		F8D0029D296EF39D00820C6C /* ExtensionUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIColor.swift; sourceTree = "<group>"; };
 		F8D002A1296EFFE000820C6C /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		F8E4833E299152B6001849D4 /* IngredientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientView.swift; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 				F80B23592987E6C2009451A4 /* RefirgeratorTVCell.swift */,
 				F80B235F2988378B009451A4 /* RefirgeratorTVF.swift */,
 				F8E4833E299152B6001849D4 /* IngredientView.swift */,
+				F88838962993D2B000ED2C7A /* AddIngredientButton.swift */,
 			);
 			path = RefrigeratorMain;
 			sourceTree = "<group>";
@@ -207,6 +212,7 @@
 			children = (
 				F8D0029D296EF39D00820C6C /* ExtensionUIColor.swift */,
 				F81E57AF298AA3750055EF84 /* ExtensionUIView.swift */,
+				F8C059EB29950A7D001719A9 /* ExtensionUIButton.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -372,9 +378,11 @@
 				F8BFBE61293B84A7007173BA /* AppDelegate.swift in Sources */,
 				F8E4833F299152B6001849D4 /* IngredientView.swift in Sources */,
 				F8BFBE63293B84A7007173BA /* SceneDelegate.swift in Sources */,
+				F8C059EC29950A7D001719A9 /* ExtensionUIButton.swift in Sources */,
 				F8D0029E296EF39D00820C6C /* ExtensionUIColor.swift in Sources */,
 				F80B23602988378B009451A4 /* RefirgeratorTVF.swift in Sources */,
 				F887E74F297A867E003A75C3 /* RefrigeratorVC.swift in Sources */,
+				F88838972993D2B000ED2C7A /* AddIngredientButton.swift in Sources */,
 				F80B235C29882BEB009451A4 /* RefrigeratorTVH.swift in Sources */,
 				F80B235A2987E6C2009451A4 /* RefirgeratorTVCell.swift in Sources */,
 			);
