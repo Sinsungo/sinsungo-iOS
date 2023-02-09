@@ -41,6 +41,7 @@ class RefirgeratorTVCell: UITableViewCell {
     let twoIngredientView = setIngredientView(ingredientName: "재료명", ingredientCnt: 2, remainPeriod: 2)
     //MARK: - thirdIngredientView
     let thirdIngredientView = setIngredientView(ingredientName: "재료명", ingredientCnt: 3, remainPeriod: 3)
+//    let thirdIngredientView = addIngredientButton()
     private lazy var ingredientStackView : UIStackView = {
         let ingredientStackView = UIStackView()
         ingredientStackView.axis = .vertical

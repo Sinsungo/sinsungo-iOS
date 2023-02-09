@@ -29,15 +29,14 @@ class RefirgeratorTVF: UITableViewHeaderFooterView {
     }()
     private lazy var addRefiregeratorButton : UIButton = {
         var config = UIButton.Configuration.plain()
-        let title = AttributedString.init("새로운 냉장고 만들기")
         
-        config.attributedTitle = title
+        config.attributedTitle = AttributedString("새로운 냉장고 만들기", attributes: AttributeContainer([NSAttributedString.Key.font : UIFont(name: "NanumSquareOTF_acB", size: 12)!]))
         config.image = UIImage(systemName: "plus")
+        config.baseForegroundColor = UIColor(named: "brownishgrey")
         config.imagePlacement = .top
         config.imagePadding = 4
         let addRefButotn = UIButton(configuration: config)
         addRefButotn.backgroundColor = UIColor(red: 240, green: 240, blue: 240)
-        addRefButotn.tintColor = UIColor(named: "brownishgrey")
         addRefButotn.layer.cornerRadius = 4
         return addRefButotn
     }()
