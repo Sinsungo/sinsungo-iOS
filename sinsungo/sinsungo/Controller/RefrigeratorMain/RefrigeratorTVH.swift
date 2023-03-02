@@ -4,7 +4,7 @@
 //
 //  Created by 원동진 on 2023/01/31.
 //
-
+//TestBranch
 import UIKit
 import SnapKit
 class RefrigeratorTVH: UITableViewHeaderFooterView{
@@ -16,13 +16,15 @@ class RefrigeratorTVH: UITableViewHeaderFooterView{
     private lazy var groupNameLabel : UILabel = {
         let nameLabel = UILabel()
         nameLabel.textColor = UIColor.black
-        nameLabel.font = UIFont.systemFont(ofSize: 20)
+        nameLabel.font = UIFont(name: "NanumSquareOTF_acEB", size: 20)
         return nameLabel
     }()
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         addSubView()
         autoLayout()
+        print("\(groupNameLabel.font)")
+
        
     }
     required init?(coder: NSCoder) {
@@ -37,11 +39,10 @@ extension RefrigeratorTVH {
     }
     private func autoLayout(){
         containerView.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview()
+            make.top.equalToSuperview()
             make.left.equalToSuperview().offset(5)
             make.right.equalToSuperview().offset(-5)
-         
-            
+            make.bottom.equalToSuperview().offset(-24)
         }
         groupNameLabel.snp.makeConstraints { make in
             make.edges.equalToSuperview()
