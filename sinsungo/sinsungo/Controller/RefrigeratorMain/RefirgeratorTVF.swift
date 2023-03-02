@@ -31,7 +31,7 @@ class RefirgeratorTVF: UITableViewHeaderFooterView {
         var config = UIButton.Configuration.plain()
         
         config.attributedTitle = AttributedString("새로운 냉장고 만들기", attributes: AttributeContainer([NSAttributedString.Key.font : UIFont(name: "NanumSquareOTF_acB", size: 12)!]))
-        config.image = UIImage(systemName: "plus")
+        config.image = UIImage(named: "plusButton")
         config.baseForegroundColor = UIColor(named: "brownishgrey")
         config.imagePlacement = .top
         config.imagePadding = 4

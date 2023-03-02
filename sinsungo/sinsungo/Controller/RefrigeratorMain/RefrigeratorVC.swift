@@ -33,8 +33,12 @@ class RefrigeratorVC: UIViewController {
         addSubView()
         autoLayout()
         configure()
+        
         view.backgroundColor = UIColor(named: "palegrey")
-
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
     }
 
 
@@ -57,7 +61,7 @@ extension RefrigeratorVC {
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.left.equalTo(view.snp.left).offset(11) //그림자 효과를 위해
             make.right.equalTo(view.snp.right).offset(-11) // 5씩 줄이고 -> TableView cell inset +5
-            make.bottom.equalTo(view.snp.bottom).offset(0) // 5씩 줄였기 때문에 상단 UILabel +5 오른쪽으로밀어야함
+            make.bottom.equalTo(view.snp.bottom) // 5씩 줄였기 때문에 상단 UILabel +5 오른쪽으로밀어야함
         }
     }
 }
@@ -79,7 +83,7 @@ extension RefrigeratorVC : UITableViewDataSource,UITableViewDelegate {
         return refirgeratorTVC
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 210
+        return 222
     }
     //MARK: - Header
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

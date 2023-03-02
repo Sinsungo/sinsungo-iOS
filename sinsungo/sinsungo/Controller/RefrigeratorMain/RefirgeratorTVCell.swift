@@ -74,7 +74,7 @@ extension RefirgeratorTVCell {
     func setShadow(){
         backgroundColor = .clear // very important
         layer.masksToBounds = false
-        layer.shadowOpacity = 0.23
+        layer.shadowOpacity = 0.08
         layer.shadowRadius = 4
         layer.shadowOffset = CGSize(width: 0, height: 0)
         layer.shadowColor = UIColor.black.cgColor
@@ -95,19 +95,19 @@ extension RefirgeratorTVCell {
     }
     func setAutoLayout(){
         firstStackView.snp.makeConstraints { make in
-            make.top.equalTo(contentView.snp.top).offset(8)
-            make.left.equalTo(contentView.snp.left).offset(8)
+            make.top.equalTo(contentView.snp.top).offset(12)
+            make.left.equalTo(contentView.snp.left).offset(12)
             //            make.right.equalTo(contentView.snp.right).offset(-8)
         }
         pushDetailButton.snp.makeConstraints { make in
-            make.top.equalTo(contentView.snp.top).offset(8)
-            make.right.equalTo(contentView.snp.right).offset(-8)
+            make.top.equalTo(contentView.snp.top).offset(12)
+            make.right.equalTo(contentView.snp.right).offset(-12)
         }
         ingredientStackView.snp.makeConstraints { make in
-            make.top.equalTo(firstStackView.snp.bottom).offset(8)
-            make.left.equalTo(contentView.snp.left).offset(8)
-            make.right.equalTo(contentView.snp.right).offset(-8)
-            make.bottom.equalTo(contentView.snp.bottom).offset(-8)
+            make.top.equalTo(firstStackView.snp.bottom).offset(12)
+            make.left.equalTo(contentView.snp.left).offset(12)
+            make.right.equalTo(contentView.snp.right).offset(-12)
+            make.bottom.equalTo(contentView.snp.bottom).offset(-12)
         }
     }
 }

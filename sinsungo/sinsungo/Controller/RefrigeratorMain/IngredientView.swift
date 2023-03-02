@@ -50,10 +50,12 @@ func setIngredientView(ingredientName :String ,ingredientCnt : Int , remainPerio
         let remainProgressBar = UIProgressView()
         remainProgressBar.progressViewStyle = .bar
         remainProgressBar.clipsToBounds = true // 확인해보기
-        remainProgressBar.layer.cornerRadius = 4
+        remainProgressBar.layer.cornerRadius = 5
+        remainProgressBar.layer.sublayers![1].cornerRadius = 5
+        remainProgressBar.subviews[1].clipsToBounds = true
         remainProgressBar.progressTintColor = UIColor(named: "palered")
         remainProgressBar.trackTintColor = UIColor(named: "whitetwo")
-        remainProgressBar.progress = 0.5
+        remainProgressBar.progress = 0.6
         return remainProgressBar
     }()
     let remainPeriod : UILabel = { //보관기한
@@ -65,14 +67,15 @@ func setIngredientView(ingredientName :String ,ingredientCnt : Int , remainPerio
     containerView.addSubview(firstStackView)
     containerView.addSubview(secondStackView)
     firstStackView.snp.makeConstraints { make in
-        make.left.equalTo(containerView.snp.left).offset(8)
+        make.left.equalTo(containerView.snp.left).offset(12)
+        
         make.top.equalTo(containerView.snp.top).offset(8)
     }
     secondStackView.snp.makeConstraints { make in
-        make.top.equalTo(firstStackView.snp.bottom).offset(6)
-        make.left.equalTo(containerView.snp.left).offset(8)
-        make.right.equalTo(containerView.snp.right).offset(-8)
-        make.bottom.equalTo(containerView.snp.bottom).offset(-6)
+        make.top.equalTo(firstStackView.snp.bottom).offset(8)
+        make.left.equalTo(containerView.snp.left).offset(12)
+        make.right.equalTo(containerView.snp.right).offset(-12)
+        make.bottom.equalTo(containerView.snp.bottom).offset(-8)
     }
     firstStackView.addArrangedSubview(ingredientLabel)
     firstStackView.addArrangedSubview(ingredientCntLabel)
