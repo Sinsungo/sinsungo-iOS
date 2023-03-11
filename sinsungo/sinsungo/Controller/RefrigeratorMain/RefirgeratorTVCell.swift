@@ -13,21 +13,21 @@ class RefirgeratorTVCell: UITableViewCell {
         let fStackView = UIStackView()
         fStackView.axis = .horizontal
         fStackView.alignment = .fill
-        fStackView.distribution = .fill
+        fStackView.distribution = .fillProportionally
         fStackView.spacing = 12
         return fStackView
     }()
     private lazy var refrigeratorNameLabel : UILabel = {
         let refNameLabel = UILabel()
         refNameLabel.textColor = UIColor.black
-        refNameLabel.font = UIFont.systemFont(ofSize: 16)
+        refNameLabel.font = UIFont(name: "NanumSquareOTF_acB", size: 16)
         return refNameLabel
     }()
     
     private lazy var ingredientCntLabel : UILabel = {
         let igCntLabel = UILabel()
         igCntLabel.textColor = UIColor(named: "brownishgrey")
-        igCntLabel.font = UIFont.systemFont(ofSize: 10)
+        igCntLabel.font = UIFont(name: "NanumSquareOTF_acB", size: 10)
         return igCntLabel
     }()
     private lazy var pushDetailButton : UIButton = {
@@ -35,58 +35,26 @@ class RefirgeratorTVCell: UITableViewCell {
         detailButton.setImage(UIImage(named: "pushImg"), for: .normal)
         return detailButton
     }()
-    //MARK: - secondStack
-    private lazy var secondStackView : UIStackView = {
-        let secondStackView = UIStackView()
-        secondStackView.axis = .horizontal
-        secondStackView.alignment = .fill
-        secondStackView.layer.borderWidth = 1
-        secondStackView.layer.borderColor = UIColor(named: "verylightpink")?.cgColor
-        secondStackView.layer.cornerRadius = 4
-        return secondStackView
-    }()
-    //MARK: - thirdStack
-    private lazy var thirdStackView : UIStackView = {
-        let thirdStackView = UIStackView()
-        thirdStackView.axis = .horizontal
-        thirdStackView.alignment = .fill
-        thirdStackView.layer.borderWidth = 1
-        thirdStackView.layer.borderColor = UIColor(named: "verylightpink")?.cgColor
-        thirdStackView.layer.cornerRadius = 4
-        return thirdStackView
-    }()
-    //MARK: - fourStack
-    private lazy var fourStackView : UIStackView = {
-        let fourStackView = UIStackView()
-        fourStackView.axis = .horizontal
-        fourStackView.alignment = .fill
-        fourStackView.layer.borderWidth = 1
-        fourStackView.layer.borderColor = UIColor(named: "verylightpink")?.cgColor
-        fourStackView.layer.cornerRadius = 4
-        return fourStackView
-    }()
-    private lazy var fiveStackView : UIStackView = {
-        let fiveStackView = UIStackView()
-        fiveStackView.axis = .vertical
-        fiveStackView.alignment = .fill
-        fiveStackView.distribution = .fillEqually
-        fiveStackView.spacing = 8
-        return fiveStackView
+    //MARK: - firstIngredientView
+    let firstIngredientView = setIngredientView(ingredientName: "재료명", ingredientCnt: 1, remainPeriod: 1)
+    //MARK: - twoIngredientView
+    let twoIngredientView = setIngredientView(ingredientName: "재료명", ingredientCnt: 2, remainPeriod: 2)
+    //MARK: - thirdIngredientView
+    let thirdIngredientView = setIngredientView(ingredientName: "재료명", ingredientCnt: 3, remainPeriod: 3)
+//    let thirdIngredientView = addIngredientButton()
+    private lazy var ingredientStackView : UIStackView = {
+        let ingredientStackView = UIStackView()
+        ingredientStackView.axis = .vertical
+        ingredientStackView.alignment = .fill
+        ingredientStackView.distribution = .fillEqually
+        ingredientStackView.spacing = 8
+        return ingredientStackView
     }()
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addContentView()
         setAutoLayout()
-        backgroundColor = .clear // very important
-        layer.masksToBounds = false
-        layer.shadowOpacity = 0.23
-        layer.shadowRadius = 4
-        layer.shadowOffset = CGSize(width: 0, height: 0)
-        layer.shadowColor = UIColor.black.cgColor
-        
-        // add corner radius on `contentView`
-        contentView.backgroundColor = .white
-        contentView.layer.cornerRadius = 8
+        setShadow()
         
     }
     
@@ -103,39 +71,43 @@ class RefirgeratorTVCell: UITableViewCell {
 }
 
 extension RefirgeratorTVCell {
-    //    func setCellUI(){
-    //        layer.shadowColor = UIColor.black.cgColor
-    //        layer.shadowOpacity = 1
-    //        layer.shadowRadius = 0.5
-    ////        layer.shadowOffset = CGSize(width: 5, height: 5)
-    //        layer.shadowOffset = .zero
-    //        contentView.layer.masksToBounds = false
-    //    }
+    func setShadow(){
+        backgroundColor = .clear // very important
+        layer.masksToBounds = false
+        layer.shadowOpacity = 0.08
+        layer.shadowRadius = 4
+        layer.shadowOffset = CGSize(width: 0, height: 0)
+        layer.shadowColor = UIColor.black.cgColor
+        
+        // add corner radius on `contentView`
+        contentView.backgroundColor = .white
+        contentView.layer.cornerRadius = 8
+    }
     func addContentView(){
         contentView.addSubview(firstStackView)
         contentView.addSubview(pushDetailButton)
-        contentView.addSubview(fiveStackView)
+        contentView.addSubview(ingredientStackView)
         firstStackView.addArrangedSubview(refrigeratorNameLabel)
         firstStackView.addArrangedSubview(ingredientCntLabel)
-        fiveStackView.addArrangedSubview(secondStackView)
-        fiveStackView.addArrangedSubview(thirdStackView)
-        fiveStackView.addArrangedSubview(fourStackView)
+        ingredientStackView.addArrangedSubview(firstIngredientView)
+        ingredientStackView.addArrangedSubview(twoIngredientView)
+        ingredientStackView.addArrangedSubview(thirdIngredientView)
     }
     func setAutoLayout(){
         firstStackView.snp.makeConstraints { make in
-            make.top.equalTo(contentView.snp.top).offset(8)
-            make.left.equalTo(contentView.snp.left).offset(8)
+            make.top.equalTo(contentView.snp.top).offset(12)
+            make.left.equalTo(contentView.snp.left).offset(12)
             //            make.right.equalTo(contentView.snp.right).offset(-8)
         }
         pushDetailButton.snp.makeConstraints { make in
-            make.top.equalTo(contentView.snp.top).offset(8)
-            make.right.equalTo(contentView.snp.right).offset(-8)
+            make.top.equalTo(contentView.snp.top).offset(12)
+            make.right.equalTo(contentView.snp.right).offset(-12)
         }
-        fiveStackView.snp.makeConstraints { make in
-            make.top.equalTo(firstStackView.snp.bottom).offset(8)
-            make.left.equalTo(contentView.snp.left).offset(8)
-            make.right.equalTo(contentView.snp.right).offset(-8)
-            make.bottom.equalTo(contentView.snp.bottom).offset(-8)
+        ingredientStackView.snp.makeConstraints { make in
+            make.top.equalTo(firstStackView.snp.bottom).offset(12)
+            make.left.equalTo(contentView.snp.left).offset(12)
+            make.right.equalTo(contentView.snp.right).offset(-12)
+            make.bottom.equalTo(contentView.snp.bottom).offset(-12)
         }
     }
 }

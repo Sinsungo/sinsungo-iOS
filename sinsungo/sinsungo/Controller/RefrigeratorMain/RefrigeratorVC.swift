@@ -19,15 +19,7 @@ class RefrigeratorVC: UIViewController {
         refrigeratorTableView.bounces = false
         refrigeratorTableView.separatorColor = .white
         refrigeratorTableView.backgroundColor = UIColor(named: "palegrey")
-//        refrigeratorTableView.subviews.forEach {view in
-//            refrigeratorTableView.subviews.forEach { view in
-//                view.layer.shadowColor = UIColor.darkGray.cgColor
-//                view.layer.shadowOpacity = 0.4
-//                view.layer.shadowOffset = .zero
-//                view.layer.shadowRadius = 3
-//            }
-//        }
-        //MARK: - Section Setting
+//MARK: - Section Setting
         refrigeratorTableView.register(RefirgeratorTVCell.self, forCellReuseIdentifier: RefirgeratorTVCell.identi)
         refrigeratorTableView.register(RefrigeratorTVH.self, forHeaderFooterViewReuseIdentifier: RefrigeratorTVH.identi)
         refrigeratorTableView.register(RefirgeratorTVF.self, forHeaderFooterViewReuseIdentifier: RefirgeratorTVF.identi)
@@ -41,8 +33,12 @@ class RefrigeratorVC: UIViewController {
         addSubView()
         autoLayout()
         configure()
-        view.backgroundColor = UIColor(named: "palegrey")
         
+        view.backgroundColor = UIColor(named: "palegrey")
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
     }
 
 
@@ -65,7 +61,7 @@ extension RefrigeratorVC {
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.left.equalTo(view.snp.left).offset(11) //그림자 효과를 위해
             make.right.equalTo(view.snp.right).offset(-11) // 5씩 줄이고 -> TableView cell inset +5
-            make.bottom.equalTo(view.snp.bottom).offset(0) // 5씩 줄였기 때문에 상단 UILabel +5 오른쪽으로밀어야함
+            make.bottom.equalTo(view.snp.bottom) // 5씩 줄였기 때문에 상단 UILabel +5 오른쪽으로밀어야함
         }
     }
 }
@@ -87,7 +83,7 @@ extension RefrigeratorVC : UITableViewDataSource,UITableViewDelegate {
         return refirgeratorTVC
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 210
+        return 222
     }
     //MARK: - Header
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -101,7 +97,6 @@ extension RefrigeratorVC : UITableViewDataSource,UITableViewDelegate {
     }
 //MARK: - footer
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        
         guard let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: RefirgeratorTVF.identi) as? RefirgeratorTVF else { return nil}
         return footerView
         
