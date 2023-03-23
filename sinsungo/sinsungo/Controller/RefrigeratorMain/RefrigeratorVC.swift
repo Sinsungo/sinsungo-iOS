@@ -98,6 +98,10 @@ extension RefrigeratorVC : UITableViewDataSource,UITableViewDelegate {
 //MARK: - footer
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         guard let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: RefirgeratorTVF.identi) as? RefirgeratorTVF else { return nil}
+        footerView.tapAddRefClosure = { [unowned self] in
+           
+            presentModalAction()
+        }
         return footerView
         
     }
@@ -109,7 +113,22 @@ extension RefrigeratorVC : UITableViewDataSource,UITableViewDelegate {
         return 1
     }
 }
-
+extension RefrigeratorVC {
+    private func presentModalAction(){
+        let modalVC = AddRefModalVC()
+        if let sheet = modalVC.sheetPresentationController {
+            sheet.detents = [
+                .custom{ _ in
+//                    return self.view.frame.height * 0.25
+                    return 184
+                }
+            ]
+            sheet.preferredCornerRadius = 16
+        }
+    
+        self.present(modalVC, animated: true)
+    }
+}
 
 
 

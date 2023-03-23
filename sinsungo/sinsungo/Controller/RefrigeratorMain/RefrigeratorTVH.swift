@@ -23,7 +23,6 @@ class RefrigeratorTVH: UITableViewHeaderFooterView{
         super.init(reuseIdentifier: reuseIdentifier)
         addSubView()
         autoLayout()
-        print("\(groupNameLabel.font)")
 
        
     }
