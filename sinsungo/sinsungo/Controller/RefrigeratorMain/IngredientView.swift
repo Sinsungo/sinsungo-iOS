@@ -15,7 +15,6 @@ func setIngredientView(ingredientName :String ,ingredientCnt : Int , remainPerio
         containerView.layer.cornerRadius = 4
         return containerView
     }()
-    
     let firstStackView : UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
@@ -24,7 +23,7 @@ func setIngredientView(ingredientName :String ,ingredientCnt : Int , remainPerio
         stackView.spacing = 2
         return stackView
     }()
-    let secondStackView : UIStackView = {
+    let secondStackView : UIView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.alignment = .fill
@@ -48,7 +47,7 @@ func setIngredientView(ingredientName :String ,ingredientCnt : Int , remainPerio
     }()
     let remainProgressBar : UIProgressView = { // 보관 bar
         let remainProgressBar = UIProgressView()
-        remainProgressBar.progressViewStyle = .bar
+        remainProgressBar.progressViewStyle = .default
         remainProgressBar.clipsToBounds = true // 확인해보기
         remainProgressBar.layer.cornerRadius = 5
         remainProgressBar.layer.sublayers![1].cornerRadius = 5
@@ -56,31 +55,45 @@ func setIngredientView(ingredientName :String ,ingredientCnt : Int , remainPerio
         remainProgressBar.progressTintColor = UIColor(named: "palered")
         remainProgressBar.trackTintColor = UIColor(named: "whitetwo")
         remainProgressBar.progress = 0.6
+       
         return remainProgressBar
     }()
     let remainPeriod : UILabel = { //보관기한
         let remainPeriodLabel = UILabel()
         remainPeriodLabel.text = "+ \(remainPeriod)일"
-        remainPeriodLabel.font = UIFont(name: "NanumSquareOTF_acB", size: 10)
+        remainPeriodLabel.font = UIFont(name: "NanumSquareOTF_acB", size: 11)
         return remainPeriodLabel
     }()
+   
     containerView.addSubview(firstStackView)
     containerView.addSubview(secondStackView)
+
+    firstStackView.addArrangedSubview(ingredientLabel)
+    firstStackView.addArrangedSubview(ingredientCntLabel)
+    secondStackView.addSubview(remainProgressBar)
+    secondStackView.addSubview(remainPeriod)
     firstStackView.snp.makeConstraints { make in
         make.left.equalTo(containerView.snp.left).offset(12)
-        
         make.top.equalTo(containerView.snp.top).offset(8)
     }
     secondStackView.snp.makeConstraints { make in
-        make.top.equalTo(firstStackView.snp.bottom).offset(8)
+        make.top.equalTo(firstStackView.snp.bottom).offset(12)
         make.left.equalTo(containerView.snp.left).offset(12)
         make.right.equalTo(containerView.snp.right).offset(-12)
-        make.bottom.equalTo(containerView.snp.bottom).offset(-8)
+        make.bottom.equalTo(containerView.snp.bottom).offset(-12)
     }
-    firstStackView.addArrangedSubview(ingredientLabel)
-    firstStackView.addArrangedSubview(ingredientCntLabel)
-    secondStackView.addArrangedSubview(remainProgressBar)
-    secondStackView.addArrangedSubview(remainPeriod)
+    remainProgressBar.setContentHuggingPriority(.init(750), for: .horizontal)
+    remainProgressBar.snp.makeConstraints { make in
+        make.top.left.bottom.equalToSuperview()
+        make.height.equalTo(13)
+    }
+    
+    remainPeriod.setContentHuggingPriority(.init(751), for: .horizontal)
+    remainPeriod.snp.makeConstraints { make in
+        make.top.right.bottom.equalToSuperview()
+        make.left.equalTo(remainProgressBar.snp.right).offset(9)
+    }
+ 
     return containerView
 }
 
