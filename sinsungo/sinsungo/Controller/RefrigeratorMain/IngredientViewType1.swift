@@ -7,7 +7,7 @@
 
 import UIKit
 import SnapKit
-func setIngredientView(ingredientName :String ,ingredientCnt : Int , remainPeriod : Int ) -> UIView{
+func setIngredientViewType1(ingredientName :String ,ingredientCnt : Int , remainPeriod : Int ) -> UIView{
     let containerView : UIView = {
         let containerView = UIView()
         containerView.layer.borderWidth = 1

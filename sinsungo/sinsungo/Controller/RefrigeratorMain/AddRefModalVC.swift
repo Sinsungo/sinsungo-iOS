@@ -129,23 +129,12 @@ extension AddRefModalVC  {
         self.dismiss(animated: true)
     }
 }
+#if canImport(SwiftUI) && DEBUG
 import SwiftUI
-@available(iOS 13.0.0, *)
-struct AddRefModalVCRepresentable: UIViewControllerRepresentable {
-    typealias UIViewControllerType = AddRefModalVC
-    
-    func makeUIViewController(context: Context) -> AddRefModalVC {
-        return AddRefModalVC()
-    }
-    
-    func updateUIViewController(_ uiViewController: AddRefModalVC, context: Context) {
-    }
-}
 struct AddRefModalVCPreview: PreviewProvider {
     static var previews: some View {
-        AddRefModalVCRepresentable()
-            .previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro"))
-            .previewDisplayName("iPhone 14 Pro")
+        AddRefModalVC().showPreview(.iPhone14Pro)
     }
 }
+#endif
 
