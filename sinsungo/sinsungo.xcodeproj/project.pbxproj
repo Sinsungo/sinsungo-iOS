@@ -21,6 +21,9 @@
 		F870078429B0DDE600522B35 /* ShopBasketVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F870078329B0DDE600522B35 /* ShopBasketVC.swift */; };
 		F887E74F297A867E003A75C3 /* RefrigeratorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F887E74E297A867E003A75C3 /* RefrigeratorVC.swift */; };
 		F88838972993D2B000ED2C7A /* AddIngredientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88838962993D2B000ED2C7A /* AddIngredientButton.swift */; };
+		F891A40629BC8E2900933615 /* AddRefModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F891A40529BC8E2900933615 /* AddRefModalVC.swift */; };
+		F8A76E6D29CB0BF300DDED00 /* ExtensionUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A76E6C29CB0BF300DDED00 /* ExtensionUITextField.swift */; };
+		F8A76E6F29CB0D1700DDED00 /* FontSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A76E6E29CB0D1700DDED00 /* FontSet.swift */; };
 		F8BFBE61293B84A7007173BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFBE60293B84A7007173BA /* AppDelegate.swift */; };
 		F8BFBE63293B84A7007173BA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFBE62293B84A7007173BA /* SceneDelegate.swift */; };
 		F8BFBE65293B84A7007173BA /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFBE64293B84A7007173BA /* LoginVC.swift */; };
@@ -70,6 +73,9 @@
 		F870078329B0DDE600522B35 /* ShopBasketVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopBasketVC.swift; sourceTree = "<group>"; };
 		F887E74E297A867E003A75C3 /* RefrigeratorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefrigeratorVC.swift; sourceTree = "<group>"; };
 		F88838962993D2B000ED2C7A /* AddIngredientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIngredientButton.swift; sourceTree = "<group>"; };
+		F891A40529BC8E2900933615 /* AddRefModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRefModalVC.swift; sourceTree = "<group>"; };
+		F8A76E6C29CB0BF300DDED00 /* ExtensionUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUITextField.swift; sourceTree = "<group>"; };
+		F8A76E6E29CB0D1700DDED00 /* FontSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSet.swift; sourceTree = "<group>"; };
 		F8BFBE5D293B84A7007173BA /* sinsungo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sinsungo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8BFBE60293B84A7007173BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8BFBE62293B84A7007173BA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,15 +131,9 @@
 				F80B235F2988378B009451A4 /* RefirgeratorTVF.swift */,
 				F8E4833E299152B6001849D4 /* IngredientView.swift */,
 				F88838962993D2B000ED2C7A /* AddIngredientButton.swift */,
+				F891A40529BC8E2900933615 /* AddRefModalVC.swift */,
 			);
 			path = RefrigeratorMain;
-			sourceTree = "<group>";
-		};
-		F80B236129884798009451A4 /* AutoLayoutDefault */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = AutoLayoutDefault;
 			sourceTree = "<group>";
 		};
 		F870077C29B0DD6300522B35 /* ShopBasket */ = {
@@ -158,20 +158,6 @@
 				F870077F29B0DDC800522B35 /* MyProfileVC.swift */,
 			);
 			path = MyProfile;
-			sourceTree = "<group>";
-		};
-		F887E74B297A8571003A75C3 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		F887E74C297A857B003A75C3 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		F887E74D297A8585003A75C3 /* Controller */ = {
@@ -210,10 +196,7 @@
 		F8BFBE5F293B84A7007173BA /* sinsungo */ = {
 			isa = PBXGroup;
 			children = (
-				F80B236129884798009451A4 /* AutoLayoutDefault */,
 				F887E74D297A8585003A75C3 /* Controller */,
-				F887E74C297A857B003A75C3 /* View */,
-				F887E74B297A8571003A75C3 /* Model */,
 				F8D0029F296EFEC200820C6C /* Font */,
 				F8D0029C296EF38400820C6C /* Extension */,
 				F8BFBE60293B84A7007173BA /* AppDelegate.swift */,
@@ -249,6 +232,7 @@
 				F8D0029D296EF39D00820C6C /* ExtensionUIColor.swift */,
 				F81E57AF298AA3750055EF84 /* ExtensionUIView.swift */,
 				F8C059EB29950A7D001719A9 /* ExtensionUIButton.swift */,
+				F8A76E6C29CB0BF300DDED00 /* ExtensionUITextField.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -260,6 +244,7 @@
 				F827C4F62992D7DC00998BC8 /* NanumSquareOTF_acEB.otf */,
 				F827C4F82992D7F200998BC8 /* NanumSquareOTF_acB.otf */,
 				F827C4FA2992D80700998BC8 /* NanumSquareOTF_acR.otf */,
+				F8A76E6E29CB0D1700DDED00 /* FontSet.swift */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -409,9 +394,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F891A40629BC8E2900933615 /* AddRefModalVC.swift in Sources */,
 				F81E57B0298AA3750055EF84 /* ExtensionUIView.swift in Sources */,
 				F8BFBE65293B84A7007173BA /* LoginVC.swift in Sources */,
+				F8A76E6D29CB0BF300DDED00 /* ExtensionUITextField.swift in Sources */,
 				F8BFBE61293B84A7007173BA /* AppDelegate.swift in Sources */,
+				F8A76E6F29CB0D1700DDED00 /* FontSet.swift in Sources */,
 				F870077B29B0DD2500522B35 /* MainTabBarVC.swift in Sources */,
 				F8E4833F299152B6001849D4 /* IngredientView.swift in Sources */,
 				F8BFBE63293B84A7007173BA /* SceneDelegate.swift in Sources */,

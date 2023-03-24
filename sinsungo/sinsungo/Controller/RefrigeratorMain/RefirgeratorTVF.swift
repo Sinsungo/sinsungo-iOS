@@ -10,6 +10,7 @@ import UIKit
 class RefirgeratorTVF: UITableViewHeaderFooterView {
 
     static let identi = "RefirgeratorTVFid"
+    var tapAddRefClosure :(() -> ())?
     private lazy var containerView : UIStackView = {
         let containerView = UIStackView()
         containerView.backgroundColor = .clear
@@ -38,6 +39,7 @@ class RefirgeratorTVF: UITableViewHeaderFooterView {
         let addRefButotn = UIButton(configuration: config)
         addRefButotn.backgroundColor = UIColor(red: 240, green: 240, blue: 240)
         addRefButotn.layer.cornerRadius = 4
+        addRefButotn.addTarget(self, action: #selector(tapAddRefAction), for: .touchUpInside)
         return addRefButotn
     }()
     override init(reuseIdentifier: String?) {
@@ -65,5 +67,8 @@ extension RefirgeratorTVF {
             make.right.equalToSuperview().offset(-5)
         }
         
+    }
+    @objc func tapAddRefAction(){
+        tapAddRefClosure?()
     }
 }
