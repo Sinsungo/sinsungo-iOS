@@ -80,6 +80,22 @@ extension RefirgeratorTVCell {
             let IngredientView = setIngredientView(ingredientName: i.ingredientName, ingredientCnt: i.ingredientCnt, remainPeriod: i.remainPeriod)
             ingredientStackView.addArrangedSubview(IngredientView)
         }
+//        if model.count != 3 {
+//            let addIngredientButton = addIngredientButton()
+//            contentView.addSubview(addIngredientButton)
+//            ingredientStackView.snp.updateConstraints { make in
+//                make.top.equalTo(firstView.snp.bottom).offset(12)
+//                make.left.equalTo(contentView.snp.left).offset(12)
+//                make.right.equalTo(contentView.snp.right).offset(-12)
+//            }
+//            addIngredientButton.snp.makeConstraints { make in
+//                make.top.equalTo(ingredientStackView.snp.bottom).offset(13)
+//                make.left.equalTo(contentView.snp.left).offset(12)
+//                make.right.equalTo(contentView.snp.right).offset(-12)
+//                make.bottom.equalTo(contentView.snp.bo).offset(-18)
+//            }
+//
+//        }
     
     }
     func setShadow(){
