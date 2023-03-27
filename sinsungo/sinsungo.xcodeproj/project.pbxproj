@@ -43,6 +43,8 @@
 		F8ECB7FF29CDA5F1000A0947 /* RefIngredientTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ECB7FE29CDA5F1000A0947 /* RefIngredientTVCell.swift */; };
 		F8ECB80329CDBAF4000A0947 /* RefIngredientTVH.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ECB80229CDBAF4000A0947 /* RefIngredientTVH.swift */; };
 		F8F7AA8A2949E4BA00AF8D7D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F8F7AA892949E4BA00AF8D7D /* SnapKit */; };
+		F8FF7ED629D183C500822C13 /* SortModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FF7ED529D183C500822C13 /* SortModalVC.swift */; };
+		F8FF7EDC29D190F900822C13 /* SortModalTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FF7EDB29D190F900822C13 /* SortModalTVCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +102,8 @@
 		F8ECB7FC29CDA51F000A0947 /* ExtensionUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIViewController.swift; sourceTree = "<group>"; };
 		F8ECB7FE29CDA5F1000A0947 /* RefIngredientTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefIngredientTVCell.swift; sourceTree = "<group>"; };
 		F8ECB80229CDBAF4000A0947 /* RefIngredientTVH.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefIngredientTVH.swift; sourceTree = "<group>"; };
+		F8FF7ED529D183C500822C13 /* SortModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortModalVC.swift; sourceTree = "<group>"; };
+		F8FF7EDB29D190F900822C13 /* SortModalTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortModalTVCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +269,8 @@
 				F8ECB7F829CDA4EB000A0947 /* RefIngredientVC.swift */,
 				F8ECB7FE29CDA5F1000A0947 /* RefIngredientTVCell.swift */,
 				F8ECB80229CDBAF4000A0947 /* RefIngredientTVH.swift */,
+				F8FF7ED529D183C500822C13 /* SortModalVC.swift */,
+				F8FF7EDB29D190F900822C13 /* SortModalTVCell.swift */,
 			);
 			path = RefIngredient;
 			sourceTree = "<group>";
@@ -424,12 +430,14 @@
 				F8BFBE61293B84A7007173BA /* AppDelegate.swift in Sources */,
 				F8A76E6F29CB0D1700DDED00 /* FontSet.swift in Sources */,
 				F870077B29B0DD2500522B35 /* MainTabBarVC.swift in Sources */,
+				F8FF7ED629D183C500822C13 /* SortModalVC.swift in Sources */,
 				F8E4833F299152B6001849D4 /* IngredientViewType1.swift in Sources */,
 				F8BFBE63293B84A7007173BA /* SceneDelegate.swift in Sources */,
 				F870078229B0DDD500522B35 /* SearchVC.swift in Sources */,
 				F8C059EC29950A7D001719A9 /* ExtensionUIButton.swift in Sources */,
 				F8D0029E296EF39D00820C6C /* ExtensionUIColor.swift in Sources */,
 				F80B23602988378B009451A4 /* RefirgeratorTVF.swift in Sources */,
+				F8FF7EDC29D190F900822C13 /* SortModalTVCell.swift in Sources */,
 				F870078429B0DDE600522B35 /* ShopBasketVC.swift in Sources */,
 				F887E74F297A867E003A75C3 /* RefrigeratorVC.swift in Sources */,
 				F870078029B0DDC800522B35 /* MyProfileVC.swift in Sources */,

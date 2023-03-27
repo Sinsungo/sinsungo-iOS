@@ -9,6 +9,7 @@ import UIKit
 
 class RefIngredientTVH: UITableViewHeaderFooterView {
     static let identi = "RefIngredientTVHid"
+    var tapSortButtonClosure :(() -> ())?
     private lazy var containerView : UIView = {
         let containerView = UIView()
         return containerView
@@ -22,17 +23,11 @@ class RefIngredientTVH: UITableViewHeaderFooterView {
         return upperStackView
     }()
     private lazy var sortButton : UIButton = {
-        var config = UIButton.Configuration.plain()
-        config.attributedTitle = AttributedString("기본순", attributes: AttributeContainer([NSAttributedString.Key.font : UIFont(name: CustomFont.Bold.rawValue, size: 12)!]))
-        config.image = UIImage(named: "sortImg")
-        config.baseForegroundColor = .black
-        config.imagePlacement = .leading
-        config.imagePadding = 4
-        config.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 8, bottom: 4, trailing: 10)
-        let sortButton = UIButton(configuration: config)
+        let sortButton = UIButton()
         sortButton.backgroundColor = UIColor(named: "whitetwo")
         sortButton.layer.cornerRadius = 16
         sortButton.layer.masksToBounds = true
+        sortButton.addTarget(self, action: #selector(tapSortButton), for: .touchUpInside)
         return sortButton
     }()
     private lazy var expireDateButton : UIButton = {
@@ -77,5 +72,18 @@ extension RefIngredientTVH {
         upperStackView.snp.makeConstraints { make in
             make.top.left.bottom.equalToSuperview()
         }
+    }
+    @objc private func tapSortButton(){
+        tapSortButtonClosure?()
+    }
+    func setSortButton(sortStandard : String){
+        var config = UIButton.Configuration.plain()
+        config.attributedTitle = AttributedString("\(sortStandard)", attributes: AttributeContainer([NSAttributedString.Key.font : UIFont(name: CustomFont.Bold.rawValue, size: 12)!]))
+        config.image = UIImage(named: "sortImg")
+        config.baseForegroundColor = .black
+        config.imagePlacement = .leading
+        config.imagePadding = 4
+        config.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 8, bottom: 4, trailing: 10)
+        sortButton.configuration = config
     }
 }

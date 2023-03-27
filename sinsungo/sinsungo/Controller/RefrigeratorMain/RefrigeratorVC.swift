@@ -26,7 +26,6 @@ class RefrigeratorVC: UIViewController {
         let refrigeratorTableView = UITableView(frame: .zero, style: .grouped)
         refrigeratorTableView.bounces = false
         refrigeratorTableView.separatorColor = .clear
-        refrigeratorTableView.backgroundColor = UIColor(named: "palegrey")
 //MARK: - Section Setting
         refrigeratorTableView.register(RefirgeratorTVCell.self, forCellReuseIdentifier: RefirgeratorTVCell.identi)
         refrigeratorTableView.register(RefrigeratorTVH.self, forHeaderFooterViewReuseIdentifier: RefrigeratorTVH.identi)
@@ -66,7 +65,9 @@ extension RefrigeratorVC : UITableViewDataSource,UITableViewDelegate {
         refirgeratorTVC.tapDetailButtonClosure = { [unowned self] in
             refName = sectionTitleTest[indexPath.row]
             pushRefIngredientVC()
+        
         }
+        refirgeratorTVC.selectionStyle = .none
 //        let radius = refirgeratorTVC.contentView.layer.cornerRadius
 //        refirgeratorTVC.layer.shadowPath = UIBezierPath(roundedRect: refirgeratorTVC.bounds, cornerRadius: radius).cgPath
         return refirgeratorTVC

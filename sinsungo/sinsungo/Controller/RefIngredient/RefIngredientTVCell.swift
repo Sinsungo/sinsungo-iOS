@@ -38,8 +38,8 @@ class RefIngredientTVCell: UITableViewCell {
         let remainProgressBar = UIProgressView()
         remainProgressBar.progressViewStyle = .default
         remainProgressBar.clipsToBounds = true // 확인해보기
-        remainProgressBar.layer.cornerRadius = 5
-        remainProgressBar.layer.sublayers![1].cornerRadius = 5
+        remainProgressBar.layer.cornerRadius = 4
+        remainProgressBar.layer.sublayers![1].cornerRadius = 4
         remainProgressBar.subviews[1].clipsToBounds = true
         remainProgressBar.progressTintColor = UIColor(named: "palered")
         remainProgressBar.trackTintColor = UIColor(named: "whitetwo")
@@ -90,7 +90,7 @@ class RefIngredientTVCell: UITableViewCell {
     }
     override func layoutSubviews() {
         super.layoutSubviews()
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 6, left: 0, bottom: 6, right: 0))
+//        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 6, left: 0, bottom: 6, right: 0))
     }
     
 }

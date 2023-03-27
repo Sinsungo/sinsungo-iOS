@@ -47,8 +47,11 @@ extension UIViewController {
     func showPreview(_ deviceType: DeviceType = .iPhone12Pro) -> some View {
         Preview(viewController: self).previewDevice(PreviewDevice(rawValue: deviceType.name()))
     }
-    @objc func backVC(){
+    @objc func tapPop(){
         self.navigationController?.popViewController(animated: true)
+    }
+    @objc func tapDismiss(){
+        self.dismiss(animated: true)
     }
 }
 #endif

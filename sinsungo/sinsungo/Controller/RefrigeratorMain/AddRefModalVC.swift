@@ -68,7 +68,7 @@ class AddRefModalVC: UIViewController {
         let cancelButton = UIButton(configuration: config)
         cancelButton.layer.cornerRadius = 8
         cancelButton.backgroundColor = UIColor(named: "whitetwo")
-        cancelButton.addTarget(self, action: #selector(tapCancel), for: .touchUpInside)
+        cancelButton.addTarget(self, action: #selector(tapDismiss), for: .touchUpInside)
         return cancelButton
     }()
     private lazy var makeRefButton : UIButton = {
@@ -77,7 +77,7 @@ class AddRefModalVC: UIViewController {
         config.baseForegroundColor = .white
         let makeRefButton = UIButton(configuration: config)
         makeRefButton.layer.cornerRadius = 8
-        makeRefButton.backgroundColor = UIColor(named: "primaryColor")
+        makeRefButton.backgroundColor = UIColor(named: "primarycolor")
         return makeRefButton
     }()
     override func viewDidLoad() {
@@ -125,9 +125,7 @@ extension AddRefModalVC  {
         }
         buttonStackView.setContentHuggingPriority(.init(750), for: .vertical)
     }
-    @objc func tapCancel(){
-        self.dismiss(animated: true)
-    }
+    
 }
 #if canImport(SwiftUI) && DEBUG
 import SwiftUI
