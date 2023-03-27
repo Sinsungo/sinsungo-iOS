@@ -13,15 +13,18 @@ struct RefIngredientFormat {
     let storageType : String
     let storageDate : String
 }
-protocol presendDataDelegate : AnyObject {
+protocol sortVCDelegate : AnyObject {
     func send(standard: String)
+}
+protocol expireVCDelegate : AnyObject {
+    func send(expireDate: String)
 }
 class RefIngredientVC: UIViewController {
     
     
     var refName : String = "{냉장고 이름}"
     var sortStandard : String = "기본순 (최신순)"
-    
+    var exipireDate : String = "유통기한"
     let refIngredSampleDate = (1...5).map{_ in return RefIngredientFormat(ingredientName: "재료명", ingredientCnt: 1, storageType: "{보관구분}", storageDate: "yyyy-MM-dd")}
     private lazy var ingredientTableView : UITableView = {
         let ingredientTableView = UITableView(frame: .zero, style: .grouped)
@@ -95,8 +98,17 @@ extension RefIngredientVC : UITableViewDelegate ,UITableViewDataSource {
         if section == 0 {
             guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: RefIngredientTVH.identi) as? RefIngredientTVH else { return nil}
             headerView.setSortButton(sortStandard: sortStandard)
+            headerView.setExpireButton(expireDate : exipireDate)
             headerView.tapSortButtonClosure = { [unowned self] in
-                presentModalAction()
+                let modalVC = SortModalVC()
+                presentModal(vc: modalVC, height: 242)
+                modalVC.sortDelegate = self
+                
+            }
+            headerView.tapExpireButtonClosure = { [unowned self] in
+                let modalVC = ExpireDateModalVC()
+                presentModal(vc: modalVC, height: 220)
+                modalVC.expireDelegate = self
             }
             
             return headerView
@@ -137,26 +149,32 @@ extension RefIngredientVC {
         self.navigationItem.rightBarButtonItem = rightbuttonItem
         self.navigationController?.navigationBar.tintColor = .black
     }
-    private func presentModalAction(){
-        let modalVC = SortModalVC()
+    private func presentModal(vc: UIViewController ,height : CGFloat){
+        let modalVC = vc
         if let sheet = modalVC.sheetPresentationController {
             sheet.detents = [
                 .custom{ _ in
-                    return 250
+                    return height
                 }
             ]
             sheet.preferredCornerRadius = 16
             
         }
-        modalVC.presendDataDelegate = self
         self.present(modalVC, animated: true)
     }
+ 
     @objc private func tapSettingButton(){
     }
 }
-extension RefIngredientVC : presendDataDelegate {
+extension RefIngredientVC : sortVCDelegate {
     func send(standard: String) {
         self.sortStandard = standard
+        ingredientTableView.reloadData()
+    }
+}
+extension RefIngredientVC : expireVCDelegate{
+    func send(expireDate: String) {
+        self.exipireDate = expireDate
         ingredientTableView.reloadData()
     }
 }

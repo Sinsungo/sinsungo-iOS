@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 class SortModalVC: UIViewController {
     let sortArr = ["기본순 (최신순)","유통기한 임박순","이름순"]
-    weak var presendDataDelegate : presendDataDelegate?
+    weak var sortDelegate : sortVCDelegate?
     var standard = "기본순 (최신순)"
     private lazy var explainLabel : UILabel = {
         let explainLabel = UILabel()
@@ -60,17 +60,20 @@ extension SortModalVC {
             make.left.equalToSuperview().offset(16)
             make.right.equalToSuperview()
         }
+        explainLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
         checkTableView.snp.makeConstraints { make in
             make.top.equalTo(explainLabel.snp.bottom).offset(24)
             make.left.equalToSuperview().offset(16)
             make.right.equalToSuperview().offset(-16)
         }
+        checkTableView.setContentHuggingPriority(.init(750), for: .vertical)
         cancelButton.snp.makeConstraints { make in
             make.top.equalTo(checkTableView.snp.bottom).offset(21)
             make.left.equalToSuperview().offset(16)
             make.right.equalToSuperview().offset(-16)
             make.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-12)
         }
+        cancelButton.setContentHuggingPriority(.defaultHigh, for: .vertical)
     }
     private func setCell(){
         checkTableView.delegate = self
@@ -96,7 +99,7 @@ extension SortModalVC : UITableViewDelegate,UITableViewDataSource {
         return UIView()
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 18
+        return 15
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
@@ -109,7 +112,7 @@ extension SortModalVC : UITableViewDelegate,UITableViewDataSource {
         default:
             standard = "기본순 (최신순)"
         }
-        self.presendDataDelegate?.send(standard: self.standard)
+        self.sortDelegate?.send(standard: self.standard)
         self.presentingViewController?.dismiss(animated: true)
     }
 

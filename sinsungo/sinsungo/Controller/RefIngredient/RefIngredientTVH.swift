@@ -10,6 +10,7 @@ import UIKit
 class RefIngredientTVH: UITableViewHeaderFooterView {
     static let identi = "RefIngredientTVHid"
     var tapSortButtonClosure :(() -> ())?
+    var tapExpireButtonClosure :(() -> ())?
     private lazy var containerView : UIView = {
         let containerView = UIView()
         return containerView
@@ -31,17 +32,11 @@ class RefIngredientTVH: UITableViewHeaderFooterView {
         return sortButton
     }()
     private lazy var expireDateButton : UIButton = {
-        var config = UIButton.Configuration.plain()
-        config.attributedTitle = AttributedString("유통기한", attributes: AttributeContainer([NSAttributedString.Key.font : UIFont(name: CustomFont.Bold.rawValue, size: 12)!]))
-        config.image = UIImage(named: "dropDownImg")
-        config.baseForegroundColor = .black
-        config.imagePlacement = .trailing
-        config.imagePadding = 4
-        config.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 10, bottom: 4, trailing: 8)
-        let expireDateButton = UIButton(configuration: config)
+        let expireDateButton = UIButton()
         expireDateButton.backgroundColor = UIColor(named: "whitetwo")
         expireDateButton.layer.cornerRadius = 16
         expireDateButton.layer.masksToBounds = true
+        expireDateButton.addTarget(self, action: #selector(tapExpireButton), for: .touchUpInside)
         return expireDateButton
     }()
     override init(reuseIdentifier: String?) {
@@ -76,6 +71,9 @@ extension RefIngredientTVH {
     @objc private func tapSortButton(){
         tapSortButtonClosure?()
     }
+    @objc private func tapExpireButton(){
+        tapExpireButtonClosure?()
+    }
     func setSortButton(sortStandard : String){
         var config = UIButton.Configuration.plain()
         config.attributedTitle = AttributedString("\(sortStandard)", attributes: AttributeContainer([NSAttributedString.Key.font : UIFont(name: CustomFont.Bold.rawValue, size: 12)!]))
@@ -85,5 +83,21 @@ extension RefIngredientTVH {
         config.imagePadding = 4
         config.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 8, bottom: 4, trailing: 10)
         sortButton.configuration = config
+    }
+    func setExpireButton(expireDate : String){
+        let selectExpireDate = expireDate
+        var config = UIButton.Configuration.plain()
+        if selectExpireDate == "유통기한" {
+            config.attributedTitle = AttributedString("\(selectExpireDate)", attributes: AttributeContainer([NSAttributedString.Key.font : UIFont(name: CustomFont.Bold.rawValue, size: 12)!]))
+        }else{
+            config.attributedTitle = AttributedString("\(selectExpireDate)일 전", attributes: AttributeContainer([NSAttributedString.Key.font : UIFont(name: CustomFont.Bold.rawValue, size: 12)!]))
+        }
+       
+        config.image = UIImage(named: "dropDownImg")
+        config.baseForegroundColor = .black
+        config.imagePlacement = .trailing
+        config.imagePadding = 4
+        config.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 10, bottom: 4, trailing: 8)
+        expireDateButton.configuration = config
     }
 }

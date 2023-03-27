@@ -63,8 +63,9 @@ class AddRefModalVC: UIViewController {
     }()
     private lazy var cancelButton : UIButton = {
         var config = UIButton.Configuration.plain()
-        config.attributedTitle = AttributedString("닫기", attributes: AttributeContainer([NSAttributedString.Key.font : UIFont(name: "NanumSquareOTF_acB", size: 14)!]))
+        config.attributedTitle = AttributedString("닫기", attributes: AttributeContainer([NSAttributedString.Key.font : UIFont(name: CustomFont.Bold.rawValue, size: 14)!]))
         config.baseForegroundColor = UIColor(named: "brownishgrey")
+        config.contentInsets = NSDirectionalEdgeInsets.init(top: 17, leading: 0, bottom: 17, trailing: 0)
         let cancelButton = UIButton(configuration: config)
         cancelButton.layer.cornerRadius = 8
         cancelButton.backgroundColor = UIColor(named: "whitetwo")
@@ -73,8 +74,9 @@ class AddRefModalVC: UIViewController {
     }()
     private lazy var makeRefButton : UIButton = {
         var config = UIButton.Configuration.plain()
-        config.attributedTitle = AttributedString("만들기", attributes: AttributeContainer([NSAttributedString.Key.font : UIFont(name: "NanumSquareOTF_acB", size: 14)!]))
+        config.attributedTitle = AttributedString("만들기", attributes: AttributeContainer([NSAttributedString.Key.font : UIFont(name: CustomFont.Bold.rawValue, size: 14)!]))
         config.baseForegroundColor = .white
+        config.contentInsets = NSDirectionalEdgeInsets.init(top: 17, leading: 0, bottom: 17, trailing: 0)
         let makeRefButton = UIButton(configuration: config)
         makeRefButton.layer.cornerRadius = 8
         makeRefButton.backgroundColor = UIColor(named: "primarycolor")
@@ -108,14 +110,14 @@ extension AddRefModalVC  {
             make.left.equalTo(containerView.snp.left).offset(16)
             make.right.equalTo(containerView.snp.right).offset(-16)
         }
-        addRefLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        
         refNameTextView.snp.makeConstraints { make in
             make.top.equalTo(addRefLabel.snp.bottom).offset(11)
             make.left.equalTo(containerView.snp.left).offset(16)
             make.right.equalTo(containerView.snp.right).offset(-16)
 
         }
-        refNameTextView.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        
         buttonStackView.snp.makeConstraints { make in
             make.top.equalTo(refNameTextView.snp.bottom).offset(16)
             make.left.equalTo(containerView.snp.left).offset(16)
@@ -123,7 +125,6 @@ extension AddRefModalVC  {
             make.bottom.equalTo(containerView.snp.bottom).offset(-12)
 
         }
-        buttonStackView.setContentHuggingPriority(.init(750), for: .vertical)
     }
     
 }

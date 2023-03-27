@@ -36,6 +36,7 @@
 		F8C2A79D296EEA6000B8C4A3 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F8C2A79C296EEA6000B8C4A3 /* FirebaseAuth */; };
 		F8D0029E296EF39D00820C6C /* ExtensionUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D0029D296EF39D00820C6C /* ExtensionUIColor.swift */; };
 		F8D002A2296EFFE000820C6C /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8D002A1296EFFE000820C6C /* Roboto-Medium.ttf */; };
+		F8D455A629D1E781002E6C81 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D455A529D1E781002E6C81 /* CustomSlider.swift */; };
 		F8E4833F299152B6001849D4 /* IngredientViewType1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E4833E299152B6001849D4 /* IngredientViewType1.swift */; };
 		F8EC1573296FF33C00F71B90 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = F8EC1572296FF33C00F71B90 /* GoogleSignIn */; };
 		F8ECB7F929CDA4EB000A0947 /* RefIngredientVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ECB7F829CDA4EB000A0947 /* RefIngredientVC.swift */; };
@@ -45,6 +46,7 @@
 		F8F7AA8A2949E4BA00AF8D7D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F8F7AA892949E4BA00AF8D7D /* SnapKit */; };
 		F8FF7ED629D183C500822C13 /* SortModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FF7ED529D183C500822C13 /* SortModalVC.swift */; };
 		F8FF7EDC29D190F900822C13 /* SortModalTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FF7EDB29D190F900822C13 /* SortModalTVCell.swift */; };
+		F8FF7EE029D1DC3200822C13 /* ExpireDateModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FF7EDF29D1DC3200822C13 /* ExpireDateModalVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +99,7 @@
 		F8C059EB29950A7D001719A9 /* ExtensionUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIButton.swift; sourceTree = "<group>"; };
 		F8D0029D296EF39D00820C6C /* ExtensionUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIColor.swift; sourceTree = "<group>"; };
 		F8D002A1296EFFE000820C6C /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		F8D455A529D1E781002E6C81 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		F8E4833E299152B6001849D4 /* IngredientViewType1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientViewType1.swift; sourceTree = "<group>"; };
 		F8ECB7F829CDA4EB000A0947 /* RefIngredientVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefIngredientVC.swift; sourceTree = "<group>"; };
 		F8ECB7FC29CDA51F000A0947 /* ExtensionUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +107,7 @@
 		F8ECB80229CDBAF4000A0947 /* RefIngredientTVH.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefIngredientTVH.swift; sourceTree = "<group>"; };
 		F8FF7ED529D183C500822C13 /* SortModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortModalVC.swift; sourceTree = "<group>"; };
 		F8FF7EDB29D190F900822C13 /* SortModalTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortModalTVCell.swift; sourceTree = "<group>"; };
+		F8FF7EDF29D1DC3200822C13 /* ExpireDateModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpireDateModalVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +213,7 @@
 		F8BFBE5F293B84A7007173BA /* sinsungo */ = {
 			isa = PBXGroup;
 			children = (
+				F8D455A429D1E773002E6C81 /* Custom */,
 				F887E74D297A8585003A75C3 /* Controller */,
 				F8D0029F296EFEC200820C6C /* Font */,
 				F8D0029C296EF38400820C6C /* Extension */,
@@ -263,6 +268,14 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		F8D455A429D1E773002E6C81 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				F8D455A529D1E781002E6C81 /* CustomSlider.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
 		F8ECB7F729CDA4AD000A0947 /* RefIngredient */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +284,7 @@
 				F8ECB80229CDBAF4000A0947 /* RefIngredientTVH.swift */,
 				F8FF7ED529D183C500822C13 /* SortModalVC.swift */,
 				F8FF7EDB29D190F900822C13 /* SortModalTVCell.swift */,
+				F8FF7EDF29D1DC3200822C13 /* ExpireDateModalVC.swift */,
 			);
 			path = RefIngredient;
 			sourceTree = "<group>";
@@ -430,9 +444,11 @@
 				F8BFBE61293B84A7007173BA /* AppDelegate.swift in Sources */,
 				F8A76E6F29CB0D1700DDED00 /* FontSet.swift in Sources */,
 				F870077B29B0DD2500522B35 /* MainTabBarVC.swift in Sources */,
+				F8D455A629D1E781002E6C81 /* CustomSlider.swift in Sources */,
 				F8FF7ED629D183C500822C13 /* SortModalVC.swift in Sources */,
 				F8E4833F299152B6001849D4 /* IngredientViewType1.swift in Sources */,
 				F8BFBE63293B84A7007173BA /* SceneDelegate.swift in Sources */,
+				F8FF7EE029D1DC3200822C13 /* ExpireDateModalVC.swift in Sources */,
 				F870078229B0DDD500522B35 /* SearchVC.swift in Sources */,
 				F8C059EC29950A7D001719A9 /* ExtensionUIButton.swift in Sources */,
 				F8D0029E296EF39D00820C6C /* ExtensionUIColor.swift in Sources */,
