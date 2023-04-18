@@ -9,7 +9,9 @@ import UIKit
 
 class RefIngredientTVCell: UITableViewCell {
     static let identi = "RefIngredientTVCellid"
-    private lazy var containerView : UIView = {
+    var selectVC = false
+    
+    var containerView : UIView = {
        let containerVIew = UIView()
         return containerVIew
     }()
@@ -85,8 +87,7 @@ class RefIngredientTVCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        
     }
     override func layoutSubviews() {
         super.layoutSubviews()

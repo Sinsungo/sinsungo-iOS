@@ -71,6 +71,7 @@ class ExpireDateModalVC: UIViewController {
         addSubView()
         setAutoLayout()
     }
+  
     
 
 }
@@ -116,7 +117,6 @@ extension ExpireDateModalVC {
     @objc func tapConfirm(){
         let sendData = Int(self.stepValue)
         self.expireDelegate?.send(expireDate: "\(String(describing: sendData))")
-        
         self.presentingViewController?.dismiss(animated: true)
     }
     
