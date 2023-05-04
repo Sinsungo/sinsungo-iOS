@@ -47,3 +47,33 @@ extension UIView {
 //public static var layerMaxXMinYCorner: CACornerMask { get } 오른쪽상단
 //public static var layerMinXMaxYCorner: CACornerMask { get } 왼쪽하단
 //public static var layerMaxXMaxYCorner: CACornerMask { get } 오른쪽하단
+#if canImport(SwiftUI) && DEBUG
+import SwiftUI
+extension UIView {
+    private struct Preview: UIViewRepresentable {
+        typealias UIViewType = UIView
+
+        let view: UIView
+
+        func makeUIView(context: Context) -> UIView {
+            return view
+        }
+
+        func updateUIView(_ uiView: UIView, context: Context) {
+        }
+    }
+
+    func showPreview() -> some View {
+        Preview(view: self).previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro"))
+    }
+    func setChangeFont(changeLabel: UILabel,fontName : String,fontSize:CGFloat,targetStriong : String){
+        let fullText = changeLabel.text ?? ""
+        let attFont = UIFont(name: fontName, size: fontSize)
+        let attributedString = NSMutableAttributedString(string: fullText)
+        let range = (fullText as NSString).range(of: targetStriong)
+        attributedString.addAttribute(.font, value: attFont!, range: range)
+        changeLabel.attributedText = attributedString
+        
+    }
+}
+#endif

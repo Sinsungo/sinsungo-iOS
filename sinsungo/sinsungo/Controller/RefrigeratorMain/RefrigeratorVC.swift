@@ -7,9 +7,15 @@
 
 import UIKit
 import SnapKit
+struct IngredientFormat  {
+    let ingredientName : String
+    let ingredientCnt : Int
+    let remainPeriod : Int
+}
 class RefrigeratorVC: UIViewController {
     var groupName = "동진"
     private let sectionTitleTest : [String] = ["1번냉장고"]
+    private let sampleData : [IngredientFormat] = [IngredientFormat(ingredientName: "재료명1", ingredientCnt: 1, remainPeriod: 1),IngredientFormat(ingredientName: "재료명2", ingredientCnt: 2, remainPeriod: 2)]
 //,"2번냉장고","3번냉장고","4번냉장고","5번냉장고","6번냉장고"
     private let cnt : [String] = ["\(1)"]
 //,"\(2)","\(3)","\(4)","\(5)","\(6)"
@@ -61,7 +67,7 @@ extension RefrigeratorVC {
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.left.equalTo(view.snp.left).offset(11) //그림자 효과를 위해
             make.right.equalTo(view.snp.right).offset(-11) // 5씩 줄이고 -> TableView cell inset +5
-            make.bottom.equalTo(view.snp.bottom) // 5씩 줄였기 때문에 상단 UILabel +5 오른쪽으로밀어야함
+            make.bottom.equalTo(view.safeAreaLayoutGuide) 
         }
     }
 }
@@ -77,14 +83,13 @@ extension RefrigeratorVC : UITableViewDataSource,UITableViewDelegate {
         
         refirgeratorTVC.setRefName(model: sectionTitleTest[indexPath.row])
         refirgeratorTVC.setigdCnt(model: cnt[indexPath.row])
+        refirgeratorTVC.setIngredient(model: sampleData)
         refirgeratorTVC.contentView.layer.masksToBounds = true
 //        let radius = refirgeratorTVC.contentView.layer.cornerRadius
 //        refirgeratorTVC.layer.shadowPath = UIBezierPath(roundedRect: refirgeratorTVC.bounds, cornerRadius: radius).cgPath
         return refirgeratorTVC
     }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 222
-    }
+
     //MARK: - Header
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: RefrigeratorTVH.identi) as? RefrigeratorTVH else { return nil}
@@ -92,24 +97,38 @@ extension RefrigeratorVC : UITableViewDataSource,UITableViewDelegate {
         headerView.setGroupNameLabel(model: groupName)
         return headerView
     }
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 45
-    }
+
 //MARK: - footer
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         guard let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: RefirgeratorTVF.identi) as? RefirgeratorTVF else { return nil}
+        footerView.tapAddRefClosure = { [unowned self] in
+           
+            presentModalAction()
+        }
         return footerView
         
-    }
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 97
     }
 //MARK: - section
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 }
-
+extension RefrigeratorVC {
+    private func presentModalAction(){
+        let modalVC = AddRefModalVC()
+        if let sheet = modalVC.sheetPresentationController {
+            sheet.detents = [
+                .custom{ _ in
+//                    return self.view.frame.height * 0.25
+                    return 184
+                }
+            ]
+            sheet.preferredCornerRadius = 16
+        }
+    
+        self.present(modalVC, animated: true)
+    }
+}
 
 
 
