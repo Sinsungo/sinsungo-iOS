@@ -36,6 +36,7 @@ class RefIngredientVC: UIViewController {
         ingredientTableView.backgroundColor = UIColor(named: "palegrey")
         ingredientTableView.register(RefIngredientTVCell.self, forCellReuseIdentifier: RefIngredientTVCell.identi)
         ingredientTableView.register(RefIngredientTVH.self, forHeaderFooterViewReuseIdentifier: RefIngredientTVH.identi)
+      
         return ingredientTableView
     }()
     private lazy var backButtonCustomm : UIButton = {
@@ -66,6 +67,7 @@ class RefIngredientVC: UIViewController {
         addSubView()
         setAutoLayout()
         setTableView()
+        longTapTableView()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -121,10 +123,8 @@ extension RefIngredientVC : UITableViewDelegate ,UITableViewDataSource {
         return self.view.frame.height * 0.015
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let pushVC = SelectIngredientVC()
-        
-        self.navigationController?.pushViewController(pushVC, animated: false)
-        
+        print("tap")
+
     }
 
 }
@@ -185,6 +185,18 @@ extension RefIngredientVC {
     }
  
     @objc private func tapSettingButton(){
+    }
+    private func longTapTableView(){
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(tableViewlongPress(_:)))
+        ingredientTableView.addGestureRecognizer(longPressRecognizer)
+    }
+    @objc private func tableViewlongPress(_ gestureRecognizer : UILongPressGestureRecognizer){
+        if gestureRecognizer.state == .began {
+            let pushVC = SelectIngredientVC()
+            self.navigationController?.pushViewController(pushVC, animated: false)
+            
+        }
+        
     }
 }
 extension RefIngredientVC : sortVCDelegate {
