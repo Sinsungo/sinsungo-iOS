@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F801F1872A064471009B038F /* IngredientInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F801F1862A064471009B038F /* IngredientInfoView.swift */; };
 		F808CA5929E1225D0075DB04 /* SelectIngredientVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F808CA5829E1225D0075DB04 /* SelectIngredientVC.swift */; };
 		F80B235A2987E6C2009451A4 /* RefirgeratorTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80B23592987E6C2009451A4 /* RefirgeratorTVCell.swift */; };
 		F80B235C29882BEB009451A4 /* RefrigeratorTVH.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80B235B29882BEB009451A4 /* RefrigeratorTVH.swift */; };
@@ -16,6 +17,11 @@
 		F827C4F92992D7F200998BC8 /* NanumSquareOTF_acB.otf in Resources */ = {isa = PBXBuildFile; fileRef = F827C4F82992D7F200998BC8 /* NanumSquareOTF_acB.otf */; };
 		F827C4FB2992D80700998BC8 /* NanumSquareOTF_acR.otf in Resources */ = {isa = PBXBuildFile; fileRef = F827C4FA2992D80700998BC8 /* NanumSquareOTF_acR.otf */; };
 		F827C4FD2992DB9F00998BC8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F827C4FC2992DB9F00998BC8 /* GoogleService-Info.plist */; };
+		F845FE172A03EA00002BC49C /* RefIngredientBottomBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = F845FE162A03EA00002BC49C /* RefIngredientBottomBtn.swift */; };
+		F85C3DD82A064E7E001FD89D /* StorageInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85C3DD72A064E7E001FD89D /* StorageInfoView.swift */; };
+		F86710A52A03B88600CF9839 /* RefingredientDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86710A42A03B88600CF9839 /* RefingredientDetailVC.swift */; };
+		F86710A72A03BA5600CF9839 /* IngredientInfoSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86710A62A03BA5600CF9839 /* IngredientInfoSubView.swift */; };
+		F86710A92A03C46400CF9839 /* ExtensionStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86710A82A03C46400CF9839 /* ExtensionStackView.swift */; };
 		F870077B29B0DD2500522B35 /* MainTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F870077A29B0DD2500522B35 /* MainTabBarVC.swift */; };
 		F870078029B0DDC800522B35 /* MyProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F870077F29B0DDC800522B35 /* MyProfileVC.swift */; };
 		F870078229B0DDD500522B35 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F870078129B0DDD500522B35 /* SearchVC.swift */; };
@@ -23,6 +29,10 @@
 		F887E74F297A867E003A75C3 /* RefrigeratorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F887E74E297A867E003A75C3 /* RefrigeratorVC.swift */; };
 		F88838972993D2B000ED2C7A /* AddIngredientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88838962993D2B000ED2C7A /* AddIngredientButton.swift */; };
 		F891A40629BC8E2900933615 /* AddRefModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F891A40529BC8E2900933615 /* AddRefModalVC.swift */; };
+		F899F0812A274C24009B880C /* GridCollectionVFL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F899F0802A274C24009B880C /* GridCollectionVFL.swift */; };
+		F899F0852A274E3A009B880C /* StorageLocationCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F899F0842A274E3A009B880C /* StorageLocationCVCell.swift */; };
+		F899F0872A276E5B009B880C /* RefingredientDetailHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F899F0862A276E5B009B880C /* RefingredientDetailHeader.swift */; };
+		F899F0892A2773D6009B880C /* RefingredientDetailFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F899F0882A2773D6009B880C /* RefingredientDetailFooter.swift */; };
 		F8A76E6D29CB0BF300DDED00 /* ExtensionUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A76E6C29CB0BF300DDED00 /* ExtensionUITextField.swift */; };
 		F8A76E6F29CB0D1700DDED00 /* FontSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A76E6E29CB0D1700DDED00 /* FontSet.swift */; };
 		F8BFBE61293B84A7007173BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFBE60293B84A7007173BA /* AppDelegate.swift */; };
@@ -35,12 +45,10 @@
 		F8BFBE84293B84A8007173BA /* sinsungoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFBE83293B84A8007173BA /* sinsungoUITestsLaunchTests.swift */; };
 		F8C059EC29950A7D001719A9 /* ExtensionUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C059EB29950A7D001719A9 /* ExtensionUIButton.swift */; };
 		F8C126DC29EE9FDE008D216A /* SelectIngredientTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C126DB29EE9FDE008D216A /* SelectIngredientTVC.swift */; };
-		F8C2A79D296EEA6000B8C4A3 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F8C2A79C296EEA6000B8C4A3 /* FirebaseAuth */; };
 		F8D0029E296EF39D00820C6C /* ExtensionUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D0029D296EF39D00820C6C /* ExtensionUIColor.swift */; };
 		F8D002A2296EFFE000820C6C /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8D002A1296EFFE000820C6C /* Roboto-Medium.ttf */; };
 		F8D455A629D1E781002E6C81 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D455A529D1E781002E6C81 /* CustomSlider.swift */; };
 		F8E4833F299152B6001849D4 /* IngredientViewType1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E4833E299152B6001849D4 /* IngredientViewType1.swift */; };
-		F8EC1573296FF33C00F71B90 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = F8EC1572296FF33C00F71B90 /* GoogleSignIn */; };
 		F8ECB7F929CDA4EB000A0947 /* RefIngredientVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ECB7F829CDA4EB000A0947 /* RefIngredientVC.swift */; };
 		F8ECB7FD29CDA51F000A0947 /* ExtensionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ECB7FC29CDA51F000A0947 /* ExtensionUIViewController.swift */; };
 		F8ECB7FF29CDA5F1000A0947 /* RefIngredientTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ECB7FE29CDA5F1000A0947 /* RefIngredientTVCell.swift */; };
@@ -69,6 +77,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F801F1862A064471009B038F /* IngredientInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientInfoView.swift; sourceTree = "<group>"; };
 		F808CA5829E1225D0075DB04 /* SelectIngredientVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectIngredientVC.swift; sourceTree = "<group>"; };
 		F80B23592987E6C2009451A4 /* RefirgeratorTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefirgeratorTVCell.swift; sourceTree = "<group>"; };
 		F80B235B29882BEB009451A4 /* RefrigeratorTVH.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefrigeratorTVH.swift; sourceTree = "<group>"; };
@@ -78,6 +87,11 @@
 		F827C4F82992D7F200998BC8 /* NanumSquareOTF_acB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTF_acB.otf; sourceTree = "<group>"; };
 		F827C4FA2992D80700998BC8 /* NanumSquareOTF_acR.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTF_acR.otf; sourceTree = "<group>"; };
 		F827C4FC2992DB9F00998BC8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F845FE162A03EA00002BC49C /* RefIngredientBottomBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefIngredientBottomBtn.swift; sourceTree = "<group>"; };
+		F85C3DD72A064E7E001FD89D /* StorageInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageInfoView.swift; sourceTree = "<group>"; };
+		F86710A42A03B88600CF9839 /* RefingredientDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefingredientDetailVC.swift; sourceTree = "<group>"; };
+		F86710A62A03BA5600CF9839 /* IngredientInfoSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientInfoSubView.swift; sourceTree = "<group>"; };
+		F86710A82A03C46400CF9839 /* ExtensionStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionStackView.swift; sourceTree = "<group>"; };
 		F870077A29B0DD2500522B35 /* MainTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarVC.swift; sourceTree = "<group>"; };
 		F870077F29B0DDC800522B35 /* MyProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileVC.swift; sourceTree = "<group>"; };
 		F870078129B0DDD500522B35 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
@@ -85,6 +99,10 @@
 		F887E74E297A867E003A75C3 /* RefrigeratorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefrigeratorVC.swift; sourceTree = "<group>"; };
 		F88838962993D2B000ED2C7A /* AddIngredientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIngredientButton.swift; sourceTree = "<group>"; };
 		F891A40529BC8E2900933615 /* AddRefModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRefModalVC.swift; sourceTree = "<group>"; };
+		F899F0802A274C24009B880C /* GridCollectionVFL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCollectionVFL.swift; sourceTree = "<group>"; };
+		F899F0842A274E3A009B880C /* StorageLocationCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageLocationCVCell.swift; sourceTree = "<group>"; };
+		F899F0862A276E5B009B880C /* RefingredientDetailHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefingredientDetailHeader.swift; sourceTree = "<group>"; };
+		F899F0882A2773D6009B880C /* RefingredientDetailFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefingredientDetailFooter.swift; sourceTree = "<group>"; };
 		F8A76E6C29CB0BF300DDED00 /* ExtensionUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUITextField.swift; sourceTree = "<group>"; };
 		F8A76E6E29CB0D1700DDED00 /* FontSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSet.swift; sourceTree = "<group>"; };
 		F8BFBE5D293B84A7007173BA /* sinsungo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sinsungo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,8 +138,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8F7AA8A2949E4BA00AF8D7D /* SnapKit in Frameworks */,
-				F8C2A79D296EEA6000B8C4A3 /* FirebaseAuth in Frameworks */,
-				F8EC1573296FF33C00F71B90 /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +158,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F801F1882A06448E009B038F /* RefIngredientDetailSubView */ = {
+			isa = PBXGroup;
+			children = (
+				F899F08A2A279328009B880C /* component */,
+			);
+			path = RefIngredientDetailSubView;
+			sourceTree = "<group>";
+		};
 		F80B23582987E55B009451A4 /* RefrigeratorMain */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +178,18 @@
 				F891A40529BC8E2900933615 /* AddRefModalVC.swift */,
 			);
 			path = RefrigeratorMain;
+			sourceTree = "<group>";
+		};
+		F86710A12A03B83400CF9839 /* RefingredientDetail */ = {
+			isa = PBXGroup;
+			children = (
+				F801F1882A06448E009B038F /* RefIngredientDetailSubView */,
+				F86710A42A03B88600CF9839 /* RefingredientDetailVC.swift */,
+				F899F0862A276E5B009B880C /* RefingredientDetailHeader.swift */,
+				F899F0882A2773D6009B880C /* RefingredientDetailFooter.swift */,
+				F899F0842A274E3A009B880C /* StorageLocationCVCell.swift */,
+			);
+			path = RefingredientDetail;
 			sourceTree = "<group>";
 		};
 		F870077C29B0DD6300522B35 /* ShopBasket */ = {
@@ -192,6 +228,17 @@
 				F8BFBE64293B84A7007173BA /* LoginVC.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		F899F08A2A279328009B880C /* component */ = {
+			isa = PBXGroup;
+			children = (
+				F86710A62A03BA5600CF9839 /* IngredientInfoSubView.swift */,
+				F801F1862A064471009B038F /* IngredientInfoView.swift */,
+				F85C3DD72A064E7E001FD89D /* StorageInfoView.swift */,
+				F845FE162A03EA00002BC49C /* RefIngredientBottomBtn.swift */,
+			);
+			path = component;
 			sourceTree = "<group>";
 		};
 		F8BFBE54293B84A7007173BA = {
@@ -256,6 +303,7 @@
 				F8C059EB29950A7D001719A9 /* ExtensionUIButton.swift */,
 				F8A76E6C29CB0BF300DDED00 /* ExtensionUITextField.swift */,
 				F8ECB7FC29CDA51F000A0947 /* ExtensionUIViewController.swift */,
+				F86710A82A03C46400CF9839 /* ExtensionStackView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -276,6 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				F8D455A529D1E781002E6C81 /* CustomSlider.swift */,
+				F899F0802A274C24009B880C /* GridCollectionVFL.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -283,6 +332,7 @@
 		F8ECB7F729CDA4AD000A0947 /* RefIngredient */ = {
 			isa = PBXGroup;
 			children = (
+				F86710A12A03B83400CF9839 /* RefingredientDetail */,
 				F8ECB7F829CDA4EB000A0947 /* RefIngredientVC.swift */,
 				F8ECB7FE29CDA5F1000A0947 /* RefIngredientTVCell.swift */,
 				F8ECB80229CDBAF4000A0947 /* RefIngredientTVH.swift */,
@@ -313,8 +363,6 @@
 			name = sinsungo;
 			packageProductDependencies = (
 				F8F7AA892949E4BA00AF8D7D /* SnapKit */,
-				F8C2A79C296EEA6000B8C4A3 /* FirebaseAuth */,
-				F8EC1572296FF33C00F71B90 /* GoogleSignIn */,
 			);
 			productName = sinsungo;
 			productReference = F8BFBE5D293B84A7007173BA /* sinsungo.app */;
@@ -390,8 +438,6 @@
 			mainGroup = F8BFBE54293B84A7007173BA;
 			packageReferences = (
 				F8F7AA882949E4BA00AF8D7D /* XCRemoteSwiftPackageReference "SnapKit" */,
-				F8C2A79B296EEA6000B8C4A3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				F8EC1571296FF33C00F71B90 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = F8BFBE5E293B84A7007173BA /* Products */;
 			projectDirPath = "";
@@ -440,9 +486,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F899F0812A274C24009B880C /* GridCollectionVFL.swift in Sources */,
 				F8ECB7FD29CDA51F000A0947 /* ExtensionUIViewController.swift in Sources */,
+				F801F1872A064471009B038F /* IngredientInfoView.swift in Sources */,
+				F85C3DD82A064E7E001FD89D /* StorageInfoView.swift in Sources */,
+				F86710A92A03C46400CF9839 /* ExtensionStackView.swift in Sources */,
 				F891A40629BC8E2900933615 /* AddRefModalVC.swift in Sources */,
 				F81E57B0298AA3750055EF84 /* ExtensionUIView.swift in Sources */,
+				F899F0892A2773D6009B880C /* RefingredientDetailFooter.swift in Sources */,
 				F8ECB80329CDBAF4000A0947 /* RefIngredientTVH.swift in Sources */,
 				F8BFBE65293B84A7007173BA /* LoginVC.swift in Sources */,
 				F8ECB7F929CDA4EB000A0947 /* RefIngredientVC.swift in Sources */,
@@ -456,15 +507,20 @@
 				F808CA5929E1225D0075DB04 /* SelectIngredientVC.swift in Sources */,
 				F8C126DC29EE9FDE008D216A /* SelectIngredientTVC.swift in Sources */,
 				F8BFBE63293B84A7007173BA /* SceneDelegate.swift in Sources */,
+				F86710A72A03BA5600CF9839 /* IngredientInfoSubView.swift in Sources */,
 				F8FF7EE029D1DC3200822C13 /* ExpireDateModalVC.swift in Sources */,
 				F870078229B0DDD500522B35 /* SearchVC.swift in Sources */,
 				F8C059EC29950A7D001719A9 /* ExtensionUIButton.swift in Sources */,
+				F899F0872A276E5B009B880C /* RefingredientDetailHeader.swift in Sources */,
+				F845FE172A03EA00002BC49C /* RefIngredientBottomBtn.swift in Sources */,
 				F8D0029E296EF39D00820C6C /* ExtensionUIColor.swift in Sources */,
+				F86710A52A03B88600CF9839 /* RefingredientDetailVC.swift in Sources */,
 				F80B23602988378B009451A4 /* RefirgeratorTVF.swift in Sources */,
 				F8FF7EDC29D190F900822C13 /* SortModalTVCell.swift in Sources */,
 				F870078429B0DDE600522B35 /* ShopBasketVC.swift in Sources */,
 				F887E74F297A867E003A75C3 /* RefrigeratorVC.swift in Sources */,
 				F870078029B0DDC800522B35 /* MyProfileVC.swift in Sources */,
+				F899F0852A274E3A009B880C /* StorageLocationCVCell.swift in Sources */,
 				F8ECB7FF29CDA5F1000A0947 /* RefIngredientTVCell.swift in Sources */,
 				F88838972993D2B000ED2C7A /* AddIngredientButton.swift in Sources */,
 				F80B235C29882BEB009451A4 /* RefrigeratorTVH.swift in Sources */,
@@ -804,22 +860,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F8C2A79B296EEA6000B8C4A3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
-			};
-		};
-		F8EC1571296FF33C00F71B90 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.0.2;
-			};
-		};
 		F8F7AA882949E4BA00AF8D7D /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -831,16 +871,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F8C2A79C296EEA6000B8C4A3 /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F8C2A79B296EEA6000B8C4A3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
-		};
-		F8EC1572296FF33C00F71B90 /* GoogleSignIn */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F8EC1571296FF33C00F71B90 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
-			productName = GoogleSignIn;
-		};
 		F8F7AA892949E4BA00AF8D7D /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F8F7AA882949E4BA00AF8D7D /* XCRemoteSwiftPackageReference "SnapKit" */;
