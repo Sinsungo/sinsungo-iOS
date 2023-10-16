@@ -14,17 +14,18 @@ struct IngredientFormat  {
 }
 class RefrigeratorVC: UIViewController {
     var groupName = "동진"
-    private let sectionTitleTest : [String] = ["1번냉장고"]
+    //push 냉장고 detail 이름을 위해 정으
+    var refName = "냉장고"
+    private let sectionTitleTest : [String] = ["1번냉장고","2번냉장고"]
     private let sampleData : [IngredientFormat] = [IngredientFormat(ingredientName: "재료명1", ingredientCnt: 1, remainPeriod: 1),IngredientFormat(ingredientName: "재료명2", ingredientCnt: 2, remainPeriod: 2)]
 //,"2번냉장고","3번냉장고","4번냉장고","5번냉장고","6번냉장고"
-    private let cnt : [String] = ["\(1)"]
+    private let cnt : [String] = ["\(1)","\(2)"]
 //,"\(2)","\(3)","\(4)","\(5)","\(6)"
     
     var refrigeratorTableView : UITableView = {
         let refrigeratorTableView = UITableView(frame: .zero, style: .grouped)
         refrigeratorTableView.bounces = false
-        refrigeratorTableView.separatorColor = .white
-        refrigeratorTableView.backgroundColor = UIColor(named: "palegrey")
+        refrigeratorTableView.separatorColor = .clear
 //MARK: - Section Setting
         refrigeratorTableView.register(RefirgeratorTVCell.self, forCellReuseIdentifier: RefirgeratorTVCell.identi)
         refrigeratorTableView.register(RefrigeratorTVH.self, forHeaderFooterViewReuseIdentifier: RefrigeratorTVH.identi)
@@ -39,36 +40,12 @@ class RefrigeratorVC: UIViewController {
         addSubView()
         autoLayout()
         configure()
-        
         view.backgroundColor = UIColor(named: "palegrey")
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = true
-    }
-
-
-    
-    
-    
-}
-extension RefrigeratorVC {
-    private func configure(){
-        refrigeratorTableView.delegate = self
-        refrigeratorTableView.dataSource = self
-        
-    }
-    private func addSubView(){
-        self.view.addSubview(refrigeratorTableView)
-        
-    }
-    private func autoLayout(){
-        refrigeratorTableView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide)
-            make.left.equalTo(view.snp.left).offset(11) //그림자 효과를 위해
-            make.right.equalTo(view.snp.right).offset(-11) // 5씩 줄이고 -> TableView cell inset +5
-            make.bottom.equalTo(view.safeAreaLayoutGuide) 
-        }
+        self.navigationController?.navigationBar.isHidden = true
     }
 }
 
@@ -79,12 +56,18 @@ extension RefrigeratorVC : UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let refirgeratorTVC = tableView.dequeueReusableCell(withIdentifier: RefirgeratorTVCell.identi, for: indexPath) as! RefirgeratorTVCell
+        guard let refirgeratorTVC = tableView.dequeueReusableCell(withIdentifier: RefirgeratorTVCell.identi, for: indexPath) as? RefirgeratorTVCell else {return UITableViewCell()}
         
         refirgeratorTVC.setRefName(model: sectionTitleTest[indexPath.row])
         refirgeratorTVC.setigdCnt(model: cnt[indexPath.row])
         refirgeratorTVC.setIngredient(model: sampleData)
         refirgeratorTVC.contentView.layer.masksToBounds = true
+        refirgeratorTVC.tapDetailButtonClosure = { [unowned self] in
+            refName = sectionTitleTest[indexPath.row]
+            pushRefIngredientVC()
+        
+        }
+        refirgeratorTVC.selectionStyle = .none
 //        let radius = refirgeratorTVC.contentView.layer.cornerRadius
 //        refirgeratorTVC.layer.shadowPath = UIBezierPath(roundedRect: refirgeratorTVC.bounds, cornerRadius: radius).cgPath
         return refirgeratorTVC
@@ -114,6 +97,23 @@ extension RefrigeratorVC : UITableViewDataSource,UITableViewDelegate {
     }
 }
 extension RefrigeratorVC {
+    private func configure(){
+        refrigeratorTableView.delegate = self
+        refrigeratorTableView.dataSource = self
+        
+    }
+    private func addSubView(){
+        self.view.addSubview(refrigeratorTableView)
+        
+    }
+    private func autoLayout(){
+        refrigeratorTableView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.left.equalTo(view.snp.left).offset(11) //그림자 효과를 위해
+            make.right.equalTo(view.snp.right).offset(-11) // 5씩 줄이고 -> TableView cell inset +5
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
+    }
     private func presentModalAction(){
         let modalVC = AddRefModalVC()
         if let sheet = modalVC.sheetPresentationController {
@@ -128,26 +128,20 @@ extension RefrigeratorVC {
     
         self.present(modalVC, animated: true)
     }
+    private func pushRefIngredientVC(){
+        let pushVC = RefIngredientVC()
+        pushVC.refName = refName
+        self.navigationController?.pushViewController(pushVC, animated: false)
+    }
+    
 }
 
-
-
+#if canImport(SwiftUI) && DEBUG
 import SwiftUI
-@available(iOS 13.0.0, *)
-struct RefrigeratorVCRepresentable: UIViewControllerRepresentable {
-    typealias UIViewControllerType = RefrigeratorVC
-    
-    func makeUIViewController(context: Context) -> RefrigeratorVC {
-        return RefrigeratorVC()
-    }
-    
-    func updateUIViewController(_ uiViewController: RefrigeratorVC, context: Context) {
-    }
-}
 struct RefrigeratorVCPreview: PreviewProvider {
     static var previews: some View {
-        RefrigeratorVCRepresentable()
-            .previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro"))
-            .previewDisplayName("iPhone 14 Pro")
+        RefrigeratorVC().showPreview(.iPhone14Pro)
     }
 }
+#endif
+

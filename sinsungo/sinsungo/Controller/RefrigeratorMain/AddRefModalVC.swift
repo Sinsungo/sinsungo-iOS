@@ -63,21 +63,23 @@ class AddRefModalVC: UIViewController {
     }()
     private lazy var cancelButton : UIButton = {
         var config = UIButton.Configuration.plain()
-        config.attributedTitle = AttributedString("닫기", attributes: AttributeContainer([NSAttributedString.Key.font : UIFont(name: "NanumSquareOTF_acB", size: 14)!]))
+        config.attributedTitle = AttributedString("닫기", attributes: AttributeContainer([NSAttributedString.Key.font : UIFont(name: CustomFont.Bold.rawValue, size: 14)!]))
         config.baseForegroundColor = UIColor(named: "brownishgrey")
+        config.contentInsets = NSDirectionalEdgeInsets.init(top: 17, leading: 0, bottom: 17, trailing: 0)
         let cancelButton = UIButton(configuration: config)
         cancelButton.layer.cornerRadius = 8
         cancelButton.backgroundColor = UIColor(named: "whitetwo")
-        cancelButton.addTarget(self, action: #selector(tapCancel), for: .touchUpInside)
+        cancelButton.addTarget(self, action: #selector(tapDismiss), for: .touchUpInside)
         return cancelButton
     }()
     private lazy var makeRefButton : UIButton = {
         var config = UIButton.Configuration.plain()
-        config.attributedTitle = AttributedString("만들기", attributes: AttributeContainer([NSAttributedString.Key.font : UIFont(name: "NanumSquareOTF_acB", size: 14)!]))
+        config.attributedTitle = AttributedString("만들기", attributes: AttributeContainer([NSAttributedString.Key.font : UIFont(name: CustomFont.Bold.rawValue, size: 14)!]))
         config.baseForegroundColor = .white
+        config.contentInsets = NSDirectionalEdgeInsets.init(top: 17, leading: 0, bottom: 17, trailing: 0)
         let makeRefButton = UIButton(configuration: config)
         makeRefButton.layer.cornerRadius = 8
-        makeRefButton.backgroundColor = UIColor(named: "primaryColor")
+        makeRefButton.backgroundColor = UIColor(named: "primarycolor")
         return makeRefButton
     }()
     override func viewDidLoad() {
@@ -108,14 +110,14 @@ extension AddRefModalVC  {
             make.left.equalTo(containerView.snp.left).offset(16)
             make.right.equalTo(containerView.snp.right).offset(-16)
         }
-        addRefLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        
         refNameTextView.snp.makeConstraints { make in
             make.top.equalTo(addRefLabel.snp.bottom).offset(11)
             make.left.equalTo(containerView.snp.left).offset(16)
             make.right.equalTo(containerView.snp.right).offset(-16)
 
         }
-        refNameTextView.setContentHuggingPriority(.defaultHigh, for: .vertical)
+       
         buttonStackView.snp.makeConstraints { make in
             make.top.equalTo(refNameTextView.snp.bottom).offset(16)
             make.left.equalTo(containerView.snp.left).offset(16)
@@ -123,29 +125,15 @@ extension AddRefModalVC  {
             make.bottom.equalTo(containerView.snp.bottom).offset(-12)
 
         }
-        buttonStackView.setContentHuggingPriority(.init(750), for: .vertical)
     }
-    @objc func tapCancel(){
-        self.dismiss(animated: true)
-    }
+    
 }
+#if canImport(SwiftUI) && DEBUG
 import SwiftUI
-@available(iOS 13.0.0, *)
-struct AddRefModalVCRepresentable: UIViewControllerRepresentable {
-    typealias UIViewControllerType = AddRefModalVC
-    
-    func makeUIViewController(context: Context) -> AddRefModalVC {
-        return AddRefModalVC()
-    }
-    
-    func updateUIViewController(_ uiViewController: AddRefModalVC, context: Context) {
-    }
-}
 struct AddRefModalVCPreview: PreviewProvider {
     static var previews: some View {
-        AddRefModalVCRepresentable()
-            .previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro"))
-            .previewDisplayName("iPhone 14 Pro")
+        AddRefModalVC().showPreview(.iPhone14Pro)
     }
 }
+#endif
 

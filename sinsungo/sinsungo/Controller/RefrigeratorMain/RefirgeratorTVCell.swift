@@ -9,6 +9,7 @@ import UIKit
 
 class RefirgeratorTVCell: UITableViewCell {
     static let identi = "RefirgeratorTVCellid"
+    var tapDetailButtonClosure : (() ->() )?
     private lazy var firstView : UIView = {
         let firstView = UIView()
         return firstView
@@ -37,6 +38,7 @@ class RefirgeratorTVCell: UITableViewCell {
     private lazy var pushDetailButton : UIButton = {
         let detailButton = UIButton()
         detailButton.setImage(UIImage(named: "pushImg"), for: .normal)
+        detailButton.addTarget(self, action: #selector(tapDetailButton), for: .touchUpInside)
         return detailButton
     }()
 //    //MARK: - firstIngredientView
@@ -75,9 +77,12 @@ class RefirgeratorTVCell: UITableViewCell {
 }
 
 extension RefirgeratorTVCell {
+    @objc func tapDetailButton(){
+        tapDetailButtonClosure?()
+    }
     func setIngredient(model : [IngredientFormat]) {
         for i in model {
-            let IngredientView = setIngredientView(ingredientName: i.ingredientName, ingredientCnt: i.ingredientCnt, remainPeriod: i.remainPeriod)
+            let IngredientView = setIngredientViewType1(ingredientName: i.ingredientName, ingredientCnt: i.ingredientCnt, remainPeriod: i.remainPeriod)
             ingredientStackView.addArrangedSubview(IngredientView)
         }
 //        if model.count != 3 {

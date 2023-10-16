@@ -148,22 +148,12 @@ class LoginVC: UIViewController {
     
 }
 
+#if canImport(SwiftUI) && DEBUG
 import SwiftUI
-@available(iOS 13.0.0, *)
-struct LoginVCRepresentable: UIViewControllerRepresentable {
-    typealias UIViewControllerType = LoginVC
-    
-    func makeUIViewController(context: Context) -> LoginVC {
-        return LoginVC()
-    }
-    
-    func updateUIViewController(_ uiViewController: LoginVC, context: Context) {
-    }
-}
-struct ViewPreview: PreviewProvider {
+struct LoginVCPreview: PreviewProvider {
     static var previews: some View {
-        LoginVCRepresentable()
-            .previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro"))
-            .previewDisplayName("iPhone 14 Pro")
+        LoginVC().showPreview(.iPhone14Pro)
     }
 }
+#endif
+

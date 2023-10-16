@@ -21,10 +21,12 @@ class MainTabBarVC: UITabBarController {
         self.view.backgroundColor = .white
         setNCinit()
         self.tabBar.tintColor = UIColor(named: "primarycolor")
-        self.navigationController?.navigationBar.isHidden = true
-        // Do any additional setup after loading the view.
+
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+    }
     func setNCinit(){
         self.viewControllers = [firstNC,secondNC,thirdNC,fourthNC]
         firstNC.tabBarItem = firstTabBarItem
