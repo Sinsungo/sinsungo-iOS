@@ -123,7 +123,8 @@ extension RefIngredientVC : UITableViewDelegate ,UITableViewDataSource {
         return self.view.frame.height * 0.015
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("tap")
+        let pushVC = RefingredientDetailVC()
+        self.navigationController?.pushViewController(pushVC, animated: true)
 
     }
 
@@ -157,21 +158,8 @@ extension RefIngredientVC {
         self.navigationItem.rightBarButtonItem = rightbuttonItem
         self.navigationController?.navigationBar.tintColor = .black
     }
-//    private func selectCellChangeUI(){
-//        //MARK: - 재료선택시 백버튼 변경
-//        var config = UIButton.Configuration.plain()
-//        config.attributedTitle = AttributedString("선택하기", attributes: AttributeContainer([NSAttributedString.Key.font : UIFont(name: CustomFont.ExtraBold.rawValue, size: 20)!]))
-//        config.image = UIImage(named: "backImg")
-//        config.baseForegroundColor = .black
-//        config.imagePlacement = .leading
-//        config.imagePadding = 12
-//        backButtonCustomm.configuration = config
-//    }
-    
-    
     private func presentModal(vc: UIViewController ,height : CGFloat){
         let modalVC = vc
-
         if let sheet = modalVC.sheetPresentationController {
             sheet.detents = [
                 .custom{ _ in
@@ -179,11 +167,9 @@ extension RefIngredientVC {
                 }
             ]
             sheet.preferredCornerRadius = 16
-            
         }
         self.present(modalVC, animated: true)
     }
- 
     @objc private func tapSettingButton(){
     }
     private func longTapTableView(){
@@ -194,9 +180,7 @@ extension RefIngredientVC {
         if gestureRecognizer.state == .began {
             let pushVC = SelectIngredientVC()
             self.navigationController?.pushViewController(pushVC, animated: false)
-            
         }
-        
     }
 }
 extension RefIngredientVC : sortVCDelegate {

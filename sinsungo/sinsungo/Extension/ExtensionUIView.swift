@@ -41,6 +41,9 @@ extension UIView {
         self.layer.shadowOpacity = opacity
         self.layer.shadowRadius = radius
     }
+    func addSubViews(_ views : [UIView]){
+        _ = views.map{self.addSubview($0)}
+    }
  
 }
 //public static var layerMinXMinYCorner: CACornerMask { get } 왼쪽상단
