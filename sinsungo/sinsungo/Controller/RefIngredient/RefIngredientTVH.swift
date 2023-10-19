@@ -26,7 +26,7 @@ class RefIngredientTVH: UITableViewHeaderFooterView {
     private lazy var sortButton : UIButton = {
         let sortButton = UIButton()
         sortButton.backgroundColor = UIColor(named: "whitetwo")
-        sortButton.layer.cornerRadius = 16
+        sortButton.layer.cornerRadius = 10
         sortButton.layer.masksToBounds = true
         sortButton.addTarget(self, action: #selector(tapSortButton), for: .touchUpInside)
         return sortButton
@@ -34,7 +34,7 @@ class RefIngredientTVH: UITableViewHeaderFooterView {
     private lazy var expireDateButton : UIButton = {
         let expireDateButton = UIButton()
         expireDateButton.backgroundColor = UIColor(named: "whitetwo")
-        expireDateButton.layer.cornerRadius = 16
+        expireDateButton.layer.cornerRadius = 10
         expireDateButton.layer.masksToBounds = true
         expireDateButton.addTarget(self, action: #selector(tapExpireButton), for: .touchUpInside)
         return expireDateButton
@@ -92,7 +92,6 @@ extension RefIngredientTVH {
         }else{
             config.attributedTitle = AttributedString("\(selectExpireDate)일 전", attributes: AttributeContainer([NSAttributedString.Key.font : UIFont(name: CustomFont.Bold.rawValue, size: 12)!]))
         }
-       
         config.image = UIImage(named: "dropDownImg")
         config.baseForegroundColor = .black
         config.imagePlacement = .trailing

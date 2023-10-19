@@ -17,6 +17,7 @@
 		F827C4F92992D7F200998BC8 /* NanumSquareOTF_acB.otf in Resources */ = {isa = PBXBuildFile; fileRef = F827C4F82992D7F200998BC8 /* NanumSquareOTF_acB.otf */; };
 		F827C4FB2992D80700998BC8 /* NanumSquareOTF_acR.otf in Resources */ = {isa = PBXBuildFile; fileRef = F827C4FA2992D80700998BC8 /* NanumSquareOTF_acR.otf */; };
 		F827C4FD2992DB9F00998BC8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F827C4FC2992DB9F00998BC8 /* GoogleService-Info.plist */; };
+		F8442EAE2AE1650A0019AC60 /* SortBtn_CheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8442EAC2AE1650A0019AC60 /* SortBtn_CheckView.swift */; };
 		F845FE172A03EA00002BC49C /* RefIngredientBottomBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = F845FE162A03EA00002BC49C /* RefIngredientBottomBtn.swift */; };
 		F85C3DD82A064E7E001FD89D /* StorageInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85C3DD72A064E7E001FD89D /* StorageInfoView.swift */; };
 		F86710A52A03B88600CF9839 /* RefingredientDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86710A42A03B88600CF9839 /* RefingredientDetailVC.swift */; };
@@ -55,7 +56,6 @@
 		F8ECB80329CDBAF4000A0947 /* RefIngredientTVH.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ECB80229CDBAF4000A0947 /* RefIngredientTVH.swift */; };
 		F8F7AA8A2949E4BA00AF8D7D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F8F7AA892949E4BA00AF8D7D /* SnapKit */; };
 		F8FF7ED629D183C500822C13 /* SortModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FF7ED529D183C500822C13 /* SortModalVC.swift */; };
-		F8FF7EDC29D190F900822C13 /* SortModalTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FF7EDB29D190F900822C13 /* SortModalTVCell.swift */; };
 		F8FF7EE029D1DC3200822C13 /* ExpireDateModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FF7EDF29D1DC3200822C13 /* ExpireDateModalVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +87,7 @@
 		F827C4F82992D7F200998BC8 /* NanumSquareOTF_acB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTF_acB.otf; sourceTree = "<group>"; };
 		F827C4FA2992D80700998BC8 /* NanumSquareOTF_acR.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTF_acR.otf; sourceTree = "<group>"; };
 		F827C4FC2992DB9F00998BC8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F8442EAC2AE1650A0019AC60 /* SortBtn_CheckView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortBtn_CheckView.swift; sourceTree = "<group>"; };
 		F845FE162A03EA00002BC49C /* RefIngredientBottomBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefIngredientBottomBtn.swift; sourceTree = "<group>"; };
 		F85C3DD72A064E7E001FD89D /* StorageInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageInfoView.swift; sourceTree = "<group>"; };
 		F86710A42A03B88600CF9839 /* RefingredientDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefingredientDetailVC.swift; sourceTree = "<group>"; };
@@ -128,7 +129,6 @@
 		F8ECB7FE29CDA5F1000A0947 /* RefIngredientTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefIngredientTVCell.swift; sourceTree = "<group>"; };
 		F8ECB80229CDBAF4000A0947 /* RefIngredientTVH.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefIngredientTVH.swift; sourceTree = "<group>"; };
 		F8FF7ED529D183C500822C13 /* SortModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortModalVC.swift; sourceTree = "<group>"; };
-		F8FF7EDB29D190F900822C13 /* SortModalTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortModalTVCell.swift; sourceTree = "<group>"; };
 		F8FF7EDF29D1DC3200822C13 /* ExpireDateModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpireDateModalVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -161,7 +161,7 @@
 		F801F1882A06448E009B038F /* RefIngredientDetailSubView */ = {
 			isa = PBXGroup;
 			children = (
-				F899F08A2A279328009B880C /* component */,
+				F899F08A2A279328009B880C /* Component */,
 			);
 			path = RefIngredientDetailSubView;
 			sourceTree = "<group>";
@@ -178,6 +178,23 @@
 				F891A40529BC8E2900933615 /* AddRefModalVC.swift */,
 			);
 			path = RefrigeratorMain;
+			sourceTree = "<group>";
+		};
+		F8442EAA2AE15FCD0019AC60 /* Sort */ = {
+			isa = PBXGroup;
+			children = (
+				F8442EAF2AE165220019AC60 /* Component */,
+				F8FF7ED529D183C500822C13 /* SortModalVC.swift */,
+			);
+			path = Sort;
+			sourceTree = "<group>";
+		};
+		F8442EAF2AE165220019AC60 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				F8442EAC2AE1650A0019AC60 /* SortBtn_CheckView.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 		F86710A12A03B83400CF9839 /* RefingredientDetail */ = {
@@ -230,7 +247,7 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		F899F08A2A279328009B880C /* component */ = {
+		F899F08A2A279328009B880C /* Component */ = {
 			isa = PBXGroup;
 			children = (
 				F86710A62A03BA5600CF9839 /* IngredientInfoSubView.swift */,
@@ -238,7 +255,7 @@
 				F85C3DD72A064E7E001FD89D /* StorageInfoView.swift */,
 				F845FE162A03EA00002BC49C /* RefIngredientBottomBtn.swift */,
 			);
-			path = component;
+			path = Component;
 			sourceTree = "<group>";
 		};
 		F8BFBE54293B84A7007173BA = {
@@ -332,12 +349,11 @@
 		F8ECB7F729CDA4AD000A0947 /* RefIngredient */ = {
 			isa = PBXGroup;
 			children = (
+				F8442EAA2AE15FCD0019AC60 /* Sort */,
 				F86710A12A03B83400CF9839 /* RefingredientDetail */,
 				F8ECB7F829CDA4EB000A0947 /* RefIngredientVC.swift */,
 				F8ECB7FE29CDA5F1000A0947 /* RefIngredientTVCell.swift */,
 				F8ECB80229CDBAF4000A0947 /* RefIngredientTVH.swift */,
-				F8FF7ED529D183C500822C13 /* SortModalVC.swift */,
-				F8FF7EDB29D190F900822C13 /* SortModalTVCell.swift */,
 				F8FF7EDF29D1DC3200822C13 /* ExpireDateModalVC.swift */,
 				F808CA5829E1225D0075DB04 /* SelectIngredientVC.swift */,
 				F8C126DB29EE9FDE008D216A /* SelectIngredientTVC.swift */,
@@ -516,10 +532,10 @@
 				F8D0029E296EF39D00820C6C /* ExtensionUIColor.swift in Sources */,
 				F86710A52A03B88600CF9839 /* RefingredientDetailVC.swift in Sources */,
 				F80B23602988378B009451A4 /* RefirgeratorTVF.swift in Sources */,
-				F8FF7EDC29D190F900822C13 /* SortModalTVCell.swift in Sources */,
 				F870078429B0DDE600522B35 /* ShopBasketVC.swift in Sources */,
 				F887E74F297A867E003A75C3 /* RefrigeratorVC.swift in Sources */,
 				F870078029B0DDC800522B35 /* MyProfileVC.swift in Sources */,
+				F8442EAE2AE1650A0019AC60 /* SortBtn_CheckView.swift in Sources */,
 				F899F0852A274E3A009B880C /* StorageLocationCVCell.swift in Sources */,
 				F8ECB7FF29CDA5F1000A0947 /* RefIngredientTVCell.swift in Sources */,
 				F88838972993D2B000ED2C7A /* AddIngredientButton.swift in Sources */,

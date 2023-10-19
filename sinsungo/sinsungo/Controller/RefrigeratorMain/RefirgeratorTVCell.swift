@@ -90,6 +90,9 @@ extension RefirgeratorTVCell {
     @objc func tapDetailButton(){
         tapDetailButtonClosure?()
     }
+    @objc func testFunc(){
+        print("Test")
+    }
     func setIngredient(model : [IngredientFormat]) {
         if model.count < 3{
             for i in model{
