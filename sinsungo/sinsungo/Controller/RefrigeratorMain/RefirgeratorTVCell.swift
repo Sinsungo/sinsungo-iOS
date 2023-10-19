@@ -52,9 +52,19 @@ class RefirgeratorTVCell: UITableViewCell {
         let ingredientStackView = UIStackView()
         ingredientStackView.axis = .vertical
         ingredientStackView.alignment = .fill
-        ingredientStackView.distribution = .fillEqually
+        ingredientStackView.distribution = .equalSpacing
         ingredientStackView.spacing = 8
         return ingredientStackView
+    }()
+    let addIngredientButton : UIButton = {
+        var config = UIButton.Configuration.plain()
+        config.attributedTitle = AttributedString("재료 추가하기", attributes: AttributeContainer([NSAttributedString.Key.font : UIFont(name: "NanumSquareOTF_acB", size: 12)!]))
+        config.contentInsets = NSDirectionalEdgeInsets.init(top: 15, leading: 10, bottom: 15, trailing: 10)// <- 안에 내용에 대한 inset
+        config.baseForegroundColor = UIColor.white
+        let addIngredientButton = UIButton(configuration: config)
+        addIngredientButton.backgroundColor = UIColor(named: "primarycolor")
+        addIngredientButton.layer.cornerRadius = 4
+        return addIngredientButton
     }()
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -81,10 +91,19 @@ extension RefirgeratorTVCell {
         tapDetailButtonClosure?()
     }
     func setIngredient(model : [IngredientFormat]) {
-        for i in model {
-            let IngredientView = setIngredientViewType1(ingredientName: i.ingredientName, ingredientCnt: i.ingredientCnt, remainPeriod: i.remainPeriod)
-            ingredientStackView.addArrangedSubview(IngredientView)
+        if model.count < 3{
+            for i in model{
+                let IngredientView = setIngredientViewType1(ingredientName: i.ingredientName, ingredientCnt: i.ingredientCnt, remainPeriod: i.remainPeriod)
+                ingredientStackView.addArrangedSubview(IngredientView)
+            }
+            ingredientStackView.addArrangedSubview(addIngredientButton)
+        }else{
+            for i in 0..<3 {
+                let IngredientView = setIngredientViewType1(ingredientName: model[i].ingredientName, ingredientCnt: model[i].ingredientCnt, remainPeriod: model[i].remainPeriod)
+                ingredientStackView.addArrangedSubview(IngredientView)
+            }
         }
+     
 //        if model.count != 3 {
 //            let addIngredientButton = addIngredientButton()
 //            contentView.addSubview(addIngredientButton)

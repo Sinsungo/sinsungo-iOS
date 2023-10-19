@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+//MARK: - 냉장고 재료
 struct RefIngredientFormat {
     let ingredientName : String
     let ingredientCnt : Int

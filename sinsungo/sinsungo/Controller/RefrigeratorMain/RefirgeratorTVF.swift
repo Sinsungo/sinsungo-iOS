@@ -61,7 +61,6 @@ extension RefirgeratorTVF {
     }
     private func autoLayout(){
         containerView.snp.makeConstraints { make in
-
             make.top.bottom.equalToSuperview()
             make.left.equalToSuperview().offset(5)
             make.right.equalToSuperview().offset(-5)

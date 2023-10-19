@@ -17,7 +17,7 @@ func addIngredientButton()-> UIView{
     }()
     let addIngredientButton : UIButton = {
         let addIngredientButton = UIButton()
-        addIngredientButton.backgroundColor = UIColor(named: " ")
+        addIngredientButton.backgroundColor = UIColor(named: "primarycolor")
         addIngredientButton.setTitle("재료 추가하기", for: .normal)
         addIngredientButton.titleLabel?.font = UIFont(name: "NanumSquareOTF_acB", size: 12)
         addIngredientButton.titleLabel?.textColor  = UIColor.white

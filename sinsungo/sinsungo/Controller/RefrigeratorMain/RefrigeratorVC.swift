@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+//MARK: - 냉장고 메인
 struct IngredientFormat  {
     let ingredientName : String
     let ingredientCnt : Int
@@ -19,7 +20,7 @@ class RefrigeratorVC: UIViewController {
     private let sectionTitleTest : [String] = ["1번냉장고","2번냉장고"]
     private let sampleData : [IngredientFormat] = [IngredientFormat(ingredientName: "재료명1", ingredientCnt: 1, remainPeriod: 1),IngredientFormat(ingredientName: "재료명2", ingredientCnt: 2, remainPeriod: 2)]
 //,"2번냉장고","3번냉장고","4번냉장고","5번냉장고","6번냉장고"
-    private let cnt : [String] = ["\(1)","\(2)"]
+    private let cnt : [String] = ["\(2)","\(2)"] //재료개수
 //,"\(2)","\(3)","\(4)","\(5)","\(6)"
     
     var refrigeratorTableView : UITableView = {
@@ -144,4 +145,3 @@ struct RefrigeratorVCPreview: PreviewProvider {
     }
 }
 #endif
-

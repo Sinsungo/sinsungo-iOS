@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+//MARK: - TabBar VC
 class MainTabBarVC: UITabBarController {
     let firstNC = UINavigationController.init(rootViewController: RefrigeratorVC())
     let secondNC = UINavigationController.init(rootViewController: SearchVC())

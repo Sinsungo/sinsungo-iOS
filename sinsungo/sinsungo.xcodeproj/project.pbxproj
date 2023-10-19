@@ -220,11 +220,11 @@
 			isa = PBXGroup;
 			children = (
 				F870077A29B0DD2500522B35 /* MainTabBarVC.swift */,
+				F80B23582987E55B009451A4 /* RefrigeratorMain */,
 				F8ECB7F729CDA4AD000A0947 /* RefIngredient */,
 				F870077E29B0DD7000522B35 /* MyProfile */,
 				F870077D29B0DD6700522B35 /* Search */,
 				F870077C29B0DD6300522B35 /* ShopBasket */,
-				F80B23582987E55B009451A4 /* RefrigeratorMain */,
 				F8BFBE64293B84A7007173BA /* LoginVC.swift */,
 			);
 			path = Controller;
