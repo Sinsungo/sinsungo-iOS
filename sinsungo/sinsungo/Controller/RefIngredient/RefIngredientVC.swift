@@ -22,7 +22,8 @@ protocol expireVCDelegate : AnyObject {
 }
 class RefIngredientVC: UIViewController {
     
-    
+    var refNum : Int = 0
+    // 냉장고 번호 첫시작 번호 -> 0
     var refName : String = "{냉장고 이름}"
     var sortStandard : String = "기본순 (최신순)"
     var exipireDate : String = "유통기한"
@@ -125,9 +126,11 @@ extension RefIngredientVC : UITableViewDelegate ,UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let pushVC = RefingredientDetailVC()
+        pushVC.refNum = self.refNum
         self.navigationController?.pushViewController(pushVC, animated: true)
 
     }
+    
 
 }
 extension RefIngredientVC {

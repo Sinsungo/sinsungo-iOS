@@ -24,7 +24,7 @@ class RefingredientDetailFooter: UICollectionReusableView {
     }()
     private lazy var duplicationBtn : RefIngredientBottomBtn = {
         let btn = RefIngredientBottomBtn()
-        btn.setBtnTitle("복사")
+        btn.setBtnTitle("수정")
         return btn
     }()
     private lazy var basketBtn : RefIngredientBottomBtn = {

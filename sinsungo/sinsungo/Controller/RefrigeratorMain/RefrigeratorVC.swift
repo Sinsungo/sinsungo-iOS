@@ -65,7 +65,7 @@ extension RefrigeratorVC : UITableViewDataSource,UITableViewDelegate {
         refirgeratorTVC.contentView.layer.masksToBounds = true
         refirgeratorTVC.tapDetailButtonClosure = { [unowned self] in
             refName = sectionTitleTest[indexPath.row]
-            pushRefIngredientVC()
+            pushRefIngredientVC(refNum: indexPath.row)
         
         }
         refirgeratorTVC.selectionStyle = .none
@@ -129,9 +129,10 @@ extension RefrigeratorVC {
     
         self.present(modalVC, animated: true)
     }
-    private func pushRefIngredientVC(){
+    private func pushRefIngredientVC(refNum : Int){
         let pushVC = RefIngredientVC()
         pushVC.refName = refName
+        pushVC.refNum = refNum
         self.navigationController?.pushViewController(pushVC, animated: false)
     }
     

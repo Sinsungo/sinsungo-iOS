@@ -89,6 +89,17 @@ extension IngredientInfoView {
             make.bottom.equalToSuperview()
         }
     }
+    func setTextFieldDisable(disable : Bool){
+        if disable {
+            [nameInfoView,sortInfoView,cntInfoView,unitInfoView].forEach { infoView in
+                infoView.isUserInteractionEnabled = false
+            }
+        }else{
+            [nameInfoView,sortInfoView,cntInfoView,unitInfoView].forEach { infoView in
+                infoView.isUserInteractionEnabled = true
+            }
+        }
+    }
 }
 
 #if DEBUG

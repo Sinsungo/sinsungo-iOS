@@ -11,7 +11,8 @@ class RefingredientDetailVC: UIViewController {
     let leftOffset = 20
     let rightOffset = -20
     var refIngredientSettingType = "냉장고 재료 보기"
-    
+    var refNum : Int = 0
+    // 냉장고 번호 -> 0부터시작
     private lazy var backButtonCustom : UIButton = {
         var config = UIButton.Configuration.plain()
         config.attributedTitle = AttributedString("\(refIngredientSettingType)", attributes: AttributeContainer([NSAttributedString.Key.font : UIFont(name: CustomFont.ExtraBold.rawValue, size: 20)!]))
@@ -23,11 +24,28 @@ class RefingredientDetailVC: UIViewController {
         backButtonCustom.addTarget(self, action: #selector(tapPop), for: .touchUpInside)
         return backButtonCustom
     }()
+    var testStackView : UIStackView = {
+        let test = UIStackView()
+        test.axis = .vertical
+        test.spacing = 10
+        test.alignment = .fill
+        test.distribution = .fill
+        return test
+    }()
     var girdFlowLayout : GridCollectionVFL = {
         let layout = GridCollectionVFL()
         layout.cellSpacing = 8
         layout.numberOfColumns = 2
         return layout
+    }()
+    lazy var ingredientInfoView : IngredientInfoView = {
+        let infoView = IngredientInfoView()
+        infoView.setTextFieldDisable(disable: true)
+        return infoView
+    }()
+    private lazy var storageInfoView : StorageInfoView = {
+        let infoView = StorageInfoView()
+        return infoView
     }()
     private lazy var refIngredientDetailCV : UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: self.girdFlowLayout)
@@ -38,6 +56,7 @@ class RefingredientDetailVC: UIViewController {
         collectionView.register(RefingredientDetailHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: RefingredientDetailHeader.identi)
         collectionView.register(RefingredientDetailFooter.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: RefingredientDetailFooter.identi)
         collectionView.register(StorageLocationCVCell.self, forCellWithReuseIdentifier: StorageLocationCVCell.identi)
+        collectionView.register(StorageLocationCVCell_Selected.self, forCellWithReuseIdentifier: StorageLocationCVCell_Selected.identi)
         collectionView.backgroundColor = UIColor(named: "palegrey")
         
         return collectionView
@@ -48,6 +67,7 @@ class RefingredientDetailVC: UIViewController {
         addView()
         setAutoLayout()
         setCollectionView()
+        print(refNum)
         //        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapView(_:)))
         //        headerView.addGestureRecognizer(tapGestureRecognizer)
     }
@@ -87,8 +107,14 @@ extension RefingredientDetailVC : UICollectionViewDelegate ,UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StorageLocationCVCell.identi, for: indexPath) as? StorageLocationCVCell else {return UICollectionViewCell()}
+        if indexPath.row == self.refNum{
+            guard let selectCell = collectionView.dequeueReusableCell(withReuseIdentifier: StorageLocationCVCell_Selected.identi, for: indexPath) as? StorageLocationCVCell_Selected else { return UICollectionViewCell()}
+            return selectCell
+        }
+            
         return cell
     }
+    
     
 }
 extension RefingredientDetailVC : UICollectionViewDelegateFlowLayout{
@@ -123,14 +149,36 @@ extension RefingredientDetailVC {
         self.navigationController?.navigationBar.tintColor = .black
     }
     private func addView(){
-        self.view.addSubview(refIngredientDetailCV)
+        self.view.addSubview(testStackView)
+        testStackView.addStackSubViews([ingredientInfoView,storageInfoView,refIngredientDetailCV])
+//        self.view.addSubview(ingredientInfoView)
+//        self.view.addSubview(storageInfoView)
+//        self.view.addSubview(refIngredientDetailCV)
     }
     private func setAutoLayout(){
-        refIngredientDetailCV.snp.makeConstraints { make in
-            make.top.bottom.equalTo(self.view.safeAreaLayoutGuide)
+        testStackView.snp.makeConstraints { make in
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(20)
             make.left.equalToSuperview().offset(leftOffset)
-            make.right.equalToSuperview().offset(rightOffset)
+            make.right.equalToSuperview().offset(-20)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide)
         }
+//        ingredientInfoView.snp.makeConstraints { make in
+//            make.top.equalTo(self.view.safeAreaLayoutGuide)
+//            make.left.equalToSuperview().offset(leftOffset)
+//            make.right.equalToSuperview().offset(rightOffset)
+//        }
+//        storageInfoView.snp.makeConstraints { make in
+//            make.top.equalTo(ingredientInfoView.snp.bottom)
+//            make.left.equalToSuperview().offset(leftOffset)
+//            make.right.equalToSuperview().offset(rightOffset)
+//            make.bottom.equalToSuperview()
+//        }
+//        refIngredientDetailCV.snp.makeConstraints { make in
+//            make.top.equalTo(storageInfoView.snp.bottom)
+//            make.left.equalToSuperview().offset(leftOffset)
+//            make.right.equalToSuperview().offset(rightOffset)
+//            make.bottom.equalTo(self.view.safeAreaLayoutGuide)
+//        }
 
     }
     

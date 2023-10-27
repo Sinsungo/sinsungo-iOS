@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+//MARK: - 냉장고 추가 모달뷰
 class AddRefModalVC: UIViewController {
     private lazy var containerView : UIView = {
         let containerView = UIView()

@@ -42,22 +42,15 @@ class RefingredientDetailHeader: UICollectionReusableView {
     }
     private func configure(){
         addSubview(upperView)
-        upperView.addSubViews([ingredientInfoView,storageInfoView,storageLocationLabel])
+        upperView.addSubview(storageLocationLabel)
+//        upperView.addSubViews([ingredientInfoView,storageInfoView,storageLocationLabel])
     }
     private func setAutoLayout(){
         upperView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        ingredientInfoView.snp.makeConstraints { make in
-            make.top.left.right.equalToSuperview()
-            
-        }
-        storageInfoView.snp.makeConstraints { make in
-            make.top.equalTo(ingredientInfoView.snp.bottom).offset(16)
-            make.left.right.equalToSuperview()
-        }
         storageLocationLabel.snp.makeConstraints { make in
-            make.top.equalTo(storageInfoView.snp.bottom).offset(16)
+            make.top.equalToSuperview().offset(16)
             make.left.equalToSuperview().offset(12)
             make.right.equalToSuperview().offset(-12)
             make.bottom.equalToSuperview().offset(-10)

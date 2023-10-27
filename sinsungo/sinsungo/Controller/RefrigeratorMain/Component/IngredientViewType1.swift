@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+//MARK: - 재료항목하나에 대한 View
 func setIngredientViewType1(ingredientName :String ,ingredientCnt : Int , remainPeriod : Int ) -> UIView{
     let containerView : UIView = {
         let containerView = UIView()
