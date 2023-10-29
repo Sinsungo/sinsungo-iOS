@@ -10,6 +10,7 @@ import UIKit
 class RefirgeratorTVCell: UITableViewCell {
     static let identi = "RefirgeratorTVCellid"
     var tapDetailButtonClosure : (() ->() )?
+    var tapAddIngredientButton : (() ->() )?
     private lazy var firstView : UIView = {
         let firstView = UIView()
         return firstView
@@ -64,6 +65,7 @@ class RefirgeratorTVCell: UITableViewCell {
         let addIngredientButton = UIButton(configuration: config)
         addIngredientButton.backgroundColor = UIColor(named: "primarycolor")
         addIngredientButton.layer.cornerRadius = 4
+        addIngredientButton.addTarget(self,action: #selector(tapAddIngredientBtn), for: .touchUpInside)
         return addIngredientButton
     }()
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -90,9 +92,10 @@ extension RefirgeratorTVCell {
     @objc func tapDetailButton(){
         tapDetailButtonClosure?()
     }
-    @objc func testFunc(){
-        print("Test")
+    @objc func tapAddIngredientBtn(){
+        tapAddIngredientButton?()
     }
+
     func setIngredient(model : [IngredientFormat]) {
         if model.count < 3{
             for i in model{

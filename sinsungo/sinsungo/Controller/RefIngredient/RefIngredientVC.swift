@@ -38,7 +38,7 @@ class RefIngredientVC: UIViewController {
         ingredientTableView.backgroundColor = UIColor(named: "palegrey")
         ingredientTableView.register(RefIngredientTVCell.self, forCellReuseIdentifier: RefIngredientTVCell.identi)
         ingredientTableView.register(RefIngredientTVH.self, forHeaderFooterViewReuseIdentifier: RefIngredientTVH.identi)
-      
+        
         return ingredientTableView
     }()
     private lazy var backButtonCustomm : UIButton = {
@@ -61,6 +61,7 @@ class RefIngredientVC: UIViewController {
         addIngredientButton.backgroundColor = UIColor(named: "primarycolor")
         addIngredientButton.layer.cornerRadius = 4
         addIngredientButton.layer.masksToBounds = true
+        addIngredientButton.addTarget(self, action: #selector(tapAddIngredientBtn), for: .touchUpInside)
         return addIngredientButton
     }()
     override func viewDidLoad() {
@@ -125,13 +126,13 @@ extension RefIngredientVC : UITableViewDelegate ,UITableViewDataSource {
         return self.view.frame.height * 0.015
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let pushVC = RefingredientDetailVC()
+        let pushVC = RefingredientReadVC()
         pushVC.refNum = self.refNum
         self.navigationController?.pushViewController(pushVC, animated: true)
-
+        
     }
     
-
+    
 }
 extension RefIngredientVC {
     private func addSubView(){
@@ -175,6 +176,11 @@ extension RefIngredientVC {
         self.present(modalVC, animated: true)
     }
     @objc private func tapSettingButton(){
+    }
+    @objc func tapAddIngredientBtn(){
+        let pushVC = RefIngredientAddVC()
+        pushVC.refNum = refNum
+        self.navigationController?.pushViewController(pushVC, animated: false)
     }
     private func longTapTableView(){
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(tableViewlongPress(_:)))

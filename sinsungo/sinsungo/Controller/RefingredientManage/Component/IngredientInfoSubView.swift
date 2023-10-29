@@ -31,7 +31,7 @@ class IngredientInfoSubView : UIView {
     lazy var infoContentTextField : UITextField = {
         let textField = UITextField()
         textField.font = UIFont(name: CustomFont.Regular.rawValue, size: 14)
-        textField.textColor = .black
+        textField.textColor = UIColor(named: "brownishgrey")
         textField.delegate = self
         return textField
     }()
@@ -68,7 +68,7 @@ extension IngredientInfoSubView {
     }
     func setText(_ title: String,_ content : String){
         infoTitleLabel.text = title
-        infoContentTextField.text = content
+        infoContentTextField.placeholder = content
     }
     
 }

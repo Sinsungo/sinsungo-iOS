@@ -19,15 +19,15 @@ class RefrigeratorVC: UIViewController {
     var refName = "냉장고"
     private let sectionTitleTest : [String] = ["1번냉장고","2번냉장고"]
     private let sampleData : [IngredientFormat] = [IngredientFormat(ingredientName: "재료명1", ingredientCnt: 1, remainPeriod: 1),IngredientFormat(ingredientName: "재료명2", ingredientCnt: 2, remainPeriod: 2)]
-//,"2번냉장고","3번냉장고","4번냉장고","5번냉장고","6번냉장고"
+    //,"2번냉장고","3번냉장고","4번냉장고","5번냉장고","6번냉장고"
     private let cnt : [String] = ["\(2)","\(2)"] //재료개수
-//,"\(2)","\(3)","\(4)","\(5)","\(6)"
+    //,"\(2)","\(3)","\(4)","\(5)","\(6)"
     
     var refrigeratorTableView : UITableView = {
         let refrigeratorTableView = UITableView(frame: .zero, style: .grouped)
         refrigeratorTableView.bounces = false
         refrigeratorTableView.separatorColor = .clear
-//MARK: - Section Setting
+        //MARK: - Section Setting
         refrigeratorTableView.register(RefirgeratorTVCell.self, forCellReuseIdentifier: RefirgeratorTVCell.identi)
         refrigeratorTableView.register(RefrigeratorTVH.self, forHeaderFooterViewReuseIdentifier: RefrigeratorTVH.identi)
         refrigeratorTableView.register(RefirgeratorTVF.self, forHeaderFooterViewReuseIdentifier: RefirgeratorTVF.identi)
@@ -35,7 +35,7 @@ class RefrigeratorVC: UIViewController {
         
         return refrigeratorTableView
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubView()
@@ -66,14 +66,20 @@ extension RefrigeratorVC : UITableViewDataSource,UITableViewDelegate {
         refirgeratorTVC.tapDetailButtonClosure = { [unowned self] in
             refName = sectionTitleTest[indexPath.row]
             pushRefIngredientVC(refNum: indexPath.row)
-        
+            
+        }
+        refirgeratorTVC.tapAddIngredientButton = { [unowned self] in
+            let pushVC = RefIngredientAddVC()
+            pushVC.refNum = indexPath.row
+            self.navigationController?.pushViewController(pushVC, animated: false)
+            
         }
         refirgeratorTVC.selectionStyle = .none
-//        let radius = refirgeratorTVC.contentView.layer.cornerRadius
-//        refirgeratorTVC.layer.shadowPath = UIBezierPath(roundedRect: refirgeratorTVC.bounds, cornerRadius: radius).cgPath
+        //        let radius = refirgeratorTVC.contentView.layer.cornerRadius
+        //        refirgeratorTVC.layer.shadowPath = UIBezierPath(roundedRect: refirgeratorTVC.bounds, cornerRadius: radius).cgPath
         return refirgeratorTVC
     }
-
+    
     //MARK: - Header
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: RefrigeratorTVH.identi) as? RefrigeratorTVH else { return nil}
@@ -81,18 +87,18 @@ extension RefrigeratorVC : UITableViewDataSource,UITableViewDelegate {
         headerView.setGroupNameLabel(model: groupName)
         return headerView
     }
-
-//MARK: - footer
+    
+    //MARK: - footer
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         guard let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: RefirgeratorTVF.identi) as? RefirgeratorTVF else { return nil}
         footerView.tapAddRefClosure = { [unowned self] in
-           
+            
             presentModalAction()
         }
         return footerView
         
     }
-//MARK: - section
+    //MARK: - section
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -120,13 +126,13 @@ extension RefrigeratorVC {
         if let sheet = modalVC.sheetPresentationController {
             sheet.detents = [
                 .custom{ _ in
-//                    return self.view.frame.height * 0.25
+                    //                    return self.view.frame.height * 0.25
                     return 184
                 }
             ]
             sheet.preferredCornerRadius = 16
         }
-    
+        
         self.present(modalVC, animated: true)
     }
     private func pushRefIngredientVC(refNum : Int){

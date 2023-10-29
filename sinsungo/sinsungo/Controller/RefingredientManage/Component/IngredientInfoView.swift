@@ -30,12 +30,12 @@ class IngredientInfoView : UIView {
     }()
     lazy var nameInfoView : IngredientInfoSubView = {
         let infoView = IngredientInfoSubView()
-        infoView.setText("이름", "{재료 이름}")
+        infoView.setText("이름", "재료의 이름을 입력해주세요.")
         return infoView
     }()
     lazy var sortInfoView : IngredientInfoSubView = {
         let infoView = IngredientInfoSubView()
-        infoView.setText("분류", "{재료 분류}")
+        infoView.setText("분류", "재료의 분류를 입력해주세요.")
         return infoView
     }()
     // 단위 수량 StackView
@@ -50,13 +50,13 @@ class IngredientInfoView : UIView {
     // 수량
     lazy var cntInfoView : IngredientInfoSubView = {
         let infoView = IngredientInfoSubView()
-        infoView.setText("수량", "{수량}")
+        infoView.setText("수량", "수량을 입력해주세요.")
         return infoView
     }()
     // 단위
     lazy var unitInfoView : IngredientInfoSubView = {
         let infoView = IngredientInfoSubView()
-        infoView.setText("단위", "{단위}")
+        infoView.setText("단위", "단위를 입력해주세요.")
         return infoView
     }()
     override init(frame: CGRect) {

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RefingredientDetailFooter: UICollectionReusableView {
+class RefingredientReadFooter: UICollectionReusableView {
     static let identi = "RefingredientDetailFooterid"
     private lazy var bottomBtnStackView : UIStackView = {
         let stackView = UIStackView()

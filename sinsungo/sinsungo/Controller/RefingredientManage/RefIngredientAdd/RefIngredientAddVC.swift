@@ -1,16 +1,17 @@
 //
-//  RefingredientDetailVC.swift
+//  RefIngredientAdd.swift
 //  sinsungo
 //
-//  Created by 원동진 on 2023/05/04.
+//  Created by 원동진 on 2023/10/29.
 //
 
-import UIKit
 import SnapKit
-class RefingredientDetailVC: UIViewController {
+import UIKit
+
+class RefIngredientAddVC: UIViewController {
     let leftOffset = 20
     let rightOffset = -20
-    var refIngredientSettingType = "냉장고 재료 보기"
+    var refIngredientSettingType = "냉장고 재료 추가"
     var refNum : Int = 0
     // 냉장고 번호 -> 0부터시작
     private lazy var backButtonCustom : UIButton = {
@@ -24,13 +25,13 @@ class RefingredientDetailVC: UIViewController {
         backButtonCustom.addTarget(self, action: #selector(tapPop), for: .touchUpInside)
         return backButtonCustom
     }()
-    var testStackView : UIStackView = {
-        let test = UIStackView()
-        test.axis = .vertical
-        test.spacing = 10
-        test.alignment = .fill
-        test.distribution = .fill
-        return test
+    var upperView : UIStackView = {
+        let upperView = UIStackView()
+        upperView.axis = .vertical
+        upperView.spacing = 10
+        upperView.alignment = .fill
+        upperView.distribution = .fill
+        return upperView
     }()
     var girdFlowLayout : GridCollectionVFL = {
         let layout = GridCollectionVFL()
@@ -40,11 +41,12 @@ class RefingredientDetailVC: UIViewController {
     }()
     lazy var ingredientInfoView : IngredientInfoView = {
         let infoView = IngredientInfoView()
-        infoView.setTextFieldDisable(disable: true)
+        infoView.setTextFieldDisable(disable: false)
         return infoView
     }()
     private lazy var storageInfoView : StorageInfoView = {
         let infoView = StorageInfoView()
+        infoView.setBtnDisable(disable: false)
         return infoView
     }()
     private lazy var refIngredientDetailCV : UICollectionView = {
@@ -53,8 +55,8 @@ class RefingredientDetailVC: UIViewController {
         collectionView.showsVerticalScrollIndicator = true
         collectionView.contentInset = .zero
         collectionView.clipsToBounds = true
-        collectionView.register(RefingredientDetailHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: RefingredientDetailHeader.identi)
-        collectionView.register(RefingredientDetailFooter.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: RefingredientDetailFooter.identi)
+        collectionView.register(RefingredientReadHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: RefingredientReadHeader.identi)
+        collectionView.register(RefingredientReadFooter.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: RefingredientReadFooter.identi)
         collectionView.register(StorageLocationCVCell.self, forCellWithReuseIdentifier: StorageLocationCVCell.identi)
         collectionView.register(StorageLocationCVCell_Selected.self, forCellWithReuseIdentifier: StorageLocationCVCell_Selected.identi)
         collectionView.backgroundColor = UIColor(named: "palegrey")
@@ -67,7 +69,6 @@ class RefingredientDetailVC: UIViewController {
         addView()
         setAutoLayout()
         setCollectionView()
-        print(refNum)
         //        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapView(_:)))
         //        headerView.addGestureRecognizer(tapGestureRecognizer)
     }
@@ -78,15 +79,15 @@ class RefingredientDetailVC: UIViewController {
     }
     
 }
-extension RefingredientDetailVC : UICollectionViewDelegate ,UICollectionViewDataSource{
+extension RefIngredientAddVC : UICollectionViewDelegate ,UICollectionViewDataSource{
     //MARK: - Header & footer
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
-            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: RefingredientDetailHeader.identi, for: indexPath) as? RefingredientDetailHeader else {return UICollectionReusableView()}
+            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: RefingredientReadHeader.identi, for: indexPath) as? RefingredientReadHeader else {return UICollectionReusableView()}
             return header
         case UICollectionView.elementKindSectionFooter:
-            guard let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: RefingredientDetailFooter.identi, for: indexPath) as? RefingredientDetailFooter else {return UICollectionReusableView()}
+            guard let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: RefingredientReadFooter.identi, for: indexPath) as? RefingredientReadFooter else {return UICollectionReusableView()}
             return footer
         default:
             return UICollectionReusableView()
@@ -96,7 +97,7 @@ extension RefingredientDetailVC : UICollectionViewDelegate ,UICollectionViewData
         return CGSize(width: view.frame.size.width, height: 60)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-       let headerView = RefingredientDetailHeader()
+       let headerView = RefingredientReadHeader()
         return headerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
     }
     
@@ -115,9 +116,8 @@ extension RefingredientDetailVC : UICollectionViewDelegate ,UICollectionViewData
         return cell
     }
     
-    
 }
-extension RefingredientDetailVC : UICollectionViewDelegateFlowLayout{
+extension RefIngredientAddVC : UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         guard let flowLayout = collectionViewLayout as? GridCollectionVFL,
               flowLayout.numberOfColumns > 0
@@ -131,7 +131,7 @@ extension RefingredientDetailVC : UICollectionViewDelegateFlowLayout{
     
     
 }
-extension RefingredientDetailVC {
+extension RefIngredientAddVC {
     @objc func didTapView(_ sender: UITapGestureRecognizer){
         
     }
@@ -149,14 +149,14 @@ extension RefingredientDetailVC {
         self.navigationController?.navigationBar.tintColor = .black
     }
     private func addView(){
-        self.view.addSubview(testStackView)
-        testStackView.addStackSubViews([ingredientInfoView,storageInfoView,refIngredientDetailCV])
+        self.view.addSubview(upperView)
+        upperView.addStackSubViews([ingredientInfoView,storageInfoView,refIngredientDetailCV])
 //        self.view.addSubview(ingredientInfoView)
 //        self.view.addSubview(storageInfoView)
 //        self.view.addSubview(refIngredientDetailCV)
     }
     private func setAutoLayout(){
-        testStackView.snp.makeConstraints { make in
+        upperView.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(20)
             make.left.equalToSuperview().offset(leftOffset)
             make.right.equalToSuperview().offset(-20)
@@ -183,15 +183,15 @@ extension RefingredientDetailVC {
     }
     
 }
-extension RefingredientDetailVC : tapTextFieldDelegate{
+extension RefIngredientAddVC : tapTextFieldDelegate{
     func tapTextFieldAction() {
     }
 }
 #if canImport(SwiftUI) && DEBUG
 import SwiftUI
-struct RefingredientDetailVCPreview: PreviewProvider {
+struct RefIngredientAddVCPreview: PreviewProvider {
     static var previews: some View {
-        RefingredientDetailVC().showPreview(.iPhone14Pro)
+        RefIngredientAddVC().showPreview(.iPhone14Pro)
     }
 }
 #endif

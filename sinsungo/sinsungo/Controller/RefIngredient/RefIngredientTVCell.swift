@@ -10,7 +10,6 @@ import UIKit
 class RefIngredientTVCell: UITableViewCell {
     static let identi = "RefIngredientTVCellid"
     var selectVC = false
-    
     var containerView : UIView = {
        let containerVIew = UIView()
         return containerVIew

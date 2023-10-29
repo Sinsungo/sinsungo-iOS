@@ -35,6 +35,7 @@ class StorageInfoView : UIView {
         btn.backgroundColor = UIColor(named: "primarycolor")
         btn.layer.cornerRadius = 4
         btn.layer.masksToBounds = true
+        btn.addTarget(self, action: #selector(tapConsumebtn), for: .touchUpInside)
         return btn
     }()
     private lazy var expirationBtn : UIButton = {
@@ -46,6 +47,7 @@ class StorageInfoView : UIView {
         btn.backgroundColor = UIColor(named: "whitetwo")
         btn.layer.cornerRadius = 4
         btn.layer.masksToBounds = true
+        btn.addTarget(self, action: #selector(tapExpirationBtn), for: .touchUpInside)
         return btn
     }()
     private lazy var dateInfoView : UIView = {
@@ -123,6 +125,39 @@ extension StorageInfoView {
         dateImgView.snp.makeConstraints { make in
             make.right.equalToSuperview().offset(-8)
             make.centerY.equalToSuperview()
+        }
+    }
+    @objc func tapExpirationBtn(){
+        setNonSelectedBtn(btn: consumeBtn, name: "소비기한")
+        setSelectedBtn(btn: expirationBtn, name: "유통기한")
+    }
+    @objc func tapConsumebtn(){
+        setNonSelectedBtn(btn: expirationBtn, name: "유통기한")
+        setSelectedBtn(btn: consumeBtn, name: "소비기한")
+    }
+    func setSelectedBtn(btn : UIButton,name : String){
+        var setSelectedBtnConfig = UIButton.Configuration.plain()
+        setSelectedBtnConfig.baseForegroundColor = UIColor(named: "palegrey")
+        setSelectedBtnConfig.attributedTitle = AttributedString("\(name)", attributes: AttributeContainer([NSAttributedString.Key.font : UIFont(name: CustomFont.Bold.rawValue, size: 12)!]))
+        setSelectedBtnConfig.contentInsets = NSDirectionalEdgeInsets.init(top: 10, leading: 10, bottom: 10, trailing: 10)
+        btn.configuration = setSelectedBtnConfig
+        btn.backgroundColor = UIColor(named: "primarycolor")
+    }
+    func setNonSelectedBtn(btn : UIButton,name : String){
+        var setNonSelectedBtnConfig = UIButton.Configuration.plain()
+        setNonSelectedBtnConfig.baseForegroundColor = UIColor(named: "brownishgrey")
+        setNonSelectedBtnConfig.attributedTitle = AttributedString("\(name)", attributes: AttributeContainer([NSAttributedString.Key.font : UIFont(name: CustomFont.Bold.rawValue, size: 12)!]))
+        setNonSelectedBtnConfig.contentInsets = NSDirectionalEdgeInsets.init(top: 10, leading: 10, bottom: 10, trailing: 10)
+        btn.configuration = setNonSelectedBtnConfig
+        btn.backgroundColor = UIColor(named: "whitetwo")
+    }
+    func setBtnDisable(disable : Bool){
+        if disable {
+            expirationBtn.isUserInteractionEnabled = false
+            consumeBtn.isUserInteractionEnabled = false
+        }else{
+            expirationBtn.isUserInteractionEnabled = true
+            consumeBtn.isUserInteractionEnabled = true
         }
     }
 }
