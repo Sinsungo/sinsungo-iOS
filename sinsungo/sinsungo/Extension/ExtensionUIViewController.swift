@@ -53,5 +53,17 @@ extension UIViewController {
     @objc func tapDismiss(){
         self.dismiss(animated: true)
     }
+    func presentModal(vc: UIViewController ,height : CGFloat){
+        let modalVC = vc
+        if let sheet = modalVC.sheetPresentationController {
+            sheet.detents = [
+                .custom{ _ in
+                    return height
+                }
+            ]
+            sheet.preferredCornerRadius = 16
+        }
+        self.present(modalVC, animated: true)
+    }
 }
 #endif

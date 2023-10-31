@@ -9,6 +9,7 @@ import UIKit
 
 class RefingredientReadFooter: UICollectionReusableView {
     static let identi = "RefingredientDetailFooterid"
+    var tapUpdateIngredientClosure : (() ->() )?
     private lazy var bottomBtnStackView : UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
@@ -25,6 +26,7 @@ class RefingredientReadFooter: UICollectionReusableView {
     private lazy var duplicationBtn : RefIngredientBottomBtn = {
         let btn = RefIngredientBottomBtn()
         btn.setBtnTitle("수정")
+        btn.addTarget(self, action: #selector(tapUpdateIngredient), for: .touchUpInside)
         return btn
     }()
     private lazy var basketBtn : RefIngredientBottomBtn = {
@@ -47,6 +49,9 @@ class RefingredientReadFooter: UICollectionReusableView {
             make.left.right.equalToSuperview()
             make.bottom.equalToSuperview().offset(-12)
         }
+    }
+    @objc func tapUpdateIngredient(){
+        tapUpdateIngredientClosure?()
     }
     
 }

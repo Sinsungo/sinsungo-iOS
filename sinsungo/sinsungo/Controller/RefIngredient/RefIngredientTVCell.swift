@@ -52,7 +52,7 @@ class RefIngredientTVCell: UITableViewCell {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.alignment = .fill
-        stackView.distribution = .fillProportionally
+        stackView.distribution = .fill
         stackView.spacing = 68
         return stackView
     }()
@@ -107,10 +107,11 @@ extension RefIngredientTVCell {
         contentView.backgroundColor = .white
         contentView.layer.cornerRadius = 4
     }
-    func setRefIngredient(model:RefIngredientFormat){
+    func setRefIngredient(model:IngredientFormat){
         ingredientLabel.text = "\(model.ingredientName) | "
         ingredientCntLabel.text = "\(model.ingredientCnt)"
-        
+        archiveDateLabel.text = "\(model.storageType)\(model.remainPeriod)일 남았어요."
+        remainDateLabel.text = "\(model.storageType) \(model.storageDate)"
     }
     private func addSubView(){
         contentView.addSubview(containerView)

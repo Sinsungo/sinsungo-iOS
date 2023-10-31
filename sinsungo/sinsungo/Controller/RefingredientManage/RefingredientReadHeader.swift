@@ -7,8 +7,8 @@
 
 import UIKit
 
-class RefingredientReadHeader: UICollectionReusableView {
-    static let identi = "RefingredientDetailHeaderid"
+class RefingredientHeader: UICollectionReusableView {
+    static let identi = "RefingredientHeaderId"
     lazy var upperView : UIView = {
        let upperView = UIView()
         return upperView

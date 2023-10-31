@@ -1,16 +1,18 @@
 //
-//  RefingredientDetailVC.swift
+//  RefIngredientUpdateVC.swift
 //  sinsungo
 //
-//  Created by 원동진 on 2023/05/04.
+//  Created by 원동진 on 2023/10/31.
 //
 
-import UIKit
+import Foundation
 import SnapKit
-class RefingredientReadVC: UIViewController {
+import UIKit
+
+class RefIngredientUpdateVC: UIViewController {
     let leftOffset = 20
     let rightOffset = -20
-    var refIngredientSettingType = "냉장고 재료 보기"
+    var refIngredientSettingType = "냉장고 재료 수정"
     var refNum : Int = 0
     // 냉장고 번호 -> 0부터시작
     private lazy var backButtonCustom : UIButton = {
@@ -40,12 +42,12 @@ class RefingredientReadVC: UIViewController {
     }()
     lazy var ingredientInfoView : IngredientInfoView = {
         let infoView = IngredientInfoView()
-        infoView.setTextFieldDisable(disable: true)
+        infoView.setTextFieldDisable(disable: false)
         return infoView
     }()
     private lazy var storageInfoView : StorageInfoView = {
         let infoView = StorageInfoView()
-        infoView.setBtnDisable(disable: true)
+        infoView.setBtnDisable(disable: false)
         return infoView
     }()
     private lazy var refIngredientDetailCV : UICollectionView = {
@@ -55,12 +57,24 @@ class RefingredientReadVC: UIViewController {
         collectionView.contentInset = .zero
         collectionView.clipsToBounds = true
         collectionView.register(RefingredientHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: RefingredientHeader.identi)
-        collectionView.register(RefingredientReadFooter.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: RefingredientReadFooter.identi)
+        
         collectionView.register(StorageLocationCVCell.self, forCellWithReuseIdentifier: StorageLocationCVCell.identi)
         collectionView.register(StorageLocationCVCell_Selected.self, forCellWithReuseIdentifier: StorageLocationCVCell_Selected.identi)
         collectionView.backgroundColor = UIColor(named: "palegrey")
         
         return collectionView
+    }()
+    private lazy var addIngredientButton : UIButton = {
+        var config = UIButton.Configuration.plain()
+        config.attributedTitle = AttributedString("냉장고에 재료 넣기", attributes: AttributeContainer([NSAttributedString.Key.font : UIFont(name: CustomFont.Bold.rawValue, size: 12)!]))
+        config.baseForegroundColor = .white
+        config.contentInsets = NSDirectionalEdgeInsets(top: 15, leading: 0, bottom: 15, trailing: 0)
+        let addIngredientButton = UIButton(configuration: config)
+        addIngredientButton.backgroundColor = UIColor(named: "primarycolor")
+        addIngredientButton.layer.cornerRadius = 4
+        addIngredientButton.layer.masksToBounds = true
+    
+        return addIngredientButton
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,30 +92,20 @@ class RefingredientReadVC: UIViewController {
     }
     
 }
-extension RefingredientReadVC : UICollectionViewDelegate ,UICollectionViewDataSource{
+extension RefIngredientUpdateVC : UICollectionViewDelegate ,UICollectionViewDataSource{
     //MARK: - Header & footer
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
             guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: RefingredientHeader.identi, for: indexPath) as? RefingredientHeader else {return UICollectionReusableView()}
             return header
-        case UICollectionView.elementKindSectionFooter:
-            guard let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: RefingredientReadFooter.identi, for: indexPath) as? RefingredientReadFooter else {return UICollectionReusableView()}
-            footer.tapUpdateIngredientClosure = { [unowned self] in
-                let pushVC = RefIngredientUpdateVC()
-                self.navigationController?.pushViewController(pushVC, animated: true)
-                
-            }
-            return footer
         default:
             return UICollectionReusableView()
         }
     }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.size.width, height: 60)
-    }
+ 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        let headerView = RefingredientHeader()
+       let headerView = RefingredientHeader()
         return headerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
     }
     
@@ -116,13 +120,12 @@ extension RefingredientReadVC : UICollectionViewDelegate ,UICollectionViewDataSo
             guard let selectCell = collectionView.dequeueReusableCell(withReuseIdentifier: StorageLocationCVCell_Selected.identi, for: indexPath) as? StorageLocationCVCell_Selected else { return UICollectionViewCell()}
             return selectCell
         }
-        
+            
         return cell
     }
     
-    
 }
-extension RefingredientReadVC : UICollectionViewDelegateFlowLayout{
+extension RefIngredientUpdateVC : UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         guard let flowLayout = collectionViewLayout as? GridCollectionVFL,
               flowLayout.numberOfColumns > 0
@@ -136,7 +139,7 @@ extension RefingredientReadVC : UICollectionViewDelegateFlowLayout{
     
     
 }
-extension RefingredientReadVC {
+extension RefIngredientUpdateVC {
     @objc func didTapView(_ sender: UITapGestureRecognizer){
         
     }
@@ -155,31 +158,28 @@ extension RefingredientReadVC {
     }
     private func addView(){
         self.view.addSubview(upperView)
-        upperView.addStackSubViews([ingredientInfoView,storageInfoView,refIngredientDetailCV])
-        //        self.view.addSubview(ingredientInfoView)
-        //        self.view.addSubview(storageInfoView)
-        //        self.view.addSubview(refIngredientDetailCV)
+        upperView.addStackSubViews([ingredientInfoView,storageInfoView,refIngredientDetailCV,addIngredientButton])
     }
     private func setAutoLayout(){
         upperView.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(20)
             make.left.equalToSuperview().offset(leftOffset)
             make.right.equalToSuperview().offset(-20)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-12)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-12)
         }
-        
     }
     
 }
-extension RefingredientReadVC : tapTextFieldDelegate{
+extension RefIngredientUpdateVC : tapTextFieldDelegate{
     func tapTextFieldAction() {
     }
 }
 #if canImport(SwiftUI) && DEBUG
 import SwiftUI
-struct RefingredientReadVCPreview: PreviewProvider {
+struct RefIngredientUpdateVCPreview: PreviewProvider {
     static var previews: some View {
-        RefingredientReadVC().showPreview(.iPhone14Pro)
+        RefIngredientUpdateVC().showPreview(.iPhone14Pro)
     }
 }
 #endif

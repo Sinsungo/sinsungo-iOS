@@ -55,13 +55,25 @@ class RefIngredientAddVC: UIViewController {
         collectionView.showsVerticalScrollIndicator = true
         collectionView.contentInset = .zero
         collectionView.clipsToBounds = true
-        collectionView.register(RefingredientReadHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: RefingredientReadHeader.identi)
-        collectionView.register(RefingredientReadFooter.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: RefingredientReadFooter.identi)
+        collectionView.register(RefingredientHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: RefingredientHeader.identi)
+        
         collectionView.register(StorageLocationCVCell.self, forCellWithReuseIdentifier: StorageLocationCVCell.identi)
         collectionView.register(StorageLocationCVCell_Selected.self, forCellWithReuseIdentifier: StorageLocationCVCell_Selected.identi)
         collectionView.backgroundColor = UIColor(named: "palegrey")
         
         return collectionView
+    }()
+    private lazy var addIngredientButton : UIButton = {
+        var config = UIButton.Configuration.plain()
+        config.attributedTitle = AttributedString("냉장고에 재료 넣기", attributes: AttributeContainer([NSAttributedString.Key.font : UIFont(name: CustomFont.Bold.rawValue, size: 12)!]))
+        config.baseForegroundColor = .white
+        config.contentInsets = NSDirectionalEdgeInsets(top: 15, leading: 0, bottom: 15, trailing: 0)
+        let addIngredientButton = UIButton(configuration: config)
+        addIngredientButton.backgroundColor = UIColor(named: "primarycolor")
+        addIngredientButton.layer.cornerRadius = 4
+        addIngredientButton.layer.masksToBounds = true
+    
+        return addIngredientButton
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,20 +96,15 @@ extension RefIngredientAddVC : UICollectionViewDelegate ,UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
-            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: RefingredientReadHeader.identi, for: indexPath) as? RefingredientReadHeader else {return UICollectionReusableView()}
+            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: RefingredientHeader.identi, for: indexPath) as? RefingredientHeader else {return UICollectionReusableView()}
             return header
-        case UICollectionView.elementKindSectionFooter:
-            guard let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: RefingredientReadFooter.identi, for: indexPath) as? RefingredientReadFooter else {return UICollectionReusableView()}
-            return footer
         default:
             return UICollectionReusableView()
         }
     }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.size.width, height: 60)
-    }
+ 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-       let headerView = RefingredientReadHeader()
+       let headerView = RefingredientHeader()
         return headerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
     }
     
@@ -150,7 +157,7 @@ extension RefIngredientAddVC {
     }
     private func addView(){
         self.view.addSubview(upperView)
-        upperView.addStackSubViews([ingredientInfoView,storageInfoView,refIngredientDetailCV])
+        upperView.addStackSubViews([ingredientInfoView,storageInfoView,refIngredientDetailCV,addIngredientButton])
 //        self.view.addSubview(ingredientInfoView)
 //        self.view.addSubview(storageInfoView)
 //        self.view.addSubview(refIngredientDetailCV)
@@ -160,7 +167,8 @@ extension RefIngredientAddVC {
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(20)
             make.left.equalToSuperview().offset(leftOffset)
             make.right.equalToSuperview().offset(-20)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-12)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-12)
         }
 //        ingredientInfoView.snp.makeConstraints { make in
 //            make.top.equalTo(self.view.safeAreaLayoutGuide)

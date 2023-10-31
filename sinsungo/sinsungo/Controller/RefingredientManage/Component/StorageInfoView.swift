@@ -73,12 +73,24 @@ class StorageInfoView : UIView {
         explainLabel.font = UIFont(name: CustomFont.Bold.rawValue, size: 12)
         return explainLabel
     }()
-    private lazy var dateContentLabel : UILabel = {
-        let contentLabel = UILabel()
-        contentLabel.text = "YYYY.MM.DD"
-        contentLabel.font = UIFont(name: CustomFont.Regular.rawValue, size: 14)
-        return contentLabel
+
+    private lazy var dateContentTextField : UITextField = {
+        let contentTextField = UITextField()
+        contentTextField.text = "YYYY.MM.DD"
+        contentTextField.font = UIFont(name: CustomFont.Regular.rawValue, size: 14)
+        contentTextField.inputView = datePicker
+        contentTextField.text = dateFormat(date: Date())
+        return contentTextField
     }()
+    private lazy var datePicker : UIDatePicker = {
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .date
+        datePicker.preferredDatePickerStyle = .wheels
+        datePicker.locale = Locale(identifier: "ko-KR")
+        datePicker.addTarget(self, action: #selector(dateChange), for: .valueChanged)
+        return datePicker
+    }()
+    
     private lazy var dateImgView : UIImageView = {
         let imgView = UIImageView()
         imgView.image = UIImage(named: "dateImg")
@@ -88,6 +100,7 @@ class StorageInfoView : UIView {
         super.init(frame: frame)
         addView()
         setAutoLayout()
+        setupToolBar() 
     }
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -98,8 +111,9 @@ extension StorageInfoView {
         self.addSubViews([storageInfoLabel,btnStackView,dateInfoView])
         btnStackView.addStackSubViews([consumeBtn,expirationBtn])
         dateInfoView.addSubViews([dateContentStackView,dateImgView])
-        dateContentStackView.addStackSubViews([dateExplainLabel,dateContentLabel])
+        dateContentStackView.addStackSubViews([dateExplainLabel,dateContentTextField])
     }
+    
     private func setAutoLayout(){
         storageInfoLabel.snp.makeConstraints { make in
             make.top.equalToSuperview()
@@ -159,5 +173,30 @@ extension StorageInfoView {
             expirationBtn.isUserInteractionEnabled = true
             consumeBtn.isUserInteractionEnabled = true
         }
+    }
+//MARK: - 데이트 Picker
+    @objc func dateChange(_ sender: UIDatePicker) {
+        // DatePicker - 값이 변할 때 마다 동작
+        // 값이 변하면 UIDatePicker에서 날짜 -> TextField
+        dateContentTextField.text = dateFormat(date: sender.date)
+    }
+    private func dateFormat(date: Date) -> String {
+        // 텍스트 필드에 들어갈 텍스트 설정
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy.MM.dd"
+        
+        return formatter.string(from: date)
+    }
+    private func setupToolBar() {
+        let toolBar = UIToolbar()
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(tapDownKeyBoard))
+        toolBar.items = [flexibleSpace, doneButton]
+        toolBar.sizeToFit()
+        dateContentTextField.inputAccessoryView = toolBar
+    }
+    @objc func tapDownKeyBoard(_ sender: UIBarButtonItem) {
+        dateContentTextField.text = dateFormat(date: datePicker.date)
+        dateContentTextField.resignFirstResponder()
     }
 }

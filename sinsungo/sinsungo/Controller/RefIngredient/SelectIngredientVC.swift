@@ -6,10 +6,10 @@
 //
 
 import UIKit
-
+//- 선택된 재료 삭제하기 VC
 class SelectIngredientVC: UIViewController {
     var selectIng = [IndexPath]()
-    let refIngredSampleDate = (1...5).map{_ in return RefIngredientFormat(ingredientName: "재료명", ingredientCnt: 1, storageType: "{보관구분}", storageDate: "yyyy-MM-dd")}
+    let refIngredSampleDate : [IngredientFormat] = [IngredientFormat(ingredientName: "재료명1", ingredientCnt: 1, remainPeriod: 1, storageType: "유통기한", storageDate: "2022-03-22"),IngredientFormat(ingredientName: "재료명2", ingredientCnt: 2, remainPeriod: 2, storageType: "유통기한", storageDate: "2022-03-22"),IngredientFormat(ingredientName: "재료명3", ingredientCnt: 3, remainPeriod: 3, storageType: "유통기한", storageDate: "2022-03-22"),]
     private lazy var backButtonCustomm : UIButton = {
         var config = UIButton.Configuration.plain()
         config.attributedTitle = AttributedString("선택하기", attributes: AttributeContainer([NSAttributedString.Key.font : UIFont(name: CustomFont.ExtraBold.rawValue, size: 20)!]))

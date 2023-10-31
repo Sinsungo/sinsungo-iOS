@@ -27,7 +27,7 @@ class RefIngredientVC: UIViewController {
     var refName : String = "{냉장고 이름}"
     var sortStandard : String = "기본순 (최신순)"
     var exipireDate : String = "유통기한"
-    let refIngredSampleDate = (1...5).map{_ in return RefIngredientFormat(ingredientName: "재료명", ingredientCnt: 1, storageType: "{보관구분}", storageDate: "yyyy-MM-dd")}
+    let refIngredSampleDate : [IngredientFormat] = [IngredientFormat(ingredientName: "재료명1", ingredientCnt: 1, remainPeriod: 1, storageType: "유통기한", storageDate: "2022-03-22"),IngredientFormat(ingredientName: "재료명2", ingredientCnt: 2, remainPeriod: 2, storageType: "유통기한", storageDate: "2022-03-22"),IngredientFormat(ingredientName: "재료명3", ingredientCnt: 3, remainPeriod: 3, storageType: "유통기한", storageDate: "2022-03-22")]
     private lazy var ingredientTableView : UITableView = {
         let ingredientTableView = UITableView(frame: .zero, style: .grouped)
         ingredientTableView.sectionHeaderHeight = CGFloat.leastNormalMagnitude
@@ -88,7 +88,7 @@ extension RefIngredientVC : UITableViewDelegate ,UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let refIngredientTVC = tableView.dequeueReusableCell(withIdentifier: RefIngredientTVCell.identi, for: indexPath) as? RefIngredientTVCell else{ return UITableViewCell() }
-        refIngredientTVC.setRefIngredient(model: refIngredSampleDate[indexPath.row])
+        refIngredientTVC.setRefIngredient(model: refIngredSampleDate[indexPath.section])
         refIngredientTVC.contentView.layer.masksToBounds = true
         return refIngredientTVC
     }
@@ -163,18 +163,7 @@ extension RefIngredientVC {
         self.navigationItem.rightBarButtonItem = rightbuttonItem
         self.navigationController?.navigationBar.tintColor = .black
     }
-    private func presentModal(vc: UIViewController ,height : CGFloat){
-        let modalVC = vc
-        if let sheet = modalVC.sheetPresentationController {
-            sheet.detents = [
-                .custom{ _ in
-                    return height
-                }
-            ]
-            sheet.preferredCornerRadius = 16
-        }
-        self.present(modalVC, animated: true)
-    }
+
     @objc private func tapSettingButton(){
     }
     @objc func tapAddIngredientBtn(){

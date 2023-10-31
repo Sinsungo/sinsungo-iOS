@@ -14,6 +14,10 @@
 		F80B235A2987E6C2009451A4 /* RefirgeratorTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80B23592987E6C2009451A4 /* RefirgeratorTVCell.swift */; };
 		F80B235C29882BEB009451A4 /* RefrigeratorTVH.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80B235B29882BEB009451A4 /* RefrigeratorTVH.swift */; };
 		F80B23602988378B009451A4 /* RefirgeratorTVF.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80B235F2988378B009451A4 /* RefirgeratorTVF.swift */; };
+		F81731A52AF1092C003152AF /* RefIngredientUpdateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81731A42AF1092C003152AF /* RefIngredientUpdateVC.swift */; };
+		F81731A82AF121BA003152AF /* CategoryModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81731A72AF121BA003152AF /* CategoryModalVC.swift */; };
+		F81731AA2AF121DB003152AF /* UnitModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81731A92AF121DB003152AF /* UnitModalVC.swift */; };
+		F81731AC2AF12317003152AF /* SelectedModalTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81731AB2AF12317003152AF /* SelectedModalTVCell.swift */; };
 		F81E57B0298AA3750055EF84 /* ExtensionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81E57AF298AA3750055EF84 /* ExtensionUIView.swift */; };
 		F827C4F72992D7DC00998BC8 /* NanumSquareOTF_acEB.otf in Resources */ = {isa = PBXBuildFile; fileRef = F827C4F62992D7DC00998BC8 /* NanumSquareOTF_acEB.otf */; };
 		F827C4F92992D7F200998BC8 /* NanumSquareOTF_acB.otf in Resources */ = {isa = PBXBuildFile; fileRef = F827C4F82992D7F200998BC8 /* NanumSquareOTF_acB.otf */; };
@@ -86,6 +90,10 @@
 		F80B23592987E6C2009451A4 /* RefirgeratorTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefirgeratorTVCell.swift; sourceTree = "<group>"; };
 		F80B235B29882BEB009451A4 /* RefrigeratorTVH.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefrigeratorTVH.swift; sourceTree = "<group>"; };
 		F80B235F2988378B009451A4 /* RefirgeratorTVF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefirgeratorTVF.swift; sourceTree = "<group>"; };
+		F81731A42AF1092C003152AF /* RefIngredientUpdateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefIngredientUpdateVC.swift; sourceTree = "<group>"; };
+		F81731A72AF121BA003152AF /* CategoryModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModalVC.swift; sourceTree = "<group>"; };
+		F81731A92AF121DB003152AF /* UnitModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitModalVC.swift; sourceTree = "<group>"; };
+		F81731AB2AF12317003152AF /* SelectedModalTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedModalTVCell.swift; sourceTree = "<group>"; };
 		F81E57AF298AA3750055EF84 /* ExtensionUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIView.swift; sourceTree = "<group>"; };
 		F827C4F62992D7DC00998BC8 /* NanumSquareOTF_acEB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTF_acEB.otf; sourceTree = "<group>"; };
 		F827C4F82992D7F200998BC8 /* NanumSquareOTF_acB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTF_acB.otf; sourceTree = "<group>"; };
@@ -175,7 +183,6 @@
 			isa = PBXGroup;
 			children = (
 				F86710A42A03B88600CF9839 /* RefingredientReadVC.swift */,
-				F899F0862A276E5B009B880C /* RefingredientReadHeader.swift */,
 				F899F0882A2773D6009B880C /* RefingredientReadFooter.swift */,
 			);
 			path = RefIngerdientRead;
@@ -202,6 +209,24 @@
 			path = RefrigeratorMain;
 			sourceTree = "<group>";
 		};
+		F817319F2AF100B9003152AF /* RefIngredientUpdate */ = {
+			isa = PBXGroup;
+			children = (
+				F81731A42AF1092C003152AF /* RefIngredientUpdateVC.swift */,
+			);
+			path = RefIngredientUpdate;
+			sourceTree = "<group>";
+		};
+		F81731A62AF12154003152AF /* SelectedModalVC */ = {
+			isa = PBXGroup;
+			children = (
+				F81731A72AF121BA003152AF /* CategoryModalVC.swift */,
+				F81731A92AF121DB003152AF /* UnitModalVC.swift */,
+				F81731AB2AF12317003152AF /* SelectedModalTVCell.swift */,
+			);
+			path = SelectedModalVC;
+			sourceTree = "<group>";
+		};
 		F8442EAA2AE15FCD0019AC60 /* Sort */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,9 +247,12 @@
 		F86710A12A03B83400CF9839 /* RefingredientManage */ = {
 			isa = PBXGroup;
 			children = (
-				F80252652AEE63F700743567 /* RefIngredientAdd */,
+				F81731A62AF12154003152AF /* SelectedModalVC */,
+				F899F0862A276E5B009B880C /* RefingredientReadHeader.swift */,
 				F80252632AEBB7A300743567 /* RefLoaction */,
 				F899F08A2A279328009B880C /* Component */,
+				F817319F2AF100B9003152AF /* RefIngredientUpdate */,
+				F80252652AEE63F700743567 /* RefIngredientAdd */,
 				F80252642AEE632F00743567 /* RefIngerdientRead */,
 			);
 			path = RefingredientManage;
@@ -541,11 +569,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F899F0812A274C24009B880C /* GridCollectionVFL.swift in Sources */,
+				F81731A82AF121BA003152AF /* CategoryModalVC.swift in Sources */,
 				F8ECB7FD29CDA51F000A0947 /* ExtensionUIViewController.swift in Sources */,
 				F801F1872A064471009B038F /* IngredientInfoView.swift in Sources */,
 				F85C3DD82A064E7E001FD89D /* StorageInfoView.swift in Sources */,
 				F86710A92A03C46400CF9839 /* ExtensionStackView.swift in Sources */,
 				F891A40629BC8E2900933615 /* AddRefModalVC.swift in Sources */,
+				F81731A52AF1092C003152AF /* RefIngredientUpdateVC.swift in Sources */,
 				F81E57B0298AA3750055EF84 /* ExtensionUIView.swift in Sources */,
 				F899F0892A2773D6009B880C /* RefingredientReadFooter.swift in Sources */,
 				F8ECB80329CDBAF4000A0947 /* RefIngredientTVH.swift in Sources */,
@@ -564,8 +594,10 @@
 				F8C126DC29EE9FDE008D216A /* SelectIngredientTVC.swift in Sources */,
 				F8BFBE63293B84A7007173BA /* SceneDelegate.swift in Sources */,
 				F86710A72A03BA5600CF9839 /* IngredientInfoSubView.swift in Sources */,
+				F81731AA2AF121DB003152AF /* UnitModalVC.swift in Sources */,
 				F8FF7EE029D1DC3200822C13 /* ExpireDateModalVC.swift in Sources */,
 				F870078229B0DDD500522B35 /* SearchVC.swift in Sources */,
+				F81731AC2AF12317003152AF /* SelectedModalTVCell.swift in Sources */,
 				F8C059EC29950A7D001719A9 /* ExtensionUIButton.swift in Sources */,
 				F899F0872A276E5B009B880C /* RefingredientReadHeader.swift in Sources */,
 				F845FE172A03EA00002BC49C /* RefIngredientBottomBtn.swift in Sources */,
