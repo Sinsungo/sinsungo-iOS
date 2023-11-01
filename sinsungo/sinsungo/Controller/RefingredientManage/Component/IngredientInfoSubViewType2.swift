@@ -1,18 +1,15 @@
 //
-//  IngredientInfoView.swift
+//  Ingredient_Category_Unit.swift
 //  sinsungo
 //
-//  Created by 원동진 on 2023/05/04.
+//  Created by 원동진 on 2023/11/01.
 //
-
+//카테고리랑 단위 subView
 import Foundation
 import UIKit
 import SnapKit
-protocol tapTextFieldDelegate : AnyObject{
-    func tapTextFieldAction()
-}
-class IngredientInfoSubView : UIView {
-    weak var delegate : tapTextFieldDelegate?
+
+class IngredientInfoSubViewType2 : UIView {
     private lazy var upperView : UIStackView = {
         let upperView = UIStackView()
         upperView.axis = .vertical
@@ -22,18 +19,17 @@ class IngredientInfoSubView : UIView {
         upperView.backgroundColor = .white
         return upperView
     }()
-    private lazy var infoTitleLabel : UILabel = {
+    lazy var infoTitleLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont(name: CustomFont.Bold.rawValue, size: 12)
         label.textColor = .black
         return label
     }()
-    lazy var infoContentTextField : UITextField = {
-        let textField = UITextField()
-        textField.font = UIFont(name: CustomFont.Regular.rawValue, size: 14)
-        textField.textColor = UIColor(named: "brownishgrey")
-        textField.delegate = self
-        return textField
+    lazy var infoContentUILabel : UILabel = {
+        let infoContentUILabel = UILabel()
+        infoContentUILabel.font = UIFont(name: CustomFont.Regular.rawValue, size: 14)
+        infoContentUILabel.textColor = UIColor(named: "brownishgrey")
+        return infoContentUILabel
     }()
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -50,11 +46,11 @@ class IngredientInfoSubView : UIView {
         super.init(coder: coder)
     }
 }
-extension IngredientInfoSubView {
+extension IngredientInfoSubViewType2 {
     private func addView(){
         addSubview(upperView)
         upperView.addArrangedSubview(infoTitleLabel)
-        upperView.addArrangedSubview(infoContentTextField)
+        upperView.addArrangedSubview(infoContentUILabel)
         
     }
     private func setAutoLayout(){
@@ -68,24 +64,21 @@ extension IngredientInfoSubView {
     }
     func setText(_ title: String,_ content : String){
         infoTitleLabel.text = title
-        infoContentTextField.placeholder = content
+        infoContentUILabel.text = content
     }
-    
-}
-extension IngredientInfoSubView : UITextFieldDelegate{
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        return true
-    }
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        self.delegate?.tapTextFieldAction()
+    func selectedStandard(_ standard : String){
+        infoContentUILabel.text = standard
+        infoContentUILabel.textColor = .black
+        
     }
 }
+
 #if DEBUG
 import SwiftUI
 
-struct GroupInfoViewPreview: PreviewProvider {
+struct IngredientInfoSubViewType2Preview: PreviewProvider {
     static var previews: some View {
-        return IngredientInfoSubView ().showPreview()
+        return IngredientInfoSubViewType2().showPreview()
     }
 }
 #endif

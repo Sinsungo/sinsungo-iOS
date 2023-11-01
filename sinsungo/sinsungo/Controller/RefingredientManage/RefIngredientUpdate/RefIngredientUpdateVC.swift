@@ -9,12 +9,19 @@ import Foundation
 import SnapKit
 import UIKit
 
+protocol CategoryDelegateUpdate : AnyObject{
+    func sendCategory(standard :String)
+}
+protocol UnitDelegateUpdate : AnyObject{
+    func sendUnit(standard :String)
+}
 class RefIngredientUpdateVC: UIViewController {
     let leftOffset = 20
     let rightOffset = -20
     var refIngredientSettingType = "냉장고 재료 수정"
     var refNum : Int = 0
     // 냉장고 번호 -> 0부터시작
+    
     private lazy var backButtonCustom : UIButton = {
         var config = UIButton.Configuration.plain()
         config.attributedTitle = AttributedString("\(refIngredientSettingType)", attributes: AttributeContainer([NSAttributedString.Key.font : UIFont(name: CustomFont.ExtraBold.rawValue, size: 20)!]))
@@ -43,6 +50,30 @@ class RefIngredientUpdateVC: UIViewController {
     lazy var ingredientInfoView : IngredientInfoView = {
         let infoView = IngredientInfoView()
         infoView.setTextFieldDisable(disable: false)
+        infoView.nameInfoView.textFieldDidBeginClosure = { [unowned self] in
+            tapdInfoViewHighlight(version: 0)
+            infoView.nameInfoView.layer.borderColor = UIColor(named: "primarycolor")?.cgColor
+            infoView.nameInfoView.infoTitleLabel.textColor = UIColor(named: "primarycolor")
+            
+        }
+        infoView.nameInfoView.textFieldDidEndClosure = { [unowned self] in
+            infoView.nameInfoView.layer.borderColor = UIColor(named: "verylightpink")?.cgColor
+            infoView.nameInfoView.infoTitleLabel.textColor = .black
+        }
+        infoView.cntInfoView.textFieldDidBeginClosure = { [unowned self] in
+            tapdInfoViewHighlight(version: 0)
+            infoView.cntInfoView.layer.borderColor = UIColor(named: "primarycolor")?.cgColor
+            infoView.cntInfoView.infoTitleLabel.textColor = UIColor(named: "primarycolor")
+            
+        }
+        infoView.cntInfoView.textFieldDidEndClosure = { [unowned self] in
+            infoView.cntInfoView.layer.borderColor = UIColor(named: "verylightpink")?.cgColor
+            infoView.cntInfoView.infoTitleLabel.textColor = .black
+        }
+        let tapCategoryGesture = UITapGestureRecognizer(target: self, action: #selector(tapCategoryView))
+        let tapUnitGesture = UITapGestureRecognizer(target: self, action: #selector(tapUnitView))
+        infoView.categoryView.addGestureRecognizer(tapCategoryGesture)
+        infoView.unitInfoView.addGestureRecognizer(tapUnitGesture)
         return infoView
     }()
     private lazy var storageInfoView : StorageInfoView = {
@@ -57,9 +88,7 @@ class RefIngredientUpdateVC: UIViewController {
         collectionView.contentInset = .zero
         collectionView.clipsToBounds = true
         collectionView.register(RefingredientHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: RefingredientHeader.identi)
-        
         collectionView.register(StorageLocationCVCell.self, forCellWithReuseIdentifier: StorageLocationCVCell.identi)
-        collectionView.register(StorageLocationCVCell_Selected.self, forCellWithReuseIdentifier: StorageLocationCVCell_Selected.identi)
         collectionView.backgroundColor = UIColor(named: "palegrey")
         
         return collectionView
@@ -73,7 +102,7 @@ class RefIngredientUpdateVC: UIViewController {
         addIngredientButton.backgroundColor = UIColor(named: "primarycolor")
         addIngredientButton.layer.cornerRadius = 4
         addIngredientButton.layer.masksToBounds = true
-    
+        
         return addIngredientButton
     }()
     override func viewDidLoad() {
@@ -82,8 +111,7 @@ class RefIngredientUpdateVC: UIViewController {
         addView()
         setAutoLayout()
         setCollectionView()
-        //        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapView(_:)))
-        //        headerView.addGestureRecognizer(tapGestureRecognizer)
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -103,9 +131,9 @@ extension RefIngredientUpdateVC : UICollectionViewDelegate ,UICollectionViewData
             return UICollectionReusableView()
         }
     }
- 
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-       let headerView = RefingredientHeader()
+        let headerView = RefingredientHeader()
         return headerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
     }
     
@@ -117,13 +145,14 @@ extension RefIngredientUpdateVC : UICollectionViewDelegate ,UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StorageLocationCVCell.identi, for: indexPath) as? StorageLocationCVCell else {return UICollectionViewCell()}
         if indexPath.row == self.refNum{
-            guard let selectCell = collectionView.dequeueReusableCell(withReuseIdentifier: StorageLocationCVCell_Selected.identi, for: indexPath) as? StorageLocationCVCell_Selected else { return UICollectionViewCell()}
-            return selectCell
+            collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
         }
-            
+        cell.isSelected = indexPath.row == self.refNum
         return cell
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // 나중에 선택된 냉장고 번호 넘겨줘야함
+    }
 }
 extension RefIngredientUpdateVC : UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -139,13 +168,64 @@ extension RefIngredientUpdateVC : UICollectionViewDelegateFlowLayout{
     
     
 }
+extension RefIngredientUpdateVC : CategoryDelegateUpdate,UnitDelegateUpdate{
+    //MARK: - 분류
+    func sendCategory(standard: String) {
+        ingredientInfoView.categoryView.selectedStandard(standard)
+    }
+    @objc func tapCategoryView(){
+        tapdInfoViewHighlight(version: 1)
+        ingredientInfoView.nameInfoView.infoContentTextField.resignFirstResponder()
+        ingredientInfoView.cntInfoView.infoContentTextField.resignFirstResponder()
+        let modalVC = CategoryModalVC()
+        modalVC.categoryVCDelegateUpdate = self
+        presentModal(vc: modalVC, height: 300)
+    }
+    func sendUnit(standard: String) {
+        ingredientInfoView.unitInfoView.selectedStandard(standard)
+    }
+    //MARK: - 단위
+    @objc func tapUnitView(){
+        tapdInfoViewHighlight(version: 2)
+        ingredientInfoView.nameInfoView.infoContentTextField.resignFirstResponder()
+        ingredientInfoView.cntInfoView.infoContentTextField.resignFirstResponder()
+        let modalVC = UnitModalVC()
+        modalVC.unitVCDelegateUpdate = self
+        presentModal(vc: modalVC, height: 300)
+    }
+}
 extension RefIngredientUpdateVC {
-    @objc func didTapView(_ sender: UITapGestureRecognizer){
+    
+    func tapdInfoViewHighlight(version : Int){
+        // 선택한 View Focusing
+        // 0 : 분류, 단위 focus풀기 , 1 :분류 focus , 2 : 단위 focus
+        
+        switch version{
+        case 0 :
+            [ingredientInfoView.categoryView,ingredientInfoView.unitInfoView].forEach { view in
+                view.infoTitleLabel.textColor = .black
+                view.layer.borderColor = UIColor(named: "verylightpink")?.cgColor
+            }
+        case 1:
+            ingredientInfoView.categoryView.infoTitleLabel.textColor = UIColor(named: "primarycolor")
+            ingredientInfoView.categoryView.layer.borderColor = UIColor(named: "primarycolor")?.cgColor
+            ingredientInfoView.unitInfoView.infoTitleLabel.textColor = .black
+            ingredientInfoView.unitInfoView.layer.borderColor = UIColor(named: "verylightpink")?.cgColor
+        case 2:
+            ingredientInfoView.unitInfoView.infoTitleLabel.textColor = UIColor(named: "primarycolor")
+            ingredientInfoView.unitInfoView.layer.borderColor = UIColor(named: "primarycolor")?.cgColor
+            ingredientInfoView.categoryView.infoTitleLabel.textColor = .black
+            ingredientInfoView.categoryView.layer.borderColor = UIColor(named: "verylightpink")?.cgColor
+        default:
+            print("올바른 version X")
+            break
+        }
         
     }
     @objc func tapBasketBtn(){
         
     }
+    
     private func setCollectionView(){
         refIngredientDetailCV.dataSource = self
         refIngredientDetailCV.delegate = self
@@ -171,15 +251,14 @@ extension RefIngredientUpdateVC {
     }
     
 }
-extension RefIngredientUpdateVC : tapTextFieldDelegate{
-    func tapTextFieldAction() {
-    }
-}
+
+
+
 #if canImport(SwiftUI) && DEBUG
 import SwiftUI
 struct RefIngredientUpdateVCPreview: PreviewProvider {
     static var previews: some View {
-        RefIngredientUpdateVC().showPreview(.iPhone14Pro)
+        RefIngredientAddVC().showPreview(.iPhone14Pro)
     }
 }
 #endif

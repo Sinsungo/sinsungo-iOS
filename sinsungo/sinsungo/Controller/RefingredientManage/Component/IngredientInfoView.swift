@@ -28,13 +28,13 @@ class IngredientInfoView : UIView {
         stackView.spacing = 8
         return stackView
     }()
-    lazy var nameInfoView : IngredientInfoSubView = {
-        let infoView = IngredientInfoSubView()
+    lazy var nameInfoView : IngredientInfoSubViewType1 = {
+        let infoView = IngredientInfoSubViewType1()
         infoView.setText("이름", "재료의 이름을 입력해주세요.")
         return infoView
     }()
-    lazy var sortInfoView : IngredientInfoSubView = {
-        let infoView = IngredientInfoSubView()
+    lazy var categoryView : IngredientInfoSubViewType2 = {
+        let infoView = IngredientInfoSubViewType2()
         infoView.setText("분류", "재료의 분류를 입력해주세요.")
         return infoView
     }()
@@ -48,14 +48,14 @@ class IngredientInfoView : UIView {
         return stackView
     }()
     // 수량
-    lazy var cntInfoView : IngredientInfoSubView = {
-        let infoView = IngredientInfoSubView()
+    lazy var cntInfoView : IngredientInfoSubViewType1 = {
+        let infoView = IngredientInfoSubViewType1()
         infoView.setText("수량", "수량을 입력해주세요.")
         return infoView
     }()
     // 단위
-    lazy var unitInfoView : IngredientInfoSubView = {
-        let infoView = IngredientInfoSubView()
+    lazy var unitInfoView : IngredientInfoSubViewType2 = {
+        let infoView = IngredientInfoSubViewType2()
         infoView.setText("단위", "단위를 입력해주세요.")
         return infoView
     }()
@@ -63,6 +63,7 @@ class IngredientInfoView : UIView {
         super.init(frame: frame)
         addView()
         setAutoLayout()
+
     }
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -73,7 +74,7 @@ class IngredientInfoView : UIView {
 extension IngredientInfoView {
     private func addView(){
         addSubViews([ingredientInfoLabel,ingredientInfoStackView])
-        ingredientInfoStackView.addStackSubViews([nameInfoView,sortInfoView,cntUnitStackView])
+        ingredientInfoStackView.addStackSubViews([nameInfoView,categoryView,cntUnitStackView])
         cntUnitStackView.addStackSubViews([cntInfoView,unitInfoView])
     }
     private func setAutoLayout(){
@@ -91,15 +92,16 @@ extension IngredientInfoView {
     }
     func setTextFieldDisable(disable : Bool){
         if disable {
-            [nameInfoView,sortInfoView,cntInfoView,unitInfoView].forEach { infoView in
+            [nameInfoView,categoryView,cntInfoView,unitInfoView].forEach { infoView in
                 infoView.isUserInteractionEnabled = false
             }
         }else{
-            [nameInfoView,sortInfoView,cntInfoView,unitInfoView].forEach { infoView in
+            [nameInfoView,categoryView,cntInfoView,unitInfoView].forEach { infoView in
                 infoView.isUserInteractionEnabled = true
             }
         }
     }
+ 
 }
 
 #if DEBUG

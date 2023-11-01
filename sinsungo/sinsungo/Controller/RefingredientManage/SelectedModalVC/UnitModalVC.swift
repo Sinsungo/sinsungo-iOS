@@ -8,8 +8,10 @@
 import UIKit
 
 class UnitModalVC: UIViewController {
-    let categoryArr = ["개수", "ml", "L", "kg", "g" ]
-    
+    let unitArr = ["개수", "ml", "L", "kg", "g" ]
+    var unitStandard = "개수"
+    var unitVCDelegate : UnitDelegate?
+    var unitVCDelegateUpdate : UnitDelegateUpdate?
     private lazy var explainLabel : UILabel = {
         let explainLabel = UILabel()
         explainLabel.text = "분류 기준을 선택해주세요."
@@ -26,16 +28,16 @@ class UnitModalVC: UIViewController {
         return checkTableView
     }()
    
-    private lazy var cancelButton : UIButton = {
+    private lazy var selectBtn : UIButton = {
         var config = UIButton.Configuration.plain()
-        config.attributedTitle = AttributedString("닫기", attributes: AttributeContainer([NSAttributedString.Key.font : UIFont(name: CustomFont.Bold.rawValue, size: 16)!]))
+        config.attributedTitle = AttributedString("확인", attributes: AttributeContainer([NSAttributedString.Key.font : UIFont(name: CustomFont.Bold.rawValue, size: 16)!]))
         config.baseForegroundColor = UIColor(named: "brownishgrey")
         config.contentInsets = NSDirectionalEdgeInsets.init(top: 16, leading: 0, bottom: 16, trailing: 0)
-        let cancelButton = UIButton(configuration: config)
-        cancelButton.backgroundColor = UIColor(named: "whitetwo")
-        cancelButton.layer.cornerRadius = 8
-        cancelButton.addTarget(self, action: #selector(tapDismiss), for: .touchUpInside)
-        return cancelButton
+        let selectBtn = UIButton(configuration: config)
+        selectBtn.backgroundColor = UIColor(named: "whitetwo")
+        selectBtn.layer.cornerRadius = 8
+        selectBtn.addTarget(self, action: #selector(tapSelectUnit), for: .touchUpInside)
+        return selectBtn
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +52,7 @@ extension UnitModalVC {
     private func addSubView(){
         self.view.addSubview(explainLabel)
         self.view.addSubview(checkTableView)
-        self.view.addSubview(cancelButton)
+        self.view.addSubview(selectBtn)
     }
     private func setAutoLaout(){
         explainLabel.snp.makeConstraints { make in
@@ -65,17 +67,22 @@ extension UnitModalVC {
             make.right.equalToSuperview().offset(-16)
         }
         checkTableView.setContentHuggingPriority(.init(750), for: .vertical)
-        cancelButton.snp.makeConstraints { make in
+        selectBtn.snp.makeConstraints { make in
             make.top.equalTo(checkTableView.snp.bottom).offset(21)
             make.left.equalToSuperview().offset(16)
             make.right.equalToSuperview().offset(-16)
             make.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-12)
         }
-        cancelButton.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        selectBtn.setContentHuggingPriority(.defaultHigh, for: .vertical)
     }
     private func setCell(){
         checkTableView.delegate = self
         checkTableView.dataSource = self
+    }
+    @objc func tapSelectUnit(){
+        unitVCDelegate?.sendUnit(standard: unitStandard)
+        unitVCDelegateUpdate?.sendUnit(standard: unitStandard)
+        self.dismiss(animated: true)
     }
 
 }
@@ -83,11 +90,11 @@ extension UnitModalVC : UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let sortModalTVC = tableView.dequeueReusableCell(withIdentifier: SelectedModalTVCell.identi, for: indexPath) as? SelectedModalTVCell else { return UITableViewCell()}
-        sortModalTVC.setLabel(model: categoryArr[indexPath.section])
+        sortModalTVC.setLabel(model: unitArr[indexPath.section])
         return sortModalTVC
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-        return categoryArr.count
+        return unitArr.count
     }
 //MARK: - 간격을 주기 위함
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -99,14 +106,16 @@ extension UnitModalVC : UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 15
     }
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.unitStandard = unitArr[indexPath.section]
+    }
 
 }
 #if canImport(SwiftUI) && DEBUG
 import SwiftUI
 struct UnitModalVCPreview : PreviewProvider {
     static var previews: some View {
-        SortModalVC().showPreview(.iPhone14Pro)
+        UnitModalVC().showPreview(.iPhone14Pro)
     }
 }
 #endif

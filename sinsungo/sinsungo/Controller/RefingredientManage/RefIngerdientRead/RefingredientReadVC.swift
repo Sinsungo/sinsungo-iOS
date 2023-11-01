@@ -57,7 +57,6 @@ class RefingredientReadVC: UIViewController {
         collectionView.register(RefingredientHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: RefingredientHeader.identi)
         collectionView.register(RefingredientReadFooter.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: RefingredientReadFooter.identi)
         collectionView.register(StorageLocationCVCell.self, forCellWithReuseIdentifier: StorageLocationCVCell.identi)
-        collectionView.register(StorageLocationCVCell_Selected.self, forCellWithReuseIdentifier: StorageLocationCVCell_Selected.identi)
         collectionView.backgroundColor = UIColor(named: "palegrey")
         
         return collectionView
@@ -113,11 +112,13 @@ extension RefingredientReadVC : UICollectionViewDelegate ,UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StorageLocationCVCell.identi, for: indexPath) as? StorageLocationCVCell else {return UICollectionViewCell()}
         if indexPath.row == self.refNum{
-            guard let selectCell = collectionView.dequeueReusableCell(withReuseIdentifier: StorageLocationCVCell_Selected.identi, for: indexPath) as? StorageLocationCVCell_Selected else { return UICollectionViewCell()}
-            return selectCell
+            collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
         }
-        
+        cell.isSelected = indexPath.row == self.refNum
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        return false
     }
     
     
@@ -171,10 +172,7 @@ extension RefingredientReadVC {
     }
     
 }
-extension RefingredientReadVC : tapTextFieldDelegate{
-    func tapTextFieldAction() {
-    }
-}
+
 #if canImport(SwiftUI) && DEBUG
 import SwiftUI
 struct RefingredientReadVCPreview: PreviewProvider {
