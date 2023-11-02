@@ -22,6 +22,8 @@
 		F827C4F92992D7F200998BC8 /* NanumSquareOTF_acB.otf in Resources */ = {isa = PBXBuildFile; fileRef = F827C4F82992D7F200998BC8 /* NanumSquareOTF_acB.otf */; };
 		F827C4FB2992D80700998BC8 /* NanumSquareOTF_acR.otf in Resources */ = {isa = PBXBuildFile; fileRef = F827C4FA2992D80700998BC8 /* NanumSquareOTF_acR.otf */; };
 		F827C4FD2992DB9F00998BC8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F827C4FC2992DB9F00998BC8 /* GoogleService-Info.plist */; };
+		F8430F9A2AF3A8EE0081B862 /* ShopBasketTVH.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8430F992AF3A8EE0081B862 /* ShopBasketTVH.swift */; };
+		F8430F9E2AF3C6180081B862 /* ExtensionNSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8430F9D2AF3C6180081B862 /* ExtensionNSAttributedString.swift */; };
 		F8442EAE2AE1650A0019AC60 /* SortBtn_CheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8442EAC2AE1650A0019AC60 /* SortBtn_CheckView.swift */; };
 		F845FE172A03EA00002BC49C /* RefIngredientBottomBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = F845FE162A03EA00002BC49C /* RefIngredientBottomBtn.swift */; };
 		F85C3DD82A064E7E001FD89D /* StorageInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85C3DD72A064E7E001FD89D /* StorageInfoView.swift */; };
@@ -52,6 +54,7 @@
 		F8C059EC29950A7D001719A9 /* ExtensionUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C059EB29950A7D001719A9 /* ExtensionUIButton.swift */; };
 		F8C126DC29EE9FDE008D216A /* SelectIngredientTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C126DB29EE9FDE008D216A /* SelectIngredientTVC.swift */; };
 		F8CAF3072AF221B3001B8F13 /* IngredientInfoSubViewType2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CAF3062AF221B3001B8F13 /* IngredientInfoSubViewType2.swift */; };
+		F8CAF3092AF25C6E001B8F13 /* ShopBasketTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CAF3082AF25C6E001B8F13 /* ShopBasketTVC.swift */; };
 		F8D0029E296EF39D00820C6C /* ExtensionUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D0029D296EF39D00820C6C /* ExtensionUIColor.swift */; };
 		F8D002A2296EFFE000820C6C /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8D002A1296EFFE000820C6C /* Roboto-Medium.ttf */; };
 		F8D455A629D1E781002E6C81 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D455A529D1E781002E6C81 /* CustomSlider.swift */; };
@@ -98,6 +101,8 @@
 		F827C4F82992D7F200998BC8 /* NanumSquareOTF_acB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTF_acB.otf; sourceTree = "<group>"; };
 		F827C4FA2992D80700998BC8 /* NanumSquareOTF_acR.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTF_acR.otf; sourceTree = "<group>"; };
 		F827C4FC2992DB9F00998BC8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F8430F992AF3A8EE0081B862 /* ShopBasketTVH.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopBasketTVH.swift; sourceTree = "<group>"; };
+		F8430F9D2AF3C6180081B862 /* ExtensionNSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionNSAttributedString.swift; sourceTree = "<group>"; };
 		F8442EAC2AE1650A0019AC60 /* SortBtn_CheckView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortBtn_CheckView.swift; sourceTree = "<group>"; };
 		F845FE162A03EA00002BC49C /* RefIngredientBottomBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefIngredientBottomBtn.swift; sourceTree = "<group>"; };
 		F85C3DD72A064E7E001FD89D /* StorageInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageInfoView.swift; sourceTree = "<group>"; };
@@ -132,6 +137,7 @@
 		F8C059EB29950A7D001719A9 /* ExtensionUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIButton.swift; sourceTree = "<group>"; };
 		F8C126DB29EE9FDE008D216A /* SelectIngredientTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectIngredientTVC.swift; sourceTree = "<group>"; };
 		F8CAF3062AF221B3001B8F13 /* IngredientInfoSubViewType2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientInfoSubViewType2.swift; sourceTree = "<group>"; };
+		F8CAF3082AF25C6E001B8F13 /* ShopBasketTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopBasketTVC.swift; sourceTree = "<group>"; };
 		F8D0029D296EF39D00820C6C /* ExtensionUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIColor.swift; sourceTree = "<group>"; };
 		F8D002A1296EFFE000820C6C /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		F8D455A529D1E781002E6C81 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
@@ -261,6 +267,8 @@
 			isa = PBXGroup;
 			children = (
 				F870078329B0DDE600522B35 /* ShopBasketVC.swift */,
+				F8CAF3082AF25C6E001B8F13 /* ShopBasketTVC.swift */,
+				F8430F992AF3A8EE0081B862 /* ShopBasketTVH.swift */,
 			);
 			path = ShopBasket;
 			sourceTree = "<group>";
@@ -371,6 +379,7 @@
 				F8A76E6C29CB0BF300DDED00 /* ExtensionUITextField.swift */,
 				F8ECB7FC29CDA51F000A0947 /* ExtensionUIViewController.swift */,
 				F86710A82A03C46400CF9839 /* ExtensionStackView.swift */,
+				F8430F9D2AF3C6180081B862 /* ExtensionNSAttributedString.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -605,8 +614,11 @@
 				F86710A52A03B88600CF9839 /* RefingredientReadVC.swift in Sources */,
 				F80B23602988378B009451A4 /* RefirgeratorTVF.swift in Sources */,
 				F870078429B0DDE600522B35 /* ShopBasketVC.swift in Sources */,
+				F8430F9E2AF3C6180081B862 /* ExtensionNSAttributedString.swift in Sources */,
 				F887E74F297A867E003A75C3 /* RefrigeratorVC.swift in Sources */,
 				F870078029B0DDC800522B35 /* MyProfileVC.swift in Sources */,
+				F8430F9A2AF3A8EE0081B862 /* ShopBasketTVH.swift in Sources */,
+				F8CAF3092AF25C6E001B8F13 /* ShopBasketTVC.swift in Sources */,
 				F8442EAE2AE1650A0019AC60 /* SortBtn_CheckView.swift in Sources */,
 				F899F0852A274E3A009B880C /* StorageLocationCVCell.swift in Sources */,
 				F8ECB7FF29CDA5F1000A0947 /* RefIngredientTVCell.swift in Sources */,

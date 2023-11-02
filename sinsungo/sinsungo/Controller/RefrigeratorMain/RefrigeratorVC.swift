@@ -84,7 +84,7 @@ extension RefrigeratorVC : UITableViewDataSource,UITableViewDelegate {
     
     //MARK: - Header
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: RefrigeratorTVH.identi) as? RefrigeratorTVH else { return nil}
+        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: RefrigeratorTVH.identi) as? RefrigeratorTVH else { return UIView()}
         
         headerView.setGroupNameLabel(model: groupName)
         return headerView
