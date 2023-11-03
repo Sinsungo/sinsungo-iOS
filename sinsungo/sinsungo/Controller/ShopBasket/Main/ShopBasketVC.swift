@@ -33,7 +33,7 @@ class ShopBasketVC: UIViewController {
         addBasketBtn.backgroundColor = UIColor(named: "primarycolor")
         addBasketBtn.layer.cornerRadius = 4
         addBasketBtn.layer.masksToBounds = true
-        
+        addBasketBtn.addTarget(self, action: #selector(tapAddBasket), for: .touchUpInside)
         return addBasketBtn
     }()
     override func viewDidLoad() {
@@ -69,6 +69,10 @@ extension ShopBasketVC {
             make.right.equalTo(view.snp.right).offset(-12)
             make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-12)
         }
+    }
+    @objc private func tapAddBasket(){
+        let pushVC = ShopBasketAddVC()
+        self.navigationController?.pushViewController(pushVC, animated: false)
     }
 }
 extension ShopBasketVC : UITableViewDelegate , UITableViewDataSource{
