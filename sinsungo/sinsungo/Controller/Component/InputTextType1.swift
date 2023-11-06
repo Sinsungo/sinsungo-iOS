@@ -71,7 +71,7 @@ extension InputTextType1 {
         infoContentTextField.attributedPlaceholder = NSAttributedString(string: content,attributes: [NSAttributedString.Key.foregroundColor : UIColor(named: "brownishgrey")!])
 //        infoContentTextField.attributedPlaceholder = NSAttributedString(string: "\(content)",attributes: [NSAttributedString.Key.foregroundColor : UIColor(named: "brownishgrey")])
     }
-    
+  
 }
 extension InputTextType1 : UITextFieldDelegate{
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {

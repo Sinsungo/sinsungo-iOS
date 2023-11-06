@@ -27,6 +27,7 @@
 		F8430F9E2AF3C6180081B862 /* ExtensionNSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8430F9D2AF3C6180081B862 /* ExtensionNSAttributedString.swift */; };
 		F8442EAE2AE1650A0019AC60 /* SortBtn_CheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8442EAC2AE1650A0019AC60 /* SortBtn_CheckView.swift */; };
 		F845FE172A03EA00002BC49C /* RefIngredientBottomBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = F845FE162A03EA00002BC49C /* RefIngredientBottomBtn.swift */; };
+		F846F1432AF8C8E400D80F8A /* ShopBasketReadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F846F1422AF8C8E400D80F8A /* ShopBasketReadVC.swift */; };
 		F85C3DD82A064E7E001FD89D /* StorageInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85C3DD72A064E7E001FD89D /* StorageInfoView.swift */; };
 		F86710A52A03B88600CF9839 /* RefingredientReadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86710A42A03B88600CF9839 /* RefingredientReadVC.swift */; };
 		F86710A72A03BA5600CF9839 /* InputTextType1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86710A62A03BA5600CF9839 /* InputTextType1.swift */; };
@@ -107,6 +108,7 @@
 		F8430F9D2AF3C6180081B862 /* ExtensionNSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionNSAttributedString.swift; sourceTree = "<group>"; };
 		F8442EAC2AE1650A0019AC60 /* SortBtn_CheckView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortBtn_CheckView.swift; sourceTree = "<group>"; };
 		F845FE162A03EA00002BC49C /* RefIngredientBottomBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefIngredientBottomBtn.swift; sourceTree = "<group>"; };
+		F846F1422AF8C8E400D80F8A /* ShopBasketReadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopBasketReadVC.swift; sourceTree = "<group>"; };
 		F85C3DD72A064E7E001FD89D /* StorageInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageInfoView.swift; sourceTree = "<group>"; };
 		F86710A42A03B88600CF9839 /* RefingredientReadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefingredientReadVC.swift; sourceTree = "<group>"; };
 		F86710A62A03BA5600CF9839 /* InputTextType1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextType1.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 		F80DA0D92AF4C4B800523DD2 /* Read */ = {
 			isa = PBXGroup;
 			children = (
+				F846F1422AF8C8E400D80F8A /* ShopBasketReadVC.swift */,
 			);
 			path = Read;
 			sourceTree = "<group>";
@@ -626,6 +629,7 @@
 				F801F1872A064471009B038F /* IngredientInfoView.swift in Sources */,
 				F85C3DD82A064E7E001FD89D /* StorageInfoView.swift in Sources */,
 				F86710A92A03C46400CF9839 /* ExtensionStackView.swift in Sources */,
+				F846F1432AF8C8E400D80F8A /* ShopBasketReadVC.swift in Sources */,
 				F891A40629BC8E2900933615 /* AddRefModalVC.swift in Sources */,
 				F81731A52AF1092C003152AF /* RefIngredientUpdateVC.swift in Sources */,
 				F81E57B0298AA3750055EF84 /* ExtensionUIView.swift in Sources */,

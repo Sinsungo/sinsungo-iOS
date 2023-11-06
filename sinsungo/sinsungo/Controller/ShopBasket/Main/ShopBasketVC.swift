@@ -106,6 +106,12 @@ extension ShopBasketVC : UITableViewDelegate , UITableViewDataSource{
         }
         return tableView.sectionHeaderHeight
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+//        print("\(indexPath.section)")
+        let pushVC = ShopBasketReadVC()
+        self.navigationController?.pushViewController(pushVC, animated: false)
+    }
 
 
 }
