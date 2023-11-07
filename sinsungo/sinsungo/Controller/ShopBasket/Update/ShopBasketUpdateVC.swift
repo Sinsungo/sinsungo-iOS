@@ -1,14 +1,16 @@
 //
-//  ShopBasketReadVC.swift
+//  ShopBasketUpdateVC.swift
 //  sinsungo
 //
-//  Created by 원동진 on 2023/11/06.
+//  Created by 원동진 on 2023/11/07.
 //
 
-import UIKit
-
-class ShopBasketReadVC: UIViewController {
-    private let shopBasketType = "장바구니 재료 보기"
+import Foundation
+protocol UnitDelegateShopBasketUpdate : AnyObject{
+    func sendUnit(standard :String)
+}
+class ShopBasketUpdateVC: UIViewController {
+    private let shopBasketType = "장바구니 재료 수정"
     
     private lazy var ingredientInfoLabel : UILabel = {
         let label = UILabel()
@@ -29,7 +31,6 @@ class ShopBasketReadVC: UIViewController {
     
     private lazy var ingredientNameInfoView : InputTextType1 = {
         let infoView = InputTextType1()
-        infoView.isUserInteractionEnabled = false
         infoView.textFieldDidBeginClosure = {
             [unowned self] in
             tapdInfoViewHighlight(version: 0)
@@ -54,7 +55,6 @@ class ShopBasketReadVC: UIViewController {
     // 수량
     lazy var cntInfoView : InputTextType1 = {
         let infoView = InputTextType1()
-        infoView.isUserInteractionEnabled = false
         infoView.setText("수량", "수량을 입력해주세요.")
         infoView.textFieldDidBeginClosure = {
             [unowned self] in
@@ -71,7 +71,6 @@ class ShopBasketReadVC: UIViewController {
     // 단위
     lazy var unitInfoView : InputTextType2 = {
         let infoView = InputTextType2()
-        infoView.isUserInteractionEnabled = false
         infoView.setText("단위", "단위를 입력해주세요.")
         let tapUnitGesture = UITapGestureRecognizer(target: self, action: #selector(tapUnitView))
         infoView.addGestureRecognizer(tapUnitGesture)
@@ -87,7 +86,6 @@ class ShopBasketReadVC: UIViewController {
     }()
     lazy var memoInfoView : InputTextType1 = {
         let infoView = InputTextType1()
-        infoView.isUserInteractionEnabled = false
         infoView.setText("메모", "메모 내용을 입력해주세요.")
         infoView.textFieldDidBeginClosure = {
             [unowned self] in
@@ -112,32 +110,18 @@ class ShopBasketReadVC: UIViewController {
         backButtonCustom.addTarget(self, action: #selector(tapPop), for: .touchUpInside)
         return backButtonCustom
     }()
- 
-    private lazy var bottomBtnStackView : UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 8
-        stackView.alignment = .fill
-        stackView.distribution = .fillProportionally
-        return stackView
+    private lazy var addShopBasektBtn : UIButton = {
+        var config = UIButton.Configuration.plain()
+        config.attributedTitle = AttributedString("장바구니에 추가하기", attributes: AttributeContainer([NSAttributedString.Key.font : UIFont(name: CustomFont.Bold.rawValue, size: 12)!]))
+        config.baseForegroundColor = .white
+        config.contentInsets = NSDirectionalEdgeInsets(top: 15, leading: 0, bottom: 15, trailing: 0)
+        let addShopBasektBtn = UIButton(configuration: config)
+        addShopBasektBtn.backgroundColor = UIColor(named: "primarycolor")
+        addShopBasektBtn.layer.cornerRadius = 4
+        addShopBasektBtn.layer.masksToBounds = true
+        return addShopBasektBtn
     }()
-    private lazy var deleteBtn : RefIngredientBottomBtn = {
-        let btn = RefIngredientBottomBtn()
-        btn.setBtnTitle("냉장고에 추가하기")
-        return btn
-    }()
-    private lazy var duplicationBtn : RefIngredientBottomBtn = {
-        let btn = RefIngredientBottomBtn()
-        btn.addTarget(self, action: #selector(tapUpdateShopBasket), for: .touchUpInside)
-        btn.setBtnTitle("수정")
-        return btn
-    }()
-    private lazy var basketBtn : RefIngredientBottomBtn = {
-        let btn = RefIngredientBottomBtn()
-        btn.setBtnTitle("삭제")
-        return btn
-    }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(named: "palegrey")
@@ -147,7 +131,7 @@ class ShopBasketReadVC: UIViewController {
     }
     
 }
-extension ShopBasketReadVC : UnitDelegate{
+extension ShopBasketUpdateVC : UnitDelegate{
     func sendUnit(standard: String) {
         unitInfoView.selectedStandard(standard)
     }
@@ -159,10 +143,9 @@ extension ShopBasketReadVC : UnitDelegate{
         self.navigationController?.navigationBar.tintColor = .black
     }
     private func addSubViews(){
-        self.view.addSubViews([ingredientInfoLabel,ingredientInfoView,memoInfoLabel,memoInfoView,bottomBtnStackView])
+        self.view.addSubViews([ingredientInfoLabel,ingredientInfoView,memoInfoLabel,memoInfoView,addShopBasektBtn])
         ingredientInfoView.addStackSubViews([ingredientNameInfoView,cntUnitStackView])
         cntUnitStackView.addStackSubViews([cntInfoView,unitInfoView])
-        bottomBtnStackView.addStackSubViews([deleteBtn,duplicationBtn,basketBtn])
     }
     private func setAutoLayout(){
         ingredientInfoLabel.snp.makeConstraints { make in
@@ -185,7 +168,7 @@ extension ShopBasketReadVC : UnitDelegate{
             make.left.equalToSuperview().offset(20)
             make.right.equalToSuperview().offset(-20)
         }
-        bottomBtnStackView.snp.makeConstraints { make in
+        addShopBasektBtn.snp.makeConstraints { make in
             make.left.equalTo(view.snp.left).offset(16)
             make.right.equalTo(view.snp.right).offset(-16)
             make.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-12)
@@ -212,17 +195,13 @@ extension ShopBasketReadVC : UnitDelegate{
         modalVC.unitVCDelegate = self
         presentModal(vc: modalVC, height: 300)
     }
-    @objc func tapUpdateShopBasket(){
-        let pushVC = ShopBasketUpdateVC()
-        self.navigationController?.pushViewController(pushVC, animated: false)
-    }
 }
 
 #if canImport(SwiftUI) && DEBUG
 import SwiftUI
-struct ShopBasketReadVCPreview: PreviewProvider {
+struct ShopBasketUpdateVCPreview: PreviewProvider {
     static var previews: some View {
-        ShopBasketReadVC().showPreview(.iPhone14Pro)
+        ShopBasketUpdateVC().showPreview(.iPhone14Pro)
     }
 }
 #endif

@@ -1,13 +1,13 @@
 //
-//  ShopBasketReadVC.swift
+//  ShopBasketReadVC_Buy.swift
 //  sinsungo
 //
-//  Created by 원동진 on 2023/11/06.
+//  Created by 원동진 on 2023/11/07.
 //
 
-import UIKit
-
-class ShopBasketReadVC: UIViewController {
+import Foundation
+// 장바구니 보기 - 이미 구매한 내용
+class ShopBasketReadVC_Buy: UIViewController {
     private let shopBasketType = "장바구니 재료 보기"
     
     private lazy var ingredientInfoLabel : UILabel = {
@@ -123,7 +123,7 @@ class ShopBasketReadVC: UIViewController {
     }()
     private lazy var deleteBtn : RefIngredientBottomBtn = {
         let btn = RefIngredientBottomBtn()
-        btn.setBtnTitle("냉장고에 추가하기")
+        btn.setBtnTitle("장바구니에 추가하기")
         return btn
     }()
     private lazy var duplicationBtn : RefIngredientBottomBtn = {
@@ -147,7 +147,7 @@ class ShopBasketReadVC: UIViewController {
     }
     
 }
-extension ShopBasketReadVC : UnitDelegate{
+extension ShopBasketReadVC_Buy : UnitDelegate{
     func sendUnit(standard: String) {
         unitInfoView.selectedStandard(standard)
     }
@@ -220,9 +220,9 @@ extension ShopBasketReadVC : UnitDelegate{
 
 #if canImport(SwiftUI) && DEBUG
 import SwiftUI
-struct ShopBasketReadVCPreview: PreviewProvider {
+struct ShopBasketReadVC_BuyPreview: PreviewProvider {
     static var previews: some View {
-        ShopBasketReadVC().showPreview(.iPhone14Pro)
+        ShopBasketReadVC_Buy().showPreview(.iPhone14Pro)
     }
 }
 #endif
