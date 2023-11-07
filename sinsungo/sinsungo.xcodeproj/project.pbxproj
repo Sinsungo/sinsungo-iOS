@@ -25,6 +25,7 @@
 		F827C4FD2992DB9F00998BC8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F827C4FC2992DB9F00998BC8 /* GoogleService-Info.plist */; };
 		F83D030B2AFA431500EC2622 /* ShopBasketUpdateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83D030A2AFA431500EC2622 /* ShopBasketUpdateVC.swift */; };
 		F83D030E2AFA442700EC2622 /* ShopBasketReadVC_Buy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83D030D2AFA442700EC2622 /* ShopBasketReadVC_Buy.swift */; };
+		F83D03102AFA487200EC2622 /* MyProfileTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83D030F2AFA487200EC2622 /* MyProfileTVC.swift */; };
 		F8430F9A2AF3A8EE0081B862 /* ShopBasketTVH.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8430F992AF3A8EE0081B862 /* ShopBasketTVH.swift */; };
 		F8430F9E2AF3C6180081B862 /* ExtensionNSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8430F9D2AF3C6180081B862 /* ExtensionNSAttributedString.swift */; };
 		F8442EAE2AE1650A0019AC60 /* SortBtn_CheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8442EAC2AE1650A0019AC60 /* SortBtn_CheckView.swift */; };
@@ -108,6 +109,7 @@
 		F827C4FC2992DB9F00998BC8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F83D030A2AFA431500EC2622 /* ShopBasketUpdateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopBasketUpdateVC.swift; sourceTree = "<group>"; };
 		F83D030D2AFA442700EC2622 /* ShopBasketReadVC_Buy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopBasketReadVC_Buy.swift; sourceTree = "<group>"; };
+		F83D030F2AFA487200EC2622 /* MyProfileTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileTVC.swift; sourceTree = "<group>"; };
 		F8430F992AF3A8EE0081B862 /* ShopBasketTVH.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopBasketTVH.swift; sourceTree = "<group>"; };
 		F8430F9D2AF3C6180081B862 /* ExtensionNSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionNSAttributedString.swift; sourceTree = "<group>"; };
 		F8442EAC2AE1650A0019AC60 /* SortBtn_CheckView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortBtn_CheckView.swift; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				F870077F29B0DDC800522B35 /* MyProfileVC.swift */,
+				F83D030F2AFA487200EC2622 /* MyProfileTVC.swift */,
 			);
 			path = MyProfile;
 			sourceTree = "<group>";
@@ -643,6 +646,7 @@
 				F81E57B0298AA3750055EF84 /* ExtensionUIView.swift in Sources */,
 				F899F0892A2773D6009B880C /* RefingredientReadFooter.swift in Sources */,
 				F8ECB80329CDBAF4000A0947 /* RefIngredientTVH.swift in Sources */,
+				F83D03102AFA487200EC2622 /* MyProfileTVC.swift in Sources */,
 				F8BFBE65293B84A7007173BA /* LoginVC.swift in Sources */,
 				F8ECB7F929CDA4EB000A0947 /* RefIngredientVC.swift in Sources */,
 				F8A76E6D29CB0BF300DDED00 /* ExtensionUITextField.swift in Sources */,
