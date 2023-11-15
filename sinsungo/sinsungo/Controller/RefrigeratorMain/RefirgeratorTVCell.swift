@@ -65,7 +65,7 @@ class RefirgeratorTVCell: UITableViewCell {
         let addIngredientButton = UIButton(configuration: config)
         addIngredientButton.backgroundColor = UIColor(named: "primarycolor")
         addIngredientButton.layer.cornerRadius = 4
-        addIngredientButton.addTarget(self,action: #selector(tapAddIngredientBtn), for: .touchUpInside)
+        addIngredientButton.addTarget(RefirgeratorTVCell.self,action: #selector(tapAddIngredientBtn), for: .touchUpInside)
         return addIngredientButton
     }()
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
