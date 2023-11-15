@@ -7,8 +7,8 @@
 //Start Dev
 import Foundation
 import UIKit
-//MARK: - 재료추가하기버튼
-func addIngredientButton()-> UIView{
+//MARK: - 추가하기버튼
+func addButton(btnTitle : String)-> UIView{
     let containerView : UIView = {
         let containerView = UIView()
         containerView.layer.borderWidth = 1
@@ -19,7 +19,7 @@ func addIngredientButton()-> UIView{
     let addIngredientButton : UIButton = {
         let addIngredientButton = UIButton()
         addIngredientButton.backgroundColor = UIColor(named: "primarycolor")
-        addIngredientButton.setTitle("재료 추가하기", for: .normal)
+        addIngredientButton.setTitle(btnTitle, for: .normal)
         addIngredientButton.titleLabel?.font = UIFont(name: "NanumSquareOTF_acB", size: 12)
         addIngredientButton.titleLabel?.textColor  = UIColor.white
         addIngredientButton.layer.cornerRadius = 4

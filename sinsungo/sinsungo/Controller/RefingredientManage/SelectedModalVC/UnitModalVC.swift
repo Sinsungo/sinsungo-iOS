@@ -11,7 +11,6 @@ class UnitModalVC: UIViewController {
     let unitArr = ["개수", "ml", "L", "kg", "g" ]
     var unitStandard = "개수"
     var unitVCDelegate : UnitDelegate?
-    var unitVCDelegateUpdate : UnitDelegateUpdate?
     private lazy var explainLabel : UILabel = {
         let explainLabel = UILabel()
         explainLabel.text = "분류 기준을 선택해주세요."
@@ -81,7 +80,6 @@ extension UnitModalVC {
     }
     @objc func tapSelectUnit(){
         unitVCDelegate?.sendUnit(standard: unitStandard)
-        unitVCDelegateUpdate?.sendUnit(standard: unitStandard)
         self.dismiss(animated: true)
     }
 

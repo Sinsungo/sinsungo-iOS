@@ -168,7 +168,7 @@ extension RefIngredientUpdateVC : UICollectionViewDelegateFlowLayout{
     
     
 }
-extension RefIngredientUpdateVC : CategoryDelegateUpdate,UnitDelegateUpdate{
+extension RefIngredientUpdateVC : CategoryDelegateUpdate,UnitDelegate{
     //MARK: - 분류
     func sendCategory(standard: String) {
         ingredientInfoView.categoryView.selectedStandard(standard)
@@ -190,7 +190,7 @@ extension RefIngredientUpdateVC : CategoryDelegateUpdate,UnitDelegateUpdate{
         ingredientInfoView.nameInfoView.infoContentTextField.resignFirstResponder()
         ingredientInfoView.cntInfoView.infoContentTextField.resignFirstResponder()
         let modalVC = UnitModalVC()
-        modalVC.unitVCDelegateUpdate = self
+        modalVC.unitVCDelegate = self
         presentModal(vc: modalVC, height: 300)
     }
 }
