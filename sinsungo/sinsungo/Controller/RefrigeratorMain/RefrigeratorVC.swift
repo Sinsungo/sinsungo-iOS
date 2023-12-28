@@ -24,7 +24,7 @@ class RefrigeratorVC: UIViewController {
     //,"2번냉장고","3번냉장고","4번냉장고","5번냉장고","6번냉장고"
     private let cnt : [String] = ["\(2)","\(2)"] //재료개수
     //,"\(2)","\(3)","\(4)","\(5)","\(6)"
-    
+ 
     var refrigeratorTableView : UITableView = {
         let refrigeratorTableView = UITableView(frame: .zero, style: .grouped)
         refrigeratorTableView.bounces = false

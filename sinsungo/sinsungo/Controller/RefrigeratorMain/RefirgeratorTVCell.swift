@@ -73,7 +73,6 @@ class RefirgeratorTVCell: UITableViewCell {
         addContentView()
         setAutoLayout()
         setShadow()
-        
     }
     
     required init?(coder: NSCoder) {
