@@ -16,7 +16,7 @@ import SnapKit
 //
 
 import UIKit
-
+// 검색 장바구니 결과화면
 class TapDetailBasketVC: UIViewController {
     let sampleData : [BasketInfo] = [BasketInfo(name: "재료명", memo: nil, cnt: 1),BasketInfo(name: "재료명", memo: "사용자가 입력한 메모내용이 존재항 경우 노출됩니다.", cnt: 2),BasketInfo(name: "재료명", memo: nil, cnt: 3),BasketInfo(name: "재료명", memo: "사용자가 입력한 메모내용이 존재항 경우 노출됩니다.\n사용자가 입력한 메모내용이 존재항 경우 노출됩니다.", cnt: 4)]
     var groupName = "동진"

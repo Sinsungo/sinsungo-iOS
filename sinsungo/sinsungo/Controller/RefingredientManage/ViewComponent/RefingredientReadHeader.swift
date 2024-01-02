@@ -8,6 +8,7 @@
 import UIKit
 
 class RefingredientHeader: UICollectionReusableView {
+// 재료 관리 View
     static let identi = "RefingredientHeaderId"
     lazy var upperView : UIView = {
        let upperView = UIView()

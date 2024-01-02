@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+//MARK: - 재료 Cell
 class RefIngredientTVCell: UITableViewCell {
     static let identi = "RefIngredientTVCellid"
     var selectVC = false

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+//MARK: - 재료 List
 class RefirgeratorTVCell: UITableViewCell {
     static let identi = "RefirgeratorTVCellid"
     var tapDetailButtonClosure : (() ->() )?

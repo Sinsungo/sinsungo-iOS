@@ -80,7 +80,7 @@ class AddRefModalVC: UIViewController {
         config.contentInsets = NSDirectionalEdgeInsets.init(top: 17, leading: 0, bottom: 17, trailing: 0)
         let makeRefButton = UIButton(configuration: config)
         makeRefButton.layer.cornerRadius = 8
-        makeRefButton.backgroundColor = UIColor(named: "primarycolor")
+        makeRefButton.backgroundColor = UIColor(named: "primaryColor")
         return makeRefButton
     }()
     override func viewDidLoad() {

@@ -230,12 +230,9 @@
 		F80B23582987E55B009451A4 /* RefrigeratorMain */ = {
 			isa = PBXGroup;
 			children = (
+				F82D7A2F2B440101008DB4F0 /* ViewComponent */,
+				F82D7A2E2B4400F2008DB4F0 /* VC */,
 				F8D1F2912AE2BC42008F57E8 /* Component */,
-				F887E74E297A867E003A75C3 /* RefrigeratorVC.swift */,
-				F80B235B29882BEB009451A4 /* RefrigeratorTVH.swift */,
-				F80B23592987E6C2009451A4 /* RefirgeratorTVCell.swift */,
-				F80B235F2988378B009451A4 /* RefirgeratorTVF.swift */,
-				F891A40529BC8E2900933615 /* AddRefModalVC.swift */,
 			);
 			path = RefrigeratorMain;
 			sourceTree = "<group>";
@@ -244,8 +241,6 @@
 			isa = PBXGroup;
 			children = (
 				F870078329B0DDE600522B35 /* ShopBasketVC.swift */,
-				F8CAF3082AF25C6E001B8F13 /* ShopBasketTVC.swift */,
-				F8430F992AF3A8EE0081B862 /* ShopBasketTVH.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -297,9 +292,103 @@
 			children = (
 				F81731A72AF121BA003152AF /* CategoryModalVC.swift */,
 				F81731A92AF121DB003152AF /* UnitModalVC.swift */,
-				F81731AB2AF12317003152AF /* SelectedModalTVCell.swift */,
+				F82D7A342B440746008DB4F0 /* Component */,
 			);
 			path = SelectedModalVC;
+			sourceTree = "<group>";
+		};
+		F82D7A2E2B4400F2008DB4F0 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				F887E74E297A867E003A75C3 /* RefrigeratorVC.swift */,
+				F891A40529BC8E2900933615 /* AddRefModalVC.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		F82D7A2F2B440101008DB4F0 /* ViewComponent */ = {
+			isa = PBXGroup;
+			children = (
+				F80B235B29882BEB009451A4 /* RefrigeratorTVH.swift */,
+				F80B23592987E6C2009451A4 /* RefirgeratorTVCell.swift */,
+				F80B235F2988378B009451A4 /* RefirgeratorTVF.swift */,
+			);
+			path = ViewComponent;
+			sourceTree = "<group>";
+		};
+		F82D7A302B440191008DB4F0 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				F808CA5829E1225D0075DB04 /* SelectIngredientVC.swift */,
+				F8ECB7F829CDA4EB000A0947 /* RefIngredientVC.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		F82D7A312B44019E008DB4F0 /* ViewComponent */ = {
+			isa = PBXGroup;
+			children = (
+				F8ECB7FE29CDA5F1000A0947 /* RefIngredientTVCell.swift */,
+				F8ECB80229CDBAF4000A0947 /* RefIngredientTVH.swift */,
+				F8C126DB29EE9FDE008D216A /* SelectIngredientTVC.swift */,
+			);
+			path = ViewComponent;
+			sourceTree = "<group>";
+		};
+		F82D7A322B44070B008DB4F0 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				F817319F2AF100B9003152AF /* RefIngredientUpdate */,
+				F80252652AEE63F700743567 /* RefIngredientAdd */,
+				F80252642AEE632F00743567 /* RefIngerdientRead */,
+				F81731A62AF12154003152AF /* SelectedModalVC */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		F82D7A332B440713008DB4F0 /* ViewComponent */ = {
+			isa = PBXGroup;
+			children = (
+				F899F0862A276E5B009B880C /* RefingredientReadHeader.swift */,
+				F801F1862A064471009B038F /* IngredientInfoView.swift */,
+				F85C3DD72A064E7E001FD89D /* StorageInfoView.swift */,
+				F845FE162A03EA00002BC49C /* RefIngredientBottomBtn.swift */,
+				F80252632AEBB7A300743567 /* RefLoaction */,
+			);
+			path = ViewComponent;
+			sourceTree = "<group>";
+		};
+		F82D7A342B440746008DB4F0 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				F81731AB2AF12317003152AF /* SelectedModalTVCell.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		F82D7A352B4407F8008DB4F0 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		F82D7A362B4407FE008DB4F0 /* ViewComponent */ = {
+			isa = PBXGroup;
+			children = (
+				F83D030F2AFA487200EC2622 /* MyProfileTVC.swift */,
+			);
+			path = ViewComponent;
+			sourceTree = "<group>";
+		};
+		F82D7A372B44081C008DB4F0 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				F8E1869D2B44101600167E91 /* PushVC */,
+				F89A6DAD2B15C4A1006D8C93 /* SearchResultVC.swift */,
+				F870078129B0DDD500522B35 /* SearchVC.swift */,
+			);
+			path = VC;
 			sourceTree = "<group>";
 		};
 		F8442EAA2AE15FCD0019AC60 /* Sort */ = {
@@ -322,13 +411,8 @@
 		F86710A12A03B83400CF9839 /* RefingredientManage */ = {
 			isa = PBXGroup;
 			children = (
-				F81731A62AF12154003152AF /* SelectedModalVC */,
-				F899F0862A276E5B009B880C /* RefingredientReadHeader.swift */,
-				F80252632AEBB7A300743567 /* RefLoaction */,
-				F899F08A2A279328009B880C /* Component */,
-				F817319F2AF100B9003152AF /* RefIngredientUpdate */,
-				F80252652AEE63F700743567 /* RefIngredientAdd */,
-				F80252642AEE632F00743567 /* RefIngerdientRead */,
+				F82D7A332B440713008DB4F0 /* ViewComponent */,
+				F82D7A322B44070B008DB4F0 /* VC */,
 			);
 			path = RefingredientManage;
 			sourceTree = "<group>";
@@ -336,10 +420,8 @@
 		F870077C29B0DD6300522B35 /* ShopBasket */ = {
 			isa = PBXGroup;
 			children = (
-				F80DA0DB2AF4C4FA00523DD2 /* Update */,
-				F80DA0DA2AF4C4EF00523DD2 /* Add */,
-				F80DA0D92AF4C4B800523DD2 /* Read */,
-				F80DA0D82AF4C4AE00523DD2 /* Main */,
+				F8E1869F2B44105D00167E91 /* ViewComponent */,
+				F8E1869E2B44103900167E91 /* VC */,
 			);
 			path = ShopBasket;
 			sourceTree = "<group>";
@@ -347,10 +429,9 @@
 		F870077D29B0DD6700522B35 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				F89A6DAD2B15C4A1006D8C93 /* SearchResultVC.swift */,
-				F870078129B0DDD500522B35 /* SearchVC.swift */,
-				F8AA8F3B2B269A6600C72445 /* Basket */,
-				F8AA8F3A2B269A5C00C72445 /* Ref */,
+				F82D7A372B44081C008DB4F0 /* VC */,
+				F8AA8F3B2B269A6600C72445 /* BasketComponent */,
+				F8AA8F3A2B269A5C00C72445 /* RefComponent */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -358,8 +439,9 @@
 		F870077E29B0DD7000522B35 /* MyProfile */ = {
 			isa = PBXGroup;
 			children = (
+				F82D7A362B4407FE008DB4F0 /* ViewComponent */,
+				F82D7A352B4407F8008DB4F0 /* VC */,
 				F870077F29B0DDC800522B35 /* MyProfileVC.swift */,
-				F83D030F2AFA487200EC2622 /* MyProfileTVC.swift */,
 			);
 			path = MyProfile;
 			sourceTree = "<group>";
@@ -367,47 +449,35 @@
 		F887E74D297A8585003A75C3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F80DA0DE2AF4C5A100523DD2 /* Component */,
+				F8BFBE64293B84A7007173BA /* LoginVC.swift */,
 				F870077A29B0DD2500522B35 /* MainTabBarVC.swift */,
+				F80DA0DE2AF4C5A100523DD2 /* Component */,
 				F80B23582987E55B009451A4 /* RefrigeratorMain */,
 				F8ECB7F729CDA4AD000A0947 /* RefIngredient */,
 				F86710A12A03B83400CF9839 /* RefingredientManage */,
 				F870077E29B0DD7000522B35 /* MyProfile */,
 				F870077D29B0DD6700522B35 /* Search */,
 				F870077C29B0DD6300522B35 /* ShopBasket */,
-				F8BFBE64293B84A7007173BA /* LoginVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		F899F08A2A279328009B880C /* Component */ = {
-			isa = PBXGroup;
-			children = (
-				F801F1862A064471009B038F /* IngredientInfoView.swift */,
-				F85C3DD72A064E7E001FD89D /* StorageInfoView.swift */,
-				F845FE162A03EA00002BC49C /* RefIngredientBottomBtn.swift */,
-			);
-			path = Component;
-			sourceTree = "<group>";
-		};
-		F8AA8F3A2B269A5C00C72445 /* Ref */ = {
+		F8AA8F3A2B269A5C00C72445 /* RefComponent */ = {
 			isa = PBXGroup;
 			children = (
 				F89A6DA72B15B5A6006D8C93 /* SearchRefResultTVC.swift */,
 				F89A6DA92B15B89A006D8C93 /* SearchIngredientView.swift */,
-				F8AA8F382B269A5800C72445 /* TapDetailRefVC.swift */,
 			);
-			path = Ref;
+			path = RefComponent;
 			sourceTree = "<group>";
 		};
-		F8AA8F3B2B269A6600C72445 /* Basket */ = {
+		F8AA8F3B2B269A6600C72445 /* BasketComponent */ = {
 			isa = PBXGroup;
 			children = (
 				F8AABBEC2B20A5ED00A6D9E1 /* SearchBasketView.swift */,
 				F8AA8F362B2696CD00C72445 /* SearchBasketTVC.swift */,
-				F8AA8F3C2B26E03300C72445 /* TapDetailBasketVC.swift */,
 			);
-			path = Basket;
+			path = BasketComponent;
 			sourceTree = "<group>";
 		};
 		F8BFBE54293B84A7007173BA = {
@@ -517,16 +587,42 @@
 			path = Custom;
 			sourceTree = "<group>";
 		};
+		F8E1869D2B44101600167E91 /* PushVC */ = {
+			isa = PBXGroup;
+			children = (
+				F8AA8F3C2B26E03300C72445 /* TapDetailBasketVC.swift */,
+				F8AA8F382B269A5800C72445 /* TapDetailRefVC.swift */,
+			);
+			path = PushVC;
+			sourceTree = "<group>";
+		};
+		F8E1869E2B44103900167E91 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				F80DA0DB2AF4C4FA00523DD2 /* Update */,
+				F80DA0DA2AF4C4EF00523DD2 /* Add */,
+				F80DA0D92AF4C4B800523DD2 /* Read */,
+				F80DA0D82AF4C4AE00523DD2 /* Main */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		F8E1869F2B44105D00167E91 /* ViewComponent */ = {
+			isa = PBXGroup;
+			children = (
+				F8CAF3082AF25C6E001B8F13 /* ShopBasketTVC.swift */,
+				F8430F992AF3A8EE0081B862 /* ShopBasketTVH.swift */,
+			);
+			path = ViewComponent;
+			sourceTree = "<group>";
+		};
 		F8ECB7F729CDA4AD000A0947 /* RefIngredient */ = {
 			isa = PBXGroup;
 			children = (
-				F8ECB7F829CDA4EB000A0947 /* RefIngredientVC.swift */,
-				F8ECB7FE29CDA5F1000A0947 /* RefIngredientTVCell.swift */,
-				F8ECB80229CDBAF4000A0947 /* RefIngredientTVH.swift */,
+				F82D7A312B44019E008DB4F0 /* ViewComponent */,
+				F82D7A302B440191008DB4F0 /* VC */,
 				F8D1F2922AE2BCE0008F57E8 /* ExpireDate */,
 				F8442EAA2AE15FCD0019AC60 /* Sort */,
-				F808CA5829E1225D0075DB04 /* SelectIngredientVC.swift */,
-				F8C126DB29EE9FDE008D216A /* SelectIngredientTVC.swift */,
 			);
 			path = RefIngredient;
 			sourceTree = "<group>";

@@ -7,6 +7,7 @@
 //TestBranch
 import UIKit
 import SnapKit
+// 냉장고 List
 class RefrigeratorTVH: UITableViewHeaderFooterView{
     static let identi = "RefirgeratorTVHid"
     private lazy var containerView : UIView = {

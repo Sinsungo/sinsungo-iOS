@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 class SelectIngredientTVC : RefIngredientTVCell{
+    // 냉장고 재료 선택시 동작하는 Cell
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         if selected == true {

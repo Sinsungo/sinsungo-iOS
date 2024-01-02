@@ -8,6 +8,7 @@
 import UIKit
 
 class RefIngredientTVH: UITableViewHeaderFooterView {
+// MARK: - 냉장고 재료 TopView (Sort & 유통기한 설정)
     static let identi = "RefIngredientTVHid"
     var tapSortButtonClosure :(() -> ())?
     var tapExpireButtonClosure :(() -> ())?

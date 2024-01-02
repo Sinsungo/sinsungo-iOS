@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+// 정령 기준 ModalVC
 class SortModalVC: UIViewController {
     weak var sortDelegate : sortVCDelegate?
     var standard = "기본순 (최신순)"

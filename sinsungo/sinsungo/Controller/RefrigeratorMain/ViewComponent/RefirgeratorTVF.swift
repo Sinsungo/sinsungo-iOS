@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+// MARK: - 냉장고 만들기 View
 class RefirgeratorTVF: UITableViewHeaderFooterView {
 
     static let identi = "RefirgeratorTVFid"
