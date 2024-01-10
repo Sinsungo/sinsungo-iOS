@@ -40,6 +40,7 @@ class RefrigeratorVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getFridgeData()
         addSubView()
         autoLayout()
         configure()
@@ -143,7 +144,11 @@ extension RefrigeratorVC {
         pushVC.refNum = refNum
         self.navigationController?.pushViewController(pushVC, animated: false)
     }
-    
+    private func getFridgeData(){
+        GetFridgeManager.shared.getFridgeData(size: 3) { getFridgeData in
+            print(getFridgeData)
+        }
+    }
 }
 
 #if canImport(SwiftUI) && DEBUG

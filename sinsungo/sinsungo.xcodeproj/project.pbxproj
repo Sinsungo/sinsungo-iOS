@@ -77,6 +77,8 @@
 		F8ECB7FF29CDA5F1000A0947 /* RefIngredientTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ECB7FE29CDA5F1000A0947 /* RefIngredientTVCell.swift */; };
 		F8ECB80329CDBAF4000A0947 /* RefIngredientTVH.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ECB80229CDBAF4000A0947 /* RefIngredientTVH.swift */; };
 		F8F7AA8A2949E4BA00AF8D7D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F8F7AA892949E4BA00AF8D7D /* SnapKit */; };
+		F8F8B0CA2B4E73CE00F64C51 /* GetFridgeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F8B0C92B4E73CE00F64C51 /* GetFridgeModel.swift */; };
+		F8F8B0CC2B4E745500F64C51 /* GetFridgeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F8B0CB2B4E745500F64C51 /* GetFridgeManager.swift */; };
 		F8FF7ED629D183C500822C13 /* SortModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FF7ED529D183C500822C13 /* SortModalVC.swift */; };
 		F8FF7EE029D1DC3200822C13 /* ExpireDateModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FF7EDF29D1DC3200822C13 /* ExpireDateModalVC.swift */; };
 /* End PBXBuildFile section */
@@ -172,6 +174,8 @@
 		F8ECB7FC29CDA51F000A0947 /* ExtensionUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIViewController.swift; sourceTree = "<group>"; };
 		F8ECB7FE29CDA5F1000A0947 /* RefIngredientTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefIngredientTVCell.swift; sourceTree = "<group>"; };
 		F8ECB80229CDBAF4000A0947 /* RefIngredientTVH.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefIngredientTVH.swift; sourceTree = "<group>"; };
+		F8F8B0C92B4E73CE00F64C51 /* GetFridgeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFridgeModel.swift; sourceTree = "<group>"; };
+		F8F8B0CB2B4E745500F64C51 /* GetFridgeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFridgeManager.swift; sourceTree = "<group>"; };
 		F8FF7ED529D183C500822C13 /* SortModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortModalVC.swift; sourceTree = "<group>"; };
 		F8FF7EDF29D1DC3200822C13 /* ExpireDateModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpireDateModalVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -230,6 +234,8 @@
 		F80B23582987E55B009451A4 /* RefrigeratorMain */ = {
 			isa = PBXGroup;
 			children = (
+				F8F8B0C82B4E72E300F64C51 /* Service */,
+				F8F8B0C72B4E72DD00F64C51 /* Model */,
 				F82D7A2F2B440101008DB4F0 /* ViewComponent */,
 				F82D7A2E2B4400F2008DB4F0 /* VC */,
 				F8D1F2912AE2BC42008F57E8 /* Component */,
@@ -369,6 +375,7 @@
 		F82D7A352B4407F8008DB4F0 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				F870077F29B0DDC800522B35 /* MyProfileVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -441,25 +448,8 @@
 			children = (
 				F82D7A362B4407FE008DB4F0 /* ViewComponent */,
 				F82D7A352B4407F8008DB4F0 /* VC */,
-				F870077F29B0DDC800522B35 /* MyProfileVC.swift */,
 			);
 			path = MyProfile;
-			sourceTree = "<group>";
-		};
-		F887E74D297A8585003A75C3 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				F8BFBE64293B84A7007173BA /* LoginVC.swift */,
-				F870077A29B0DD2500522B35 /* MainTabBarVC.swift */,
-				F80DA0DE2AF4C5A100523DD2 /* Component */,
-				F80B23582987E55B009451A4 /* RefrigeratorMain */,
-				F8ECB7F729CDA4AD000A0947 /* RefIngredient */,
-				F86710A12A03B83400CF9839 /* RefingredientManage */,
-				F870077E29B0DD7000522B35 /* MyProfile */,
-				F870077D29B0DD6700522B35 /* Search */,
-				F870077C29B0DD6300522B35 /* ShopBasket */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		F8AA8F3A2B269A5C00C72445 /* RefComponent */ = {
@@ -503,8 +493,16 @@
 		F8BFBE5F293B84A7007173BA /* sinsungo */ = {
 			isa = PBXGroup;
 			children = (
+				F8BFBE64293B84A7007173BA /* LoginVC.swift */,
+				F870077A29B0DD2500522B35 /* MainTabBarVC.swift */,
 				F8D455A429D1E773002E6C81 /* Custom */,
-				F887E74D297A8585003A75C3 /* Controller */,
+				F80DA0DE2AF4C5A100523DD2 /* Component */,
+				F80B23582987E55B009451A4 /* RefrigeratorMain */,
+				F8ECB7F729CDA4AD000A0947 /* RefIngredient */,
+				F86710A12A03B83400CF9839 /* RefingredientManage */,
+				F870077E29B0DD7000522B35 /* MyProfile */,
+				F870077D29B0DD6700522B35 /* Search */,
+				F870077C29B0DD6300522B35 /* ShopBasket */,
 				F8D0029F296EFEC200820C6C /* Font */,
 				F8D0029C296EF38400820C6C /* Extension */,
 				F8BFBE60293B84A7007173BA /* AppDelegate.swift */,
@@ -625,6 +623,22 @@
 				F8442EAA2AE15FCD0019AC60 /* Sort */,
 			);
 			path = RefIngredient;
+			sourceTree = "<group>";
+		};
+		F8F8B0C72B4E72DD00F64C51 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F8F8B0C92B4E73CE00F64C51 /* GetFridgeModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F8F8B0C82B4E72E300F64C51 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				F8F8B0CB2B4E745500F64C51 /* GetFridgeManager.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -817,6 +831,7 @@
 				F80B23602988378B009451A4 /* RefirgeratorTVF.swift in Sources */,
 				F870078429B0DDE600522B35 /* ShopBasketVC.swift in Sources */,
 				F8430F9E2AF3C6180081B862 /* ExtensionNSAttributedString.swift in Sources */,
+				F8F8B0CC2B4E745500F64C51 /* GetFridgeManager.swift in Sources */,
 				F8AA8F3D2B26E03300C72445 /* TapDetailBasketVC.swift in Sources */,
 				F8AA8F392B269A5800C72445 /* TapDetailRefVC.swift in Sources */,
 				F887E74F297A867E003A75C3 /* RefrigeratorVC.swift in Sources */,
@@ -825,6 +840,7 @@
 				F8CAF3092AF25C6E001B8F13 /* ShopBasketTVC.swift in Sources */,
 				F8442EAE2AE1650A0019AC60 /* SortBtn_CheckView.swift in Sources */,
 				F899F0852A274E3A009B880C /* StorageLocationCVCell.swift in Sources */,
+				F8F8B0CA2B4E73CE00F64C51 /* GetFridgeModel.swift in Sources */,
 				F8ECB7FF29CDA5F1000A0947 /* RefIngredientTVCell.swift in Sources */,
 				F88838972993D2B000ED2C7A /* AddIngredientButton.swift in Sources */,
 				F80B235C29882BEB009451A4 /* RefrigeratorTVH.swift in Sources */,
