@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+// 커밋메세지 수정
 //MARK: - 냉장고 메인
 struct IngredientFormat  {
     let ingredientName : String
