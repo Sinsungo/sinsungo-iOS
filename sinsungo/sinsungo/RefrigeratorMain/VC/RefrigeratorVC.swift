@@ -19,19 +19,21 @@ class RefrigeratorVC: UIViewController {
     var groupName = "동진"
     //push 냉장고 detail 이름을 위해 정으
     var refName = "냉장고"
-    private let sectionTitleTest : [String] = ["1번냉장고","2번냉장고"]
-    private let sampleData : [IngredientFormat] = [IngredientFormat(ingredientName: "재료명1", ingredientCnt: 1, remainPeriod: 1, storageType: "유통기한", storageDate: "2022-03-22"),IngredientFormat(ingredientName: "재료명2", ingredientCnt: 2, remainPeriod: 2, storageType: "유통기한", storageDate: "2022-03-22"),IngredientFormat(ingredientName: "재료명3", ingredientCnt: 3, remainPeriod: 3, storageType: "유통기한", storageDate: "2022-03-22")]
-    //,"2번냉장고","3번냉장고","4번냉장고","5번냉장고","6번냉장고"
-    private let cnt : [String] = ["\(2)","\(2)"] //재료개수
-    //,"\(2)","\(3)","\(4)","\(5)","\(6)"
- 
+    private var fridgeData : [Content] = []
+    private lazy var groupNameLabel : UILabel = {
+        let nameLabel = UILabel()
+        nameLabel.text = "동진의 냉장고"
+        nameLabel.textColor = UIColor.black
+        nameLabel.font = UIFont(name: "NanumSquareOTF_acEB", size: 20)
+        return nameLabel
+    }()
     var refrigeratorTableView : UITableView = {
         let refrigeratorTableView = UITableView(frame: .zero, style: .grouped)
         refrigeratorTableView.bounces = false
         refrigeratorTableView.separatorColor = .clear
+        refrigeratorTableView.sectionHeaderHeight = 0
         //MARK: - Section Setting
         refrigeratorTableView.register(RefirgeratorTVCell.self, forCellReuseIdentifier: RefirgeratorTVCell.identi)
-        refrigeratorTableView.register(RefrigeratorTVH.self, forHeaderFooterViewReuseIdentifier: RefrigeratorTVH.identi)
         refrigeratorTableView.register(RefirgeratorTVF.self, forHeaderFooterViewReuseIdentifier: RefirgeratorTVF.identi)
         refrigeratorTableView.backgroundColor = UIColor(named: "palegrey")
         
@@ -56,21 +58,19 @@ class RefrigeratorVC: UIViewController {
 extension RefrigeratorVC : UITableViewDataSource,UITableViewDelegate {
     //MARK: - Cell
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sectionTitleTest.count
+        return fridgeData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let refirgeratorTVC = tableView.dequeueReusableCell(withIdentifier: RefirgeratorTVCell.identi, for: indexPath) as? RefirgeratorTVCell else {return UITableViewCell()}
-        
-        refirgeratorTVC.setRefName(model: sectionTitleTest[indexPath.row])
-        refirgeratorTVC.setigdCnt(model: cnt[indexPath.row])
-        refirgeratorTVC.setIngredient(model: sampleData)
+        refirgeratorTVC.setRefName(fridge: fridgeData[indexPath.row])
+        refirgeratorTVC.setIngredient(ingredientList: fridgeData[indexPath.row].ingredientList)
         refirgeratorTVC.contentView.layer.masksToBounds = true
-        refirgeratorTVC.tapDetailButtonClosure = { [unowned self] in
-            refName = sectionTitleTest[indexPath.row]
-            pushRefIngredientVC(refNum: indexPath.row)
-            
-        }
+//        refirgeratorTVC.tapDetailButtonClosure = { [unowned self] in
+//            refName = sectionTitleTest[indexPath.row]
+//            pushRefIngredientVC(refNum: indexPath.row)
+
+//        }
         refirgeratorTVC.tapAddIngredientButton = { [unowned self] in
             let pushVC = RefIngredientAddVC()
             pushVC.refNum = indexPath.row
@@ -83,14 +83,17 @@ extension RefrigeratorVC : UITableViewDataSource,UITableViewDelegate {
         return refirgeratorTVC
     }
     
-    //MARK: - Header
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: RefrigeratorTVH.identi) as? RefrigeratorTVH else { return UIView()}
-        
-        headerView.setGroupNameLabel(model: groupName)
-        return headerView
+//    //MARK: - Header
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: RefrigeratorTVH.identi) as? RefrigeratorTVH else { return UIView()}
+//
+//        headerView.setGroupNameLabel(model: groupName)
+//        return headerView
+//    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return .leastNormalMagnitude
     }
-    
+
     //MARK: - footer
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         guard let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: RefirgeratorTVF.identi) as? RefirgeratorTVF else { return nil}
@@ -99,7 +102,6 @@ extension RefrigeratorVC : UITableViewDataSource,UITableViewDelegate {
             presentModalAction()
         }
         return footerView
-        
     }
     //MARK: - section
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -113,12 +115,19 @@ extension RefrigeratorVC {
         
     }
     private func addSubView(){
+        self.view.addSubview(groupNameLabel)
         self.view.addSubview(refrigeratorTableView)
+        
         
     }
     private func autoLayout(){
-        refrigeratorTableView.snp.makeConstraints { make in
+        groupNameLabel.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
+            make.left.equalToSuperview().offset(15)
+            make.right.equalToSuperview().offset(-15)
+        }
+        refrigeratorTableView.snp.makeConstraints { make in
+            make.top.equalTo(groupNameLabel.snp.bottom).offset(25)
             make.left.equalTo(view.snp.left).offset(11) //그림자 효과를 위해
             make.right.equalTo(view.snp.right).offset(-11) // 5씩 줄이고 -> TableView cell inset +5
             make.bottom.equalTo(view.safeAreaLayoutGuide)
@@ -146,7 +155,11 @@ extension RefrigeratorVC {
     }
     private func getFridgeData(){
         GetFridgeManager.shared.getFridgeData(size: 3) { getFridgeData in
-            print(getFridgeData)
+            self.fridgeData = getFridgeData.content
+//            print(self.fridgeData)
+            DispatchQueue.main.async {
+                self.refrigeratorTableView.reloadData()
+            }
         }
     }
 }

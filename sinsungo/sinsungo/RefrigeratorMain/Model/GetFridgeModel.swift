@@ -8,11 +8,11 @@
 import Foundation
 struct GetFridgeModel : Decodable{
     let content: [Content]
-    let pageable: Pageable
-    let size, number: Int
-    let sort: Sort
-    let numberOfElements: Int
-    let first, last, empty: Bool
+//    let pageable: Pageable
+//    let size, number: Int
+//    let sort: Sort
+//    let numberOfElements: Int
+//    let first, last, empty: Bool
 }
 struct Content: Codable {
     let id: Int

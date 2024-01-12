@@ -16,7 +16,7 @@ class RefirgeratorTVF: UITableViewHeaderFooterView {
         containerView.backgroundColor = .clear
         containerView.axis = .vertical
         containerView.alignment = .fill
-        containerView.distribution = .fillProportionally
+        containerView.distribution = .fill
         containerView.spacing = 12
         return containerView
     }()
@@ -61,7 +61,7 @@ extension RefirgeratorTVF {
     }
     private func autoLayout(){
         containerView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(50)
+            make.top.equalToSuperview()
             make.bottom.equalToSuperview()
             make.left.equalToSuperview().offset(5)
             make.right.equalToSuperview().offset(-5)

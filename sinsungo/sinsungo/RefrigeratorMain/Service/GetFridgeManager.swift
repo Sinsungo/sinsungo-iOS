@@ -8,7 +8,7 @@
 import Foundation
 // 냉장고 전체 조회
 // https://sinsungo.store/api/fridge?page=0&size=0
-let token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkb25namluOTciLCJhdXRoIjoiTUVNQkVSIiwiZXhwIjoxNzA0ODc0NDQ1LCJpYXQiOjE3MDQ4NzA4NDV9.4l6ObEfhJ9AgLT5EYu69gu6bR-H2SsskCTfnKtaYYws"
+let token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkb25namluOTciLCJhdXRoIjoiTUVNQkVSIiwiZXhwIjoxNzA1MDQ1MjEyLCJpYXQiOjE3MDUwNDE2MTJ9.ysj9IYpwJiOC4g1qxq-VCDfv2t7E__XGEtkvZdaK5hs"
 class GetFridgeManager{
     
     static let shared = GetFridgeManager()

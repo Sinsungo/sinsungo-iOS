@@ -94,39 +94,6 @@ extension RefirgeratorTVCell {
     @objc func tapAddIngredientBtn(){
         tapAddIngredientButton?()
     }
-
-    func setIngredient(model : [IngredientFormat]) {
-        if model.count < 3{
-            for i in model{
-                let IngredientView = setIngredientViewType1(ingredientName: i.ingredientName, ingredientCnt: i.ingredientCnt, remainPeriod: i.remainPeriod)
-                ingredientStackView.addArrangedSubview(IngredientView)
-            }
-            ingredientStackView.addArrangedSubview(addIngredientButton)
-        }else{
-            for i in 0..<3 {
-                let IngredientView = setIngredientViewType1(ingredientName: model[i].ingredientName, ingredientCnt: model[i].ingredientCnt, remainPeriod: model[i].remainPeriod)
-                ingredientStackView.addArrangedSubview(IngredientView)
-            }
-        }
-     
-//        if model.count != 3 {
-//            let addIngredientButton = addIngredientButton()
-//            contentView.addSubview(addIngredientButton)
-//            ingredientStackView.snp.updateConstraints { make in
-//                make.top.equalTo(firstView.snp.bottom).offset(12)
-//                make.left.equalTo(contentView.snp.left).offset(12)
-//                make.right.equalTo(contentView.snp.right).offset(-12)
-//            }
-//            addIngredientButton.snp.makeConstraints { make in
-//                make.top.equalTo(ingredientStackView.snp.bottom).offset(13)
-//                make.left.equalTo(contentView.snp.left).offset(12)
-//                make.right.equalTo(contentView.snp.right).offset(-12)
-//                make.bottom.equalTo(contentView.snp.bo).offset(-18)
-//            }
-//
-//        }
-    
-    }
     func setShadow(){
         backgroundColor = .clear // very important
         layer.masksToBounds = false
@@ -176,11 +143,23 @@ extension RefirgeratorTVCell {
     }
 }
 extension RefirgeratorTVCell {
-    func setRefName(model :String){
-        refrigeratorNameLabel.text = "\(model)"
+    func setRefName(fridge : Content ){
+        refrigeratorNameLabel.text = fridge.title
+        ingredientCntLabel.text = "\(fridge.ingredientList.count)"
     }
-    func setigdCnt(model :String){
-        ingredientCntLabel.text = "\(model)개"
+    func setIngredient(ingredientList : [IngredientList]) {
+        if ingredientList.count < 3{
+            for ingredient in ingredientList{
+                let IngredientView = setIngredientViewType1(ingredientName: ingredient.name, ingredientCnt: ingredient.quantity, remainPeriod: 0)
+                ingredientStackView.addArrangedSubview(IngredientView)
+                ingredientStackView.addArrangedSubview(addIngredientButton)
+            }
+        }else{
+            for i in 0..<3 {
+                let IngredientView = setIngredientViewType1(ingredientName: ingredientList[i].name, ingredientCnt: ingredientList[i].quantity, remainPeriod: 0 )
+                ingredientStackView.addArrangedSubview(IngredientView)
+            }
+        }
     }
 }
 extension RefirgeratorTVCell : UITableViewDelegate{
